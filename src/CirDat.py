@@ -86,7 +86,11 @@ class cir:
                     if "," in pred:
                         pred = pred.split(",")
                         for p in pred:
-                            f.write(f"\t\"{p}\" -> \"{curr}\"\n")
+                            f.write(f"\t\"{p}\" -> \"{curr}\"")
+                            if p.count("_") > 1:
+                                f.write(f" [label={p.split('_')[3]}]\n")
+                            else:
+                                f.write(f" [label={p.split('_')[0][1:]}]\n")
                         idx1 = pred[0].split("_")[3] if pred[0].count("_") > 1 else pred[0].split("_")[0][1:]
                         idx2 = pred[1].split("_")[3] if pred[1].count("_") > 1 else pred[1].split("_")[0][1:]
                         if "end" in curr:
@@ -100,7 +104,11 @@ class cir:
                             pred = pred[1]
                         curr = pred
                         continue
-                    f.write(f"\t\"{pred}\" -> \"{curr}\"\n")
+                    f.write(f"\t\"{pred}\" -> \"{curr}\"")
+                    if pred.count("_") > 1:
+                        f.write(f" [label={pred.split('_')[3]}]\n")
+                    else:
+                        f.write(f" [label={pred.split('_')[0][1:]}]\n")
                     curr = pred
             f.write("\n")
             for qubit in range(0, self.qCount):
