@@ -49,6 +49,7 @@ class cir:
             if g.name != "quake.mz": # ignore the measurement: it's not a real gate (at least one we care about putting in the ir/DAG)
                 n = []
                 n.append(g.name[g.name.index(".")+1:]) # name of the gate
+
                 for i in g.qbits:
                     n.append(str(i)) # add qubit inputs
                 if len(g.qbits) == 1:
@@ -86,8 +87,8 @@ class cir:
                         pred = pred.split(",")
                         for p in pred:
                             f.write(f"\t\"{p}\" -> \"{curr}\"\n")
-                        idx1 = pred[0].split("_")[3] if pred[0].count("_") > 1 else str(qubit)
-                        idx2 = pred[1].split("_")[3] if pred[1].count("_") > 1 else str(qubit)
+                        idx1 = pred[0].split("_")[3] if pred[0].count("_") > 1 else pred[0].split("_")[0][1:]
+                        idx2 = pred[1].split("_")[3] if pred[1].count("_") > 1 else pred[1].split("_")[0][1:]
                         if "end" in curr:
                             if str(qubit) == idx1:
                                 pred = pred[0]
