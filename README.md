@@ -1,4 +1,4 @@
-# Summer Capstone Project 2026
+#Summer Capstone Project 2026
 
 Create a quantum circuit encoder that takes in a pre-defined quantum circuit / algorithm and parse the circuit to represent as a DAG or tensor. 
 

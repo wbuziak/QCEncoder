@@ -1,0 +1,221 @@
+=== RAW QUAKE MLIR OUTPUT ===
+module attributes {cc.python_uniqued = "ultimate_quake_inspector..0xf363714178d0", llvm.data_layout = "e-m:e-i8:8:32-i16:16:32-i64:64-i128:128-n32:64-S128", quake.mangled_name_map = {__nvqpp__mlirgen__ultimate_quake_inspector..0xf363714178d0 = "__nvqpp__mlirgen__ultimate_quake_inspector..0xf363714178d0_PyKernelEntryPointRewrite"}} {
+  func.func @__nvqpp__mlirgen__ultimate_quake_inspector..0xf363714178d0(%arg0: f64, %arg1: f64, %arg2: f64, %arg3: f64, %arg4: f64, %arg5: !cc.charspan) attributes {"cudaq-entrypoint", "cudaq-kernel"} {
+    %cst = arith.constant 0.78539816339744828 : f64
+    %cst_0 = arith.constant 1.5707963267948966 : f64
+    %0 = quake.alloca !quake.veq<5>
+    %1 = quake.alloca !quake.veq<4>
+    %2 = quake.extract_ref %0[0] : (!quake.veq<5>) -> !quake.ref
+    quake.x %2 : (!quake.ref) -> ()
+    %3 = quake.extract_ref %0[1] : (!quake.veq<5>) -> !quake.ref
+    quake.y %3 : (!quake.ref) -> ()
+    %4 = quake.extract_ref %0[2] : (!quake.veq<5>) -> !quake.ref
+    quake.z %4 : (!quake.ref) -> ()
+    %5 = quake.extract_ref %0[3] : (!quake.veq<5>) -> !quake.ref
+    quake.h %5 : (!quake.ref) -> ()
+    %6 = quake.extract_ref %0[0] : (!quake.veq<5>) -> !quake.ref
+    quake.s %6 : (!quake.ref) -> ()
+    %7 = quake.extract_ref %0[1] : (!quake.veq<5>) -> !quake.ref
+    quake.t %7 : (!quake.ref) -> ()
+    %8 = quake.extract_ref %0[0] : (!quake.veq<5>) -> !quake.ref
+    %9 = quake.extract_ref %0[1] : (!quake.veq<5>) -> !quake.ref
+    quake.x [%8] %9 : (!quake.ref, !quake.ref) -> ()
+    %10 = quake.extract_ref %0[1] : (!quake.veq<5>) -> !quake.ref
+    %11 = quake.extract_ref %0[2] : (!quake.veq<5>) -> !quake.ref
+    quake.y [%10] %11 : (!quake.ref, !quake.ref) -> ()
+    %12 = quake.extract_ref %0[2] : (!quake.veq<5>) -> !quake.ref
+    %13 = quake.extract_ref %0[3] : (!quake.veq<5>) -> !quake.ref
+    quake.z [%12] %13 : (!quake.ref, !quake.ref) -> ()
+    %14 = quake.extract_ref %0[0] : (!quake.veq<5>) -> !quake.ref
+    %15 = quake.extract_ref %0[2] : (!quake.veq<5>) -> !quake.ref
+    quake.h [%14] %15 : (!quake.ref, !quake.ref) -> ()
+    %16 = quake.extract_ref %0[2] : (!quake.veq<5>) -> !quake.ref
+    %17 = quake.extract_ref %0[3] : (!quake.veq<5>) -> !quake.ref
+    quake.swap %16, %17 : (!quake.ref, !quake.ref) -> ()
+    %18 = quake.extract_ref %0[0] : (!quake.veq<5>) -> !quake.ref
+    %19 = quake.extract_ref %0[3] : (!quake.veq<5>) -> !quake.ref
+    quake.s [%18] %19 : (!quake.ref, !quake.ref) -> ()
+    %20 = quake.extract_ref %0[1] : (!quake.veq<5>) -> !quake.ref
+    %21 = quake.extract_ref %0[4] : (!quake.veq<5>) -> !quake.ref
+    quake.t [%20] %21 : (!quake.ref, !quake.ref) -> ()
+    %22 = quake.extract_ref %0[0] : (!quake.veq<5>) -> !quake.ref
+    quake.rx (%arg0) %22 : (f64, !quake.ref) -> ()
+    %23 = quake.extract_ref %0[1] : (!quake.veq<5>) -> !quake.ref
+    quake.ry (%arg0) %23 : (f64, !quake.ref) -> ()
+    %24 = quake.extract_ref %0[2] : (!quake.veq<5>) -> !quake.ref
+    quake.rz (%arg0) %24 : (f64, !quake.ref) -> ()
+    %25 = quake.extract_ref %0[3] : (!quake.veq<5>) -> !quake.ref
+    quake.r1 (%arg0) %25 : (f64, !quake.ref) -> ()
+    %26 = quake.extract_ref %0[4] : (!quake.veq<5>) -> !quake.ref
+    quake.rz (%cst_0) %26 : (f64, !quake.ref) -> ()
+    %27 = quake.extract_ref %0[0] : (!quake.veq<5>) -> !quake.ref
+    quake.rz (%cst) %27 : (f64, !quake.ref) -> ()
+    %28 = quake.extract_ref %0[0] : (!quake.veq<5>) -> !quake.ref
+    %29 = quake.extract_ref %0[1] : (!quake.veq<5>) -> !quake.ref
+    quake.rx (%arg0) [%28] %29 : (f64, !quake.ref, !quake.ref) -> ()
+    %30 = quake.extract_ref %0[1] : (!quake.veq<5>) -> !quake.ref
+    %31 = quake.extract_ref %0[2] : (!quake.veq<5>) -> !quake.ref
+    quake.ry (%arg0) [%30] %31 : (f64, !quake.ref, !quake.ref) -> ()
+    %32 = quake.extract_ref %0[2] : (!quake.veq<5>) -> !quake.ref
+    %33 = quake.extract_ref %0[3] : (!quake.veq<5>) -> !quake.ref
+    quake.rz (%arg0) [%32] %33 : (f64, !quake.ref, !quake.ref) -> ()
+    %34 = quake.extract_ref %0[3] : (!quake.veq<5>) -> !quake.ref
+    %35 = quake.extract_ref %0[4] : (!quake.veq<5>) -> !quake.ref
+    quake.r1 (%arg0) [%34] %35 : (f64, !quake.ref, !quake.ref) -> ()
+    %36 = quake.extract_ref %0[0] : (!quake.veq<5>) -> !quake.ref
+    quake.s<adj> %36 : (!quake.ref) -> ()
+    %37 = quake.extract_ref %0[1] : (!quake.veq<5>) -> !quake.ref
+    quake.t<adj> %37 : (!quake.ref) -> ()
+    %38 = quake.extract_ref %0[1] : (!quake.veq<5>) -> !quake.ref
+    quake.u3 (%arg1, %arg2, %arg3) %38 : (f64, f64, f64, !quake.ref) -> ()
+    quake.exp_pauli (%arg4) %1 to %arg5 : (f64, !quake.veq<4>, !cc.charspan) -> ()
+    %39 = quake.extract_ref %0[0] : (!quake.veq<5>) -> !quake.ref
+    %measOut = quake.mx %39 : (!quake.ref) -> !quake.measure
+    %40 = quake.extract_ref %0[1] : (!quake.veq<5>) -> !quake.ref
+    %measOut_1 = quake.my %40 : (!quake.ref) -> !quake.measure
+    %41 = quake.extract_ref %0[2] : (!quake.veq<5>) -> !quake.ref
+    %measOut_2 = quake.mz %41 : (!quake.ref) -> !quake.measure
+    quake.dealloc %0 : !quake.veq<5>
+    quake.dealloc %1 : !quake.veq<4>
+    return
+  }
+  func.func private @hybridLaunchKernel(!cc.ptr<i8>, !cc.ptr<i8>, !cc.ptr<i8>, i64, i64, !cc.ptr<i8>) -> !cc.struct<{!cc.ptr<i8>, i64}>
+  func.func private @cudaqRegisterArgsCreator(!cc.ptr<i8>, !cc.ptr<i8>)
+  llvm.func @cudaqRegisterLambdaName(!llvm.ptr<i8>, !llvm.ptr<i8>) attributes {sym_visibility = "private"}
+  func.func private @__cudaq_registerLinkableKernel(!cc.ptr<i8>, !cc.ptr<i8>, !cc.ptr<i8>)
+  func.func private @__cudaq_getLinkableKernelKey(!cc.ptr<i8>) -> i64
+  func.func private @cudaqRegisterKernelName(!cc.ptr<i8>)
+  func.func private @malloc(i64) -> !cc.ptr<i8>
+  func.func private @free(!cc.ptr<i8>)
+  func.func private @__nvqpp_initializer_list_to_vector_bool(!cc.ptr<none>, !cc.ptr<none>, i64)
+  func.func private @__nvqpp_vector_bool_to_initializer_list(!cc.ptr<!cc.struct<{!cc.ptr<i1>, !cc.ptr<i1>, !cc.ptr<i1>}>>, !cc.ptr<!cc.struct<{!cc.ptr<i1>, !cc.array<i8 x 32>}>>, !cc.ptr<!cc.ptr<i8>>)
+  func.func private @__nvqpp_vector_bool_free_temporary_initlists(!cc.ptr<i8>)
+  func.func private @llvm.memcpy.p0i8.p0i8.i64(!cc.ptr<i8>, !cc.ptr<i8>, i64, i1)
+  func.func private @llvm.memset.p0i8.i64(!cc.ptr<i8>, i8, i64, i1)
+  func.func private @_ZNK5cudaq10pauli_word11_nvqpp_dataEv(!cc.ptr<i8>) -> !cc.ptr<i8>
+  func.func private @__nvqpp_getStringData(!cc.ptr<i8>) -> !cc.ptr<i8>
+  func.func private @__nvqpp_getStringSize(!cc.ptr<i8>) -> i64
+  func.func private @_ZNK5cudaq10pauli_word11_nvqpp_sizeEv(!cc.ptr<i8>) -> i64
+  func.func private @__nvqpp_cleanup_arrays()
+}
+
+=== REPRINTED MLIR MODULE ===
+"builtin.module"() ({
+  "func.func"() ({
+  ^bb0(%arg0: f64, %arg1: f64, %arg2: f64, %arg3: f64, %arg4: f64, %arg5: !cc.charspan):
+    %0 = "arith.constant"() {value = 0.78539816339744828 : f64} : () -> f64
+    %1 = "arith.constant"() {value = 1.5707963267948966 : f64} : () -> f64
+    %2 = "quake.alloca"() : () -> !quake.veq<5>
+    %3 = "quake.alloca"() : () -> !quake.veq<4>
+    %4 = "quake.extract_ref"(%2) {rawIndex = 0 : i64} : (!quake.veq<5>) -> !quake.ref
+    "quake.x"(%4) {operand_segment_sizes = array<i32: 0, 0, 1>} : (!quake.ref) -> ()
+    %5 = "quake.extract_ref"(%2) {rawIndex = 1 : i64} : (!quake.veq<5>) -> !quake.ref
+    "quake.y"(%5) {operand_segment_sizes = array<i32: 0, 0, 1>} : (!quake.ref) -> ()
+    %6 = "quake.extract_ref"(%2) {rawIndex = 2 : i64} : (!quake.veq<5>) -> !quake.ref
+    "quake.z"(%6) {operand_segment_sizes = array<i32: 0, 0, 1>} : (!quake.ref) -> ()
+    %7 = "quake.extract_ref"(%2) {rawIndex = 3 : i64} : (!quake.veq<5>) -> !quake.ref
+    "quake.h"(%7) {operand_segment_sizes = array<i32: 0, 0, 1>} : (!quake.ref) -> ()
+    %8 = "quake.extract_ref"(%2) {rawIndex = 0 : i64} : (!quake.veq<5>) -> !quake.ref
+    "quake.s"(%8) {operand_segment_sizes = array<i32: 0, 0, 1>} : (!quake.ref) -> ()
+    %9 = "quake.extract_ref"(%2) {rawIndex = 1 : i64} : (!quake.veq<5>) -> !quake.ref
+    "quake.t"(%9) {operand_segment_sizes = array<i32: 0, 0, 1>} : (!quake.ref) -> ()
+    %10 = "quake.extract_ref"(%2) {rawIndex = 0 : i64} : (!quake.veq<5>) -> !quake.ref
+    %11 = "quake.extract_ref"(%2) {rawIndex = 1 : i64} : (!quake.veq<5>) -> !quake.ref
+    "quake.x"(%10, %11) {operand_segment_sizes = array<i32: 0, 1, 1>} : (!quake.ref, !quake.ref) -> ()
+    %12 = "quake.extract_ref"(%2) {rawIndex = 1 : i64} : (!quake.veq<5>) -> !quake.ref
+    %13 = "quake.extract_ref"(%2) {rawIndex = 2 : i64} : (!quake.veq<5>) -> !quake.ref
+    "quake.y"(%12, %13) {operand_segment_sizes = array<i32: 0, 1, 1>} : (!quake.ref, !quake.ref) -> ()
+    %14 = "quake.extract_ref"(%2) {rawIndex = 2 : i64} : (!quake.veq<5>) -> !quake.ref
+    %15 = "quake.extract_ref"(%2) {rawIndex = 3 : i64} : (!quake.veq<5>) -> !quake.ref
+    "quake.z"(%14, %15) {operand_segment_sizes = array<i32: 0, 1, 1>} : (!quake.ref, !quake.ref) -> ()
+    %16 = "quake.extract_ref"(%2) {rawIndex = 0 : i64} : (!quake.veq<5>) -> !quake.ref
+    %17 = "quake.extract_ref"(%2) {rawIndex = 2 : i64} : (!quake.veq<5>) -> !quake.ref
+    "quake.h"(%16, %17) {operand_segment_sizes = array<i32: 0, 1, 1>} : (!quake.ref, !quake.ref) -> ()
+    %18 = "quake.extract_ref"(%2) {rawIndex = 2 : i64} : (!quake.veq<5>) -> !quake.ref
+    %19 = "quake.extract_ref"(%2) {rawIndex = 3 : i64} : (!quake.veq<5>) -> !quake.ref
+    "quake.swap"(%18, %19) {operand_segment_sizes = array<i32: 0, 0, 2>} : (!quake.ref, !quake.ref) -> ()
+    %20 = "quake.extract_ref"(%2) {rawIndex = 0 : i64} : (!quake.veq<5>) -> !quake.ref
+    %21 = "quake.extract_ref"(%2) {rawIndex = 3 : i64} : (!quake.veq<5>) -> !quake.ref
+    "quake.s"(%20, %21) {operand_segment_sizes = array<i32: 0, 1, 1>} : (!quake.ref, !quake.ref) -> ()
+    %22 = "quake.extract_ref"(%2) {rawIndex = 1 : i64} : (!quake.veq<5>) -> !quake.ref
+    %23 = "quake.extract_ref"(%2) {rawIndex = 4 : i64} : (!quake.veq<5>) -> !quake.ref
+    "quake.t"(%22, %23) {operand_segment_sizes = array<i32: 0, 1, 1>} : (!quake.ref, !quake.ref) -> ()
+    %24 = "quake.extract_ref"(%2) {rawIndex = 0 : i64} : (!quake.veq<5>) -> !quake.ref
+    "quake.rx"(%arg0, %24) {operand_segment_sizes = array<i32: 1, 0, 1>} : (f64, !quake.ref) -> ()
+    %25 = "quake.extract_ref"(%2) {rawIndex = 1 : i64} : (!quake.veq<5>) -> !quake.ref
+    "quake.ry"(%arg0, %25) {operand_segment_sizes = array<i32: 1, 0, 1>} : (f64, !quake.ref) -> ()
+    %26 = "quake.extract_ref"(%2) {rawIndex = 2 : i64} : (!quake.veq<5>) -> !quake.ref
+    "quake.rz"(%arg0, %26) {operand_segment_sizes = array<i32: 1, 0, 1>} : (f64, !quake.ref) -> ()
+    %27 = "quake.extract_ref"(%2) {rawIndex = 3 : i64} : (!quake.veq<5>) -> !quake.ref
+    "quake.r1"(%arg0, %27) {operand_segment_sizes = array<i32: 1, 0, 1>} : (f64, !quake.ref) -> ()
+    %28 = "quake.extract_ref"(%2) {rawIndex = 4 : i64} : (!quake.veq<5>) -> !quake.ref
+    "quake.rz"(%1, %28) {operand_segment_sizes = array<i32: 1, 0, 1>} : (f64, !quake.ref) -> ()
+    %29 = "quake.extract_ref"(%2) {rawIndex = 0 : i64} : (!quake.veq<5>) -> !quake.ref
+    "quake.rz"(%0, %29) {operand_segment_sizes = array<i32: 1, 0, 1>} : (f64, !quake.ref) -> ()
+    %30 = "quake.extract_ref"(%2) {rawIndex = 0 : i64} : (!quake.veq<5>) -> !quake.ref
+    %31 = "quake.extract_ref"(%2) {rawIndex = 1 : i64} : (!quake.veq<5>) -> !quake.ref
+    "quake.rx"(%arg0, %30, %31) {operand_segment_sizes = array<i32: 1, 1, 1>} : (f64, !quake.ref, !quake.ref) -> ()
+    %32 = "quake.extract_ref"(%2) {rawIndex = 1 : i64} : (!quake.veq<5>) -> !quake.ref
+    %33 = "quake.extract_ref"(%2) {rawIndex = 2 : i64} : (!quake.veq<5>) -> !quake.ref
+    "quake.ry"(%arg0, %32, %33) {operand_segment_sizes = array<i32: 1, 1, 1>} : (f64, !quake.ref, !quake.ref) -> ()
+    %34 = "quake.extract_ref"(%2) {rawIndex = 2 : i64} : (!quake.veq<5>) -> !quake.ref
+    %35 = "quake.extract_ref"(%2) {rawIndex = 3 : i64} : (!quake.veq<5>) -> !quake.ref
+    "quake.rz"(%arg0, %34, %35) {operand_segment_sizes = array<i32: 1, 1, 1>} : (f64, !quake.ref, !quake.ref) -> ()
+    %36 = "quake.extract_ref"(%2) {rawIndex = 3 : i64} : (!quake.veq<5>) -> !quake.ref
+    %37 = "quake.extract_ref"(%2) {rawIndex = 4 : i64} : (!quake.veq<5>) -> !quake.ref
+    "quake.r1"(%arg0, %36, %37) {operand_segment_sizes = array<i32: 1, 1, 1>} : (f64, !quake.ref, !quake.ref) -> ()
+    %38 = "quake.extract_ref"(%2) {rawIndex = 0 : i64} : (!quake.veq<5>) -> !quake.ref
+    "quake.s"(%38) {is_adj, operand_segment_sizes = array<i32: 0, 0, 1>} : (!quake.ref) -> ()
+    %39 = "quake.extract_ref"(%2) {rawIndex = 1 : i64} : (!quake.veq<5>) -> !quake.ref
+    "quake.t"(%39) {is_adj, operand_segment_sizes = array<i32: 0, 0, 1>} : (!quake.ref) -> ()
+    %40 = "quake.extract_ref"(%2) {rawIndex = 1 : i64} : (!quake.veq<5>) -> !quake.ref
+    "quake.u3"(%arg1, %arg2, %arg3, %40) {operand_segment_sizes = array<i32: 3, 0, 1>} : (f64, f64, f64, !quake.ref) -> ()
+    "quake.exp_pauli"(%arg4, %3, %arg5) {operand_segment_sizes = array<i32: 1, 0, 1, 1>} : (f64, !quake.veq<4>, !cc.charspan) -> ()
+    %41 = "quake.extract_ref"(%2) {rawIndex = 0 : i64} : (!quake.veq<5>) -> !quake.ref
+    %42 = "quake.mx"(%41) : (!quake.ref) -> !quake.measure
+    %43 = "quake.extract_ref"(%2) {rawIndex = 1 : i64} : (!quake.veq<5>) -> !quake.ref
+    %44 = "quake.my"(%43) : (!quake.ref) -> !quake.measure
+    %45 = "quake.extract_ref"(%2) {rawIndex = 2 : i64} : (!quake.veq<5>) -> !quake.ref
+    %46 = "quake.mz"(%45) : (!quake.ref) -> !quake.measure
+    "quake.dealloc"(%2) : (!quake.veq<5>) -> ()
+    "quake.dealloc"(%3) : (!quake.veq<4>) -> ()
+    "func.return"() : () -> ()
+  }) {"cudaq-entrypoint", "cudaq-kernel", function_type = (f64, f64, f64, f64, f64, !cc.charspan) -> (), sym_name = "__nvqpp__mlirgen__ultimate_quake_inspector..0xf363714178d0"} : () -> ()
+  "func.func"() ({
+  }) {function_type = (!cc.ptr<i8>, !cc.ptr<i8>, !cc.ptr<i8>, i64, i64, !cc.ptr<i8>) -> !cc.struct<{!cc.ptr<i8>, i64}>, sym_name = "hybridLaunchKernel", sym_visibility = "private"} : () -> ()
+  "func.func"() ({
+  }) {function_type = (!cc.ptr<i8>, !cc.ptr<i8>) -> (), sym_name = "cudaqRegisterArgsCreator", sym_visibility = "private"} : () -> ()
+  "llvm.func"() ({
+  }) {CConv = #llvm.cconv<ccc>, function_type = !llvm.func<void (ptr<i8>, ptr<i8>)>, linkage = #llvm.linkage<external>, sym_name = "cudaqRegisterLambdaName", sym_visibility = "private"} : () -> ()
+  "func.func"() ({
+  }) {function_type = (!cc.ptr<i8>, !cc.ptr<i8>, !cc.ptr<i8>) -> (), sym_name = "__cudaq_registerLinkableKernel", sym_visibility = "private"} : () -> ()
+  "func.func"() ({
+  }) {function_type = (!cc.ptr<i8>) -> i64, sym_name = "__cudaq_getLinkableKernelKey", sym_visibility = "private"} : () -> ()
+  "func.func"() ({
+  }) {function_type = (!cc.ptr<i8>) -> (), sym_name = "cudaqRegisterKernelName", sym_visibility = "private"} : () -> ()
+  "func.func"() ({
+  }) {function_type = (i64) -> !cc.ptr<i8>, sym_name = "malloc", sym_visibility = "private"} : () -> ()
+  "func.func"() ({
+  }) {function_type = (!cc.ptr<i8>) -> (), sym_name = "free", sym_visibility = "private"} : () -> ()
+  "func.func"() ({
+  }) {function_type = (!cc.ptr<none>, !cc.ptr<none>, i64) -> (), sym_name = "__nvqpp_initializer_list_to_vector_bool", sym_visibility = "private"} : () -> ()
+  "func.func"() ({
+  }) {function_type = (!cc.ptr<!cc.struct<{!cc.ptr<i1>, !cc.ptr<i1>, !cc.ptr<i1>}>>, !cc.ptr<!cc.struct<{!cc.ptr<i1>, !cc.array<i8 x 32>}>>, !cc.ptr<!cc.ptr<i8>>) -> (), sym_name = "__nvqpp_vector_bool_to_initializer_list", sym_visibility = "private"} : () -> ()
+  "func.func"() ({
+  }) {function_type = (!cc.ptr<i8>) -> (), sym_name = "__nvqpp_vector_bool_free_temporary_initlists", sym_visibility = "private"} : () -> ()
+  "func.func"() ({
+  }) {function_type = (!cc.ptr<i8>, !cc.ptr<i8>, i64, i1) -> (), sym_name = "llvm.memcpy.p0i8.p0i8.i64", sym_visibility = "private"} : () -> ()
+  "func.func"() ({
+  }) {function_type = (!cc.ptr<i8>, i8, i64, i1) -> (), sym_name = "llvm.memset.p0i8.i64", sym_visibility = "private"} : () -> ()
+  "func.func"() ({
+  }) {function_type = (!cc.ptr<i8>) -> !cc.ptr<i8>, sym_name = "_ZNK5cudaq10pauli_word11_nvqpp_dataEv", sym_visibility = "private"} : () -> ()
+  "func.func"() ({
+  }) {function_type = (!cc.ptr<i8>) -> !cc.ptr<i8>, sym_name = "__nvqpp_getStringData", sym_visibility = "private"} : () -> ()
+  "func.func"() ({
+  }) {function_type = (!cc.ptr<i8>) -> i64, sym_name = "__nvqpp_getStringSize", sym_visibility = "private"} : () -> ()
+  "func.func"() ({
+  }) {function_type = (!cc.ptr<i8>) -> i64, sym_name = "_ZNK5cudaq10pauli_word11_nvqpp_sizeEv", sym_visibility = "private"} : () -> ()
+  "func.func"() ({
+  }) {function_type = () -> (), sym_name = "__nvqpp_cleanup_arrays", sym_visibility = "private"} : () -> ()
+}) {cc.python_uniqued = "ultimate_quake_inspector..0xf363714178d0", llvm.data_layout = "e-m:e-i8:8:32-i16:16:32-i64:64-i128:128-n32:64-S128", quake.mangled_name_map = {__nvqpp__mlirgen__ultimate_quake_inspector..0xf363714178d0 = "__nvqpp__mlirgen__ultimate_quake_inspector..0xf363714178d0_PyKernelEntryPointRewrite"}} : () -> ()
+

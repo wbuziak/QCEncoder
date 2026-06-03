@@ -1,12 +1,19 @@
+from dataclasses import dataclass
 from numpy import inner
 import cudaq
 import cudaq.mlir.ir as ir
 from cudaq.mlir._mlir_libs import _quakeDialects
-from dataclasses import dataclass, field
+from dataclasses import dataclass
 from CirDat import cir
 
-
-class QuakeParser:
+@dataclass
+class quakeparser:
+    bgates: list[str] = ["quake.x", "quake.y", "quake.z", "quake.h", "quake.s", "quake.t", "quake.swap"]
+    agates: list[str] = ["quake.r1", "quake.rx", "quake.ry", "quake.rz"]
+    aagates: list[str] = ["quake.phased_rx", "quake.u2"]
+    aaagates: list[str] = ["quake.u3"]
+    mgates: list[str] = ["quake.mz", "quake.mx", "quake.my"]
+    
     @staticmethod 
     def parse_quake_string(quake_mlir_code: str) -> cir:
         context = ir.Context()
