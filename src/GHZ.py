@@ -16,4 +16,4 @@ def create_GHZ_circuit(qubit_count):
     print(kernel)
     return kernel
 
-create_GHZ_circuit(3)
+create_GHZ_circuit(10)

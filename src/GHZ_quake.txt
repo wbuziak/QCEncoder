@@ -1,13 +1,27 @@
-module attributes {quake.mangled_name_map = {__nvqpp__mlirgen__PythonKernelBuilderInstance..0x7f28eab0db10 = "PythonKernelBuilderInstance..0x7f28eab0db10.PyKernelFakeEntryPoint"}} {
-  func.func @__nvqpp__mlirgen__PythonKernelBuilderInstance..0x7f28eab0db10() attributes {"cudaq-entrypoint", "cudaq-kernel"} {
-    %0 = quake.alloca !quake.veq<3>
-    %1 = quake.extract_ref %0[0] : (!quake.veq<3>) -> !quake.ref
+module attributes {quake.mangled_name_map = {__nvqpp__mlirgen__PythonKernelBuilderInstance..0x7e58eab2f490 = "PythonKernelBuilderInstance..0x7e58eab2f490.PyKernelFakeEntryPoint"}} {
+  func.func @__nvqpp__mlirgen__PythonKernelBuilderInstance..0x7e58eab2f490() attributes {"cudaq-entrypoint", "cudaq-kernel"} {
+    %0 = quake.alloca !quake.veq<10>
+    %1 = quake.extract_ref %0[0] : (!quake.veq<10>) -> !quake.ref
     quake.h %1 : (!quake.ref) -> ()
-    %2 = quake.extract_ref %0[1] : (!quake.veq<3>) -> !quake.ref
+    %2 = quake.extract_ref %0[1] : (!quake.veq<10>) -> !quake.ref
     quake.x [%1] %2 : (!quake.ref, !quake.ref) -> ()
-    %3 = quake.extract_ref %0[2] : (!quake.veq<3>) -> !quake.ref
+    %3 = quake.extract_ref %0[2] : (!quake.veq<10>) -> !quake.ref
     quake.x [%1] %3 : (!quake.ref, !quake.ref) -> ()
-    %measOut = quake.mz %0 : (!quake.veq<3>) -> !cc.stdvec<!quake.measure>
+    %4 = quake.extract_ref %0[3] : (!quake.veq<10>) -> !quake.ref
+    quake.x [%1] %4 : (!quake.ref, !quake.ref) -> ()
+    %5 = quake.extract_ref %0[4] : (!quake.veq<10>) -> !quake.ref
+    quake.x [%1] %5 : (!quake.ref, !quake.ref) -> ()
+    %6 = quake.extract_ref %0[5] : (!quake.veq<10>) -> !quake.ref
+    quake.x [%1] %6 : (!quake.ref, !quake.ref) -> ()
+    %7 = quake.extract_ref %0[6] : (!quake.veq<10>) -> !quake.ref
+    quake.x [%1] %7 : (!quake.ref, !quake.ref) -> ()
+    %8 = quake.extract_ref %0[7] : (!quake.veq<10>) -> !quake.ref
+    quake.x [%1] %8 : (!quake.ref, !quake.ref) -> ()
+    %9 = quake.extract_ref %0[8] : (!quake.veq<10>) -> !quake.ref
+    quake.x [%1] %9 : (!quake.ref, !quake.ref) -> ()
+    %10 = quake.extract_ref %0[9] : (!quake.veq<10>) -> !quake.ref
+    quake.x [%1] %10 : (!quake.ref, !quake.ref) -> ()
+    %measOut = quake.mz %0 : (!quake.veq<10>) -> !cc.stdvec<!quake.measure>
     return
   }
 }
