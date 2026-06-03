@@ -1,0 +1,17 @@
+digraph G {
+	"x_0_2_0_2" -> "q0_end"
+	"x_0_1_0_1" -> "x_0_2_0_2"
+	"q2_start" -> "x_0_2_0_2"
+	"h_0_-1_0_0" -> "x_0_1_0_1"
+	"q1_start" -> "x_0_1_0_1"
+	"q0_start" -> "h_0_-1_0_0"
+	"q1_start" -> "q1_end"
+	"q2_start" -> "q2_end"
+
+	"q0_end" [style=filled, fillcolor=red]
+	"q0_start" [style=filled, fillcolor=green]
+	"q1_end" [style=filled, fillcolor=red]
+	"q1_start" [style=filled, fillcolor=green]
+	"q2_end" [style=filled, fillcolor=red]
+	"q2_start" [style=filled, fillcolor=green]
+}
