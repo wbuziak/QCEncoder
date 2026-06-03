@@ -54,15 +54,15 @@ class cir:
                     n.append(str(i)) # add qubit inputs
                 if len(g.qbits) == 1:
                     n.append("-1") # if there is only 1 input, the second input is -1
-                n.append(str(g.qbits[0])) # output qubit (should always be the first in the qbits list, need to check with Hiram to make sure this is correct)
                 n.append(str(g.time)) # replaced with timestep (instead of ith time the gate has been applied to the same inputs)
-                curr_qubit = g.qbits[0] # the qubit the output goes to
                 n = "_".join(n) # format it like the ir should be
                 if len(g.qbits) == 1:
-                    self.ir[n] = last[curr_qubit] # if it is a single-input gate, add directly
+                    self.ir[n] = last[g.qbits[0]] # if it is a single-input gate, add directly
+                    last[g.qbits[0]] = n
                 else:
-                    self.ir[n] = f"{last[curr_qubit]},{last[g.qbits[1]]}" # otherwise need to add the comma separator to signify 2 inputs
-                last[curr_qubit] = n # update "last" list
+                    self.ir[n] = f"{last[g.qbits[0]]},{last[g.qbits[1]]}" # otherwise need to add the comma separator to signify 2 inputs
+                    last[g.qbits[0]] = n # update "last" list
+                    last[g.qbits[1]] = n
         for i in range(0, self.qCount):
             self.ir[f"q{i}_end"] = last[i] # add end qubits
 
@@ -75,6 +75,7 @@ class cir:
     # this method constructs a graphviz output and writes it to the corresponding file.
     # it does this by stepping back starting at the end qubits
     def graphviz_out(self):
+        edges = set()
         with open(self.name + "_graphviz_output.txt", "w+") as f:
             f.write("digraph G {\n")
             for qubit in range(0, self.qCount):
@@ -86,30 +87,32 @@ class cir:
                     if "," in pred:
                         pred = pred.split(",")
                         for p in pred:
-                            f.write(f"\t\"{p}\" -> \"{curr}\"")
-                            if p.count("_") > 1:
-                                f.write(f" [label={p.split('_')[3]}]\n")
-                            else:
-                                f.write(f" [label={p.split('_')[0][1:]}]\n")
-                        idx1 = pred[0].split("_")[3] if pred[0].count("_") > 1 else pred[0].split("_")[0][1:]
-                        idx2 = pred[1].split("_")[3] if pred[1].count("_") > 1 else pred[1].split("_")[0][1:]
+                            edges.add(f"\t\"{p}\" -> \"{curr}\"\n")
+                            #if p.count("_") > 1:
+                                #f.write(f" [label={p.split('_')[3]}]\n")
+                            #else:
+                                #f.write(f" [label={p.split('_')[0][1:]}]\n")
+                        idx1 = pred[0].split("_")[1:-1] if pred[0].count("_") > 1 else [pred[0].split("_")[0][1:]]
+                        idx2 = pred[1].split("_")[1:-1] if pred[1].count("_") > 1 else [pred[1].split("_")[0][1:]]
                         if "end" in curr:
-                            if str(qubit) == idx1:
+                            if any([str(qubit) == i for i in idx1]):
                                 pred = pred[0]
                             else:
                                 pred = pred[1]
-                        elif curr.split("_")[3] == idx1:
+                        elif any([i == idx1[0] or i == idx1[-1] for i in curr.split("_")[1:-1]]):
                             pred = pred[0]
                         else:
                             pred = pred[1]
                         curr = pred
                         continue
-                    f.write(f"\t\"{pred}\" -> \"{curr}\"")
-                    if pred.count("_") > 1:
-                        f.write(f" [label={pred.split('_')[3]}]\n")
-                    else:
-                        f.write(f" [label={pred.split('_')[0][1:]}]\n")
+                    edges.add(f"\t\"{pred}\" -> \"{curr}\"\n")
+                    #if pred.count("_") > 1:
+                        #f.write(f" [label={pred.split('_')[3]}]\n")
+                    #else:
+                        #f.write(f" [label={pred.split('_')[0][1:]}]\n")
                     curr = pred
+            for edge in edges:
+                f.write(edge)
             f.write("\n")
             for qubit in range(0, self.qCount):
                 f.write(f"\t\"q{qubit}_end\" [style=filled, fillcolor=red]\n")
