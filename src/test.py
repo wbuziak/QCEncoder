@@ -7,7 +7,7 @@ print()
 print(h.get_gates())
 print()
 h.init_ir()
-print(h.get_ir)
+print(h.get_ir())
 print()
 h.graphviz_out()
 
