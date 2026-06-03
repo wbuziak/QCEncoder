@@ -86,8 +86,8 @@ class cir:
                         pred = pred.split(",")
                         for p in pred:
                             f.write(f"\t\"{p}\" -> \"{curr}\"\n")
-                        idx1 = pred[0].split("_")[3] if pred[0].count("_") > 1 else qubit
-                        idx2 = pred[1].split("_")[3] if pred[1].count("_") > 1 else qubit
+                        idx1 = pred[0].split("_")[3] if pred[0].count("_") > 1 else str(qubit)
+                        idx2 = pred[1].split("_")[3] if pred[1].count("_") > 1 else str(qubit)
                         if "end" in curr:
                             if str(qubit) == idx1:
                                 pred = pred[0]
