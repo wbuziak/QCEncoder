@@ -48,7 +48,7 @@ class cir:
         for g in self.gates:
             if g.name != "quake.mz": # ignore the measurement: it's not a real gate (at least one we care about putting in the ir/DAG)
                 n = []
-                n.append(g.name.split(".")[-1]) # name of the gate
+                n.append(g.name[g.name.index(".")+1:]) # name of the gate
                 for i in g.qbits:
                     n.append(str(i)) # add qubit inputs
                 if len(g.qbits) == 1:
