@@ -63,8 +63,21 @@ class cir:
                     self.ir[n] = f"{last[g.qbits[0]]},{last[g.qbits[1]]}" # otherwise need to add the comma separator to signify 2 inputs
                     last[g.qbits[0]] = n # update "last" list
                     last[g.qbits[1]] = n
-        for i in range(0, self.qCount):
-            self.ir[f"q{i}_end"] = last[i] # add end qubits
+            elif self.gates[-1].time == g.time: # if measurement is the last "gate", then its predecessor is all of the end qubits
+                end = []
+                for i in range(0, self.qCount):
+                    self.ir[f"q{i}_end"] = last[i]
+                    last[i] = f"q{i}_end"
+                    end.append(last[i])
+                self.ir[f"mz_{g.time}"] = ",".join(end)
+            else: # if the measurement is intermediate
+                c = []
+                for i in range(0, self.qCount):
+                    c.append(last[i])
+                self.ir[f"mz_{g.time}"] = ",".join(c)
+        if "q0_end" not in self.ir:
+            for i in range(0, self.qCount):
+                self.ir[f"q{i}_end"] = last[i] # add end qubits
 
 
 
@@ -111,12 +124,20 @@ class cir:
                     #else:
                         #f.write(f" [label={pred.split('_')[0][1:]}]\n")
                     curr = pred
+            measurement = set()
+            for k in list(self.ir):
+                if "mz" in k:
+                    measurement.add(k)
+                    for i in self.ir[k].split(","):
+                        edges.add(f"\t\"{i}\" -> \"{k}\"\n")
             for edge in edges:
                 f.write(edge)
             f.write("\n")
             for qubit in range(0, self.qCount):
                 f.write(f"\t\"q{qubit}_end\" [style=filled, fillcolor=red]\n")
                 f.write(f"\t\"q{qubit}_start\" [style=filled, fillcolor=green]\n")
+            for mz in measurement:
+                f.write(f"\t\"{mz}\" [style=filled, fillcolor=yellow]\n")
             f.write("}\n")
 
 
