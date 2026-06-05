@@ -3,11 +3,13 @@ from importlib.machinery import ModuleSpec
 from cudaq.kernel.kernel_builder import PyKernel
 from cudaq.kernel.kernel_decorator import PyKernelDecorator
 import ast
-import inspect
+import inspect  
 
 from pathlib import Path
 import types
 # import cudaq
+
+import KerNodeVisitor
 
 
 class PyParser:
@@ -27,11 +29,12 @@ class PyParser:
         return ast.parse(source_code)  
     
     @staticmethod
-    def find_kernels(pyAST: ast.AST) -> list[PyKernelDecorator | PyKernel]:
-        collection: list[PyKernelDecorator | PyKernel] = []
+    def find_kernels(pyAST: ast.AST): #-> list[PyKernelDecorator | PyKernel]:
+        # collection: list[PyKernelDecorator | PyKernel] = []
+        kerVis = KerNodeVisitor.KerNodeVisitor()
+        kerVis.visit(pyAST)
 
-
-        return collection
+        return kerVis.return_kernels()
 
 
     @staticmethod
@@ -39,5 +42,17 @@ class PyParser:
         print("hello")
 
 
-print(pyAST := PyParser.load_ast_file("./_test_mod_for_parse.py"))
-PyParser.find_kernels(pyAST)
+# print(pyAST := PyParser.load_ast_file("./_test_mod_for_parse.py"))
+# PyParser.find_kernels(pyAST)
+
+#code for testing:
+# if(1):
+#     t = PyParser.load_ast_file('./GHZ.py')
+# else:
+#     t = ast.parse('kernel = cudaq.make_kernel()')
+# x = KerNodeVisitor.KerNodeVisitor()
+# print(ast.dump(t, indent=2))
+# print()
+# x.visit(t)
+# print()
+# print(x.return_kernels())
