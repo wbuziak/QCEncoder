@@ -1,7 +1,7 @@
-from QuakeParser import QuakeParser
+from QuakeParser import quakeparser
 from CirDat import cir
 
-h = QuakeParser.parse_quake_file("GHZ_quake.txt")
+h = quakeparser.parse_quake_file("GHZ_quake.txt")
 print(h)
 print()
 print(h.get_gates())

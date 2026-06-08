@@ -8,12 +8,14 @@ from CirDat import cir
 
 @dataclass
 class quakeparser:
+    """
     bgates: list[str] = ["quake.x", "quake.y", "quake.z", "quake.h", "quake.s", "quake.t", "quake.swap"]
     agates: list[str] = ["quake.r1", "quake.rx", "quake.ry", "quake.rz"]
     aagates: list[str] = ["quake.phased_rx", "quake.u2"]
     aaagates: list[str] = ["quake.u3"]
     mgates: list[str] = ["quake.mz", "quake.mx", "quake.my"]
-    
+    """
+
     @staticmethod 
     def parse_quake_string(quake_mlir_code: str) -> cir:
         context = ir.Context()
@@ -74,5 +76,5 @@ class quakeparser:
         with open(file_path, "r") as f:
             quake_mlir_code = f.read()
 
-        return QuakeParser.parse_quake_string(quake_mlir_code)
+        return quakeparser.parse_quake_string(quake_mlir_code)
 
