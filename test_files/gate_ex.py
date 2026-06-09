@@ -22,8 +22,8 @@ def ultimate_quake_inspector(
     q = cudaq.qvector(5)
     exp_q = cudaq.qvector(4)
 
-    # -------------------------------------------------------------
-    # 1. bgates (Basic Gates: 0 parameters)
+    # ------------------------------------------------------------- 
+    # 1. bgates (basic gates: 0 parameters)
     # -------------------------------------------------------------
     x(q[0])
     y(q[1])
@@ -81,6 +81,7 @@ def ultimate_quake_inspector(
     mx(q[0])
     my(q[1])
     mz(q[2])
+    mx(exp_q)
 
 if __name__ == "__main__":
     print("=== RAW QUAKE MLIR OUTPUT ===")

@@ -1,6 +1,6 @@
 === RAW QUAKE MLIR OUTPUT ===
-module attributes {cc.python_uniqued = "ultimate_quake_inspector..0xf363714178d0", llvm.data_layout = "e-m:e-i8:8:32-i16:16:32-i64:64-i128:128-n32:64-S128", quake.mangled_name_map = {__nvqpp__mlirgen__ultimate_quake_inspector..0xf363714178d0 = "__nvqpp__mlirgen__ultimate_quake_inspector..0xf363714178d0_PyKernelEntryPointRewrite"}} {
-  func.func @__nvqpp__mlirgen__ultimate_quake_inspector..0xf363714178d0(%arg0: f64, %arg1: f64, %arg2: f64, %arg3: f64, %arg4: f64, %arg5: !cc.charspan) attributes {"cudaq-entrypoint", "cudaq-kernel"} {
+module attributes {cc.python_uniqued = "ultimate_quake_inspector..0xeba7f030c690", llvm.data_layout = "e-m:e-i8:8:32-i16:16:32-i64:64-i128:128-n32:64-S128", quake.mangled_name_map = {__nvqpp__mlirgen__ultimate_quake_inspector..0xeba7f030c690 = "__nvqpp__mlirgen__ultimate_quake_inspector..0xeba7f030c690_PyKernelEntryPointRewrite"}} {
+  func.func @__nvqpp__mlirgen__ultimate_quake_inspector..0xeba7f030c690(%arg0: f64, %arg1: f64, %arg2: f64, %arg3: f64, %arg4: f64, %arg5: !cc.charspan) attributes {"cudaq-entrypoint", "cudaq-kernel"} {
     %cst = arith.constant 0.78539816339744828 : f64
     %cst_0 = arith.constant 1.5707963267948966 : f64
     %0 = quake.alloca !quake.veq<5>
@@ -75,6 +75,7 @@ module attributes {cc.python_uniqued = "ultimate_quake_inspector..0xf363714178d0
     %measOut_1 = quake.my %40 : (!quake.ref) -> !quake.measure
     %41 = quake.extract_ref %0[2] : (!quake.veq<5>) -> !quake.ref
     %measOut_2 = quake.mz %41 : (!quake.ref) -> !quake.measure
+    %measOut_3 = quake.mx %1 : (!quake.veq<4>) -> !cc.stdvec<!quake.measure>
     quake.dealloc %0 : !quake.veq<5>
     quake.dealloc %1 : !quake.veq<4>
     return
@@ -97,7 +98,7 @@ module attributes {cc.python_uniqued = "ultimate_quake_inspector..0xf363714178d0
   func.func private @__nvqpp_getStringSize(!cc.ptr<i8>) -> i64
   func.func private @_ZNK5cudaq10pauli_word11_nvqpp_sizeEv(!cc.ptr<i8>) -> i64
   func.func private @__nvqpp_cleanup_arrays()
-}
+} 
 
 === REPRINTED MLIR MODULE ===
 "builtin.module"() ({
@@ -177,10 +178,11 @@ module attributes {cc.python_uniqued = "ultimate_quake_inspector..0xf363714178d0
     %44 = "quake.my"(%43) : (!quake.ref) -> !quake.measure
     %45 = "quake.extract_ref"(%2) {rawIndex = 2 : i64} : (!quake.veq<5>) -> !quake.ref
     %46 = "quake.mz"(%45) : (!quake.ref) -> !quake.measure
+    %47 = "quake.mx"(%3) : (!quake.veq<4>) -> !cc.stdvec<!quake.measure>
     "quake.dealloc"(%2) : (!quake.veq<5>) -> ()
     "quake.dealloc"(%3) : (!quake.veq<4>) -> ()
     "func.return"() : () -> ()
-  }) {"cudaq-entrypoint", "cudaq-kernel", function_type = (f64, f64, f64, f64, f64, !cc.charspan) -> (), sym_name = "__nvqpp__mlirgen__ultimate_quake_inspector..0xf363714178d0"} : () -> ()
+  }) {"cudaq-entrypoint", "cudaq-kernel", function_type = (f64, f64, f64, f64, f64, !cc.charspan) -> (), sym_name = "__nvqpp__mlirgen__ultimate_quake_inspector..0xeba7f030c690"} : () -> ()
   "func.func"() ({
   }) {function_type = (!cc.ptr<i8>, !cc.ptr<i8>, !cc.ptr<i8>, i64, i64, !cc.ptr<i8>) -> !cc.struct<{!cc.ptr<i8>, i64}>, sym_name = "hybridLaunchKernel", sym_visibility = "private"} : () -> ()
   "func.func"() ({
@@ -217,5 +219,5 @@ module attributes {cc.python_uniqued = "ultimate_quake_inspector..0xf363714178d0
   }) {function_type = (!cc.ptr<i8>) -> i64, sym_name = "_ZNK5cudaq10pauli_word11_nvqpp_sizeEv", sym_visibility = "private"} : () -> ()
   "func.func"() ({
   }) {function_type = () -> (), sym_name = "__nvqpp_cleanup_arrays", sym_visibility = "private"} : () -> ()
-}) {cc.python_uniqued = "ultimate_quake_inspector..0xf363714178d0", llvm.data_layout = "e-m:e-i8:8:32-i16:16:32-i64:64-i128:128-n32:64-S128", quake.mangled_name_map = {__nvqpp__mlirgen__ultimate_quake_inspector..0xf363714178d0 = "__nvqpp__mlirgen__ultimate_quake_inspector..0xf363714178d0_PyKernelEntryPointRewrite"}} : () -> ()
+}) {cc.python_uniqued = "ultimate_quake_inspector..0xeba7f030c690", llvm.data_layout = "e-m:e-i8:8:32-i16:16:32-i64:64-i128:128-n32:64-S128", quake.mangled_name_map = {__nvqpp__mlirgen__ultimate_quake_inspector..0xeba7f030c690 = "__nvqpp__mlirgen__ultimate_quake_inspector..0xeba7f030c690_PyKernelEntryPointRewrite"}} : () -> ()
 
