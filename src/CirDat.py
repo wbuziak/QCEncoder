@@ -13,6 +13,7 @@ class cir:
         name: str
         qbits: list[int]
         time: int
+        parameters: list[float] = field(default_factory=list) # if not empty, 
 
     qCount: int = 0
     currTime: int = 0
@@ -22,9 +23,10 @@ class cir:
     name: str = "testname"
     ir = {}
 
-    def add_gate(self, name: str, qbits: list[int]):
-        self.gates.append(self.gate(name, qbits, self.currTime))
+    def add_gate(self, name: str, qbits: list[int], params: list[float] = []):
+        self.gates.append(self.gate(name, qbits, self.currTime, parameters=params))
         self.currTime += 1
+
 
     def add_qvec(self, loc: int, base: int, size: int):
         self.qvecs[loc] = self.qvec(base, size)
@@ -78,9 +80,6 @@ class cir:
         if "q0_end" not in self.ir:
             for i in range(0, self.qCount):
                 self.ir[f"q{i}_end"] = last[i] # add end qubits
-
-
-
 
     def get_gates(self):
         return self.gates

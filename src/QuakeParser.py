@@ -7,23 +7,28 @@ from dataclasses import dataclass
 from CirDat import cir
 
 @dataclass
-class quakeparser:
+class QuakeParser:
+    '''
     bgates: list[str] = ["quake.x", "quake.y", "quake.z", "quake.h", "quake.s", "quake.t", "quake.swap"]
     agates: list[str] = ["quake.r1", "quake.rx", "quake.ry", "quake.rz"]
     aagates: list[str] = ["quake.phased_rx", "quake.u2"]
     aaagates: list[str] = ["quake.u3"]
     mgates: list[str] = ["quake.mz", "quake.mx", "quake.my"]
-    
+    '''
+
+    ###THIS NOW EXPECTS LOWERED QUAKE MLIR; not normal QUAKE
     @staticmethod 
     def parse_quake_string(quake_mlir_code: str) -> cir:
         context = ir.Context()
         with context:
             parsedCir: cir = cir()
             # register_map and ref_map are stored on parsedCir
-            _quakeDialects.quake.register_dialect(load=True, context=context)
-            _quakeDialects.cc.register_dialect(load=True, context=context)
-            context.load_all_available_dialects()
+            #_quakeDialects.quake.register_dialect(load=True, context=context)
+            #_quakeDialects.cc.register_dialect(load=True, context=context)
+            #context.load_all_available_dialects()
+            context.allow_unregistered_dialects = True
 
+            #print(quake_mlir_code)
             module = ir.Module.parse(quake_mlir_code)
 
             #Walk through quake ast, yay! 
@@ -32,8 +37,8 @@ class quakeparser:
                     for region in op.regions:
                         for block in region.blocks:
                             for inner_op in block.operations:
-                                print(inner_op)
-
+                                print("||||", inner_op)
+                                '''
                                 # if it is quake.alloca, we need to grab the reg size and record mapping
                                 if inner_op.operation.name == "quake.alloca":
                                     result_type = inner_op.results[0].type
@@ -66,6 +71,7 @@ class quakeparser:
                                     
 
                                 #HANDLE CUSTOM ANGLES////
+                                '''
             return parsedCir
 
     @staticmethod
@@ -75,4 +81,10 @@ class quakeparser:
             quake_mlir_code = f.read()
 
         return QuakeParser.parse_quake_string(quake_mlir_code)
+
+
+
+
+if __name__ == "__main__":
+    h = QuakeParser.parse_quake_file("../test_files/gate_ex.qke")
 

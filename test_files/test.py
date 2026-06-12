@@ -1,5 +1,5 @@
-from QuakeParser import quakeparser
-from CirDat import cir
+from ..src.QuakeParser import quakeparser
+from ..src.CirDat import cir
 
 h = quakeparser.parse_quake_file("GHZ_quake.txt")
 print(h)

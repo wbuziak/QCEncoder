@@ -24,7 +24,7 @@ from cudaq.mlir._mlir_libs import _quakeDialects
 @cudaq.kernel
 def obscure_quake_sampler(theta: float, phi: float, pauli_coeff: float, word: cudaq.pauli_word):
     """A compact Rosetta-stone kernel for the more unusual Quake lowering paths."""
-
+ 
     q = cudaq.qvector(6)
     exp_q = cudaq.qvector(4)
 
@@ -45,7 +45,7 @@ def obscure_quake_sampler(theta: float, phi: float, pauli_coeff: float, word: cu
     # Multi-parameter example.
     u3(theta, phi, pauli_coeff, q[1])
 
-    # Explicit control and adjoint-like lowering patterns.
+    # Explicit con etrol and adjoint-like lowering patterns.
     crx(theta, q[0], q[1])
     cry(theta, q[1], q[2])
     crz(theta, q[2], q[3])
