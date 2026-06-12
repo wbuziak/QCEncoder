@@ -29,7 +29,6 @@ def graphviz_will_out(cir):
                         else:
                             edges.add(f"\t\"{p}\" -> \"{curr}\"\n")
                     idx1 = pred[0].split("_")[1:-1] if pred[0].count("_") > 1 else [pred[0].split("_")[0][1:]]
-                    idx2 = pred[1].split("_")[1:-1] if pred[1].count("_") > 1 else [pred[1].split("_")[0][1:]]
                     if "end" in curr:
                         if any([str(qubit) == i for i in idx1]):
                             pred = pred[0]
