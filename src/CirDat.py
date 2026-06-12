@@ -13,15 +13,20 @@ class cir:
         name: str
         qbits: list[int]
         time: int
-        parameters: list[float] = field(default_factory=list) # if not empty, 
+        parameters: list[float] = field(default_factory=list) # if not empty, this will contain the angles for the gate (in the order they follow in the cudaq)
 
     qCount: int = 0
     currTime: int = 0
     qvecs: dict[int, qvec] = field(default_factory=dict)
     gates: list[gate] = field(default_factory=list)
     ref_reg: dict[int, int] = field(default_factory=dict)
+    val_reg: dict[str, float | int] = field(default_factory=dict)
     name: str = "testname"
     ir = {}
+
+
+    def save_value(self, vRegLbl: str, value: float | int):
+        self.val_reg[vRegLbl] = value
 
     def add_gate(self, name: str, qbits: list[int], params: list[float] = []):
         self.gates.append(self.gate(name, qbits, self.currTime, parameters=params))
@@ -40,7 +45,7 @@ class cir:
         self.ref_reg[regNum] = absolute_idx
     
     def get_ir(self):
-        return self.ir
+        return self.ir 
 
     def init_ir(self):
         last = [] # indexes correspond to qubit, the last thing to happen for each qubit, initialized to be q0_start, etc.

@@ -4,7 +4,7 @@
 #
 #
 import io
-
+import math
 import cudaq
 import cudaq.mlir.ir as ir
 from cudaq.mlir._mlir_libs import _quakeDialects
@@ -73,7 +73,7 @@ def ultimate_quake_inspector(
     # -------------------------------------------------------------
     # 4. Special Case: quake.exp_pauli
     # -------------------------------------------------------------
-    exp_pauli(pauli_coeff, exp_q, word)
+    exp_pauli(pauli_coeff, exp_q, "XZYI")  # Example with a specific Pauli word
 
     # -------------------------------------------------------------
     # 5. mgates (Measurement Gates)
