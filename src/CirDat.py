@@ -1,4 +1,5 @@
 from dataclasses import dataclass, field
+from numpy import array, ndarray
 
 @dataclass
 class cir:
@@ -10,10 +11,14 @@ class cir:
 
     @dataclass
     class gate:
+        #if is a ctrl gate, it will be reflected in the name quake.cx etc (as in the cudaq)
+        #same with the adjoint gates
         name: str
         qbits: list[int]
         time: int
-        parameters: list[float] = field(default_factory=list) # if not empty, this will contain the angles for the gate (in the order they follow in the cudaq)
+        parameters: list[float] | None = None # if not none; has angles
+        custom_gate: ndarray | None = None # if not none; custom_gate
+
 
     qCount: int = 0
     currTime: int = 0

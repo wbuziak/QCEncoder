@@ -59,6 +59,7 @@ def main():
 
     # cudaq.draw takes the kernel and then the arguments it expects (the optimal parameters)
     print(cudaq.draw(kernel, results['best_parameters']))
+    print(kernel)
 
 if __name__ == "__main__":
     main()

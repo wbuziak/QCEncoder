@@ -19,7 +19,6 @@ class QuakeParser:
         #Exp_pauli gate 
 
 
-
     '''
     This method takes in the quake dialect in the form outputted by the str() method of the kernel class in cudaq
         It then outputs a version of quake that more closesly resembles basic MLIR, which is easier to parse. 
@@ -53,12 +52,12 @@ class QuakeParser:
 
         context = ir.Context()
         with context:
+
             parsedCir: cir = cir()
             context.allow_unregistered_dialects = True
 
             #print(quake_mlir_code)
             module = ir.Module.parse(quake_mlir_code)
-
             #Walk through quake ast, yay! 
             for op in module.body.operations:
                 if op.operation.name == "func.func":
@@ -112,7 +111,6 @@ class QuakeParser:
 
                                     #get raw index (stored in the attr dictionary)
                                     raw_index = int(str(inner_op.attributes["rawIndex"]).split(":")[0].strip())
-                                    #print(raw_index)
 
                                     qvec = parsedCir.qvecs[veq_key]
                                     absolute = qvec.base + raw_index

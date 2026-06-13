@@ -8,6 +8,19 @@ import math
 import cudaq
 import cudaq.mlir.ir as ir
 from cudaq.mlir._mlir_libs import _quakeDialects
+from numpy import array
+
+
+
+
+custom_x_matrix = array([
+    [0.0, 0.5],
+    [1.0, 0.5]
+], dtype=complex)
+
+# 2. Register the matrix with CUDA-Q under a specific string identifier
+cudaq.register_operation("c_gate", custom_x_matrix)
+
 
 @cudaq.kernel
 def ultimate_quake_inspector(
@@ -71,12 +84,18 @@ def ultimate_quake_inspector(
     u3(u3_a1, u3_a2, u3_a3, q[1])
 
     # -------------------------------------------------------------
-    # 4. Special Case: quake.exp_pauli
+    # 4. special case: quake.exp_pauli
     # -------------------------------------------------------------
     exp_pauli(pauli_coeff, exp_q, "XZYI")  # Example with a specific Pauli word
 
     # -------------------------------------------------------------
-    # 5. mgates (Measurement Gates)
+    # 5. Custom gate: 
+    # -------------------------------------------------------------
+    c_gate(q[0])
+
+
+    # -------------------------------------------------------------
+    # 6. mgates (Measurement Gates)
     # -------------------------------------------------------------
     mx(q[0])
     my(q[1])
