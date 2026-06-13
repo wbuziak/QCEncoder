@@ -33,9 +33,11 @@ class cir:
     def save_value(self, vRegLbl: str, value: float | int):
         self.val_reg[vRegLbl] = value
 
-    def add_gate(self, name: str, qbits: list[int], params: list[float] = []):
-        self.gates.append(self.gate(name, qbits, self.currTime, parameters=params))
+    def add_gate(self, name: str, qbits: list[int], params: list[float] | None = None, cust_gate: ndarray | None = None):
+        self.gates.append(self.gate(name, qbits, self.currTime, parameters=params, custom_gate=cust_gate))
         self.currTime += 1
+
+    
 
 
     def add_qvec(self, loc: int, base: int, size: int):

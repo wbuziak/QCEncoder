@@ -117,10 +117,12 @@ class QuakeParser:
                                     parsedCir.add_ref(loc, absolute)
 
                                 
+
                                 elif inner_op.operation.name in QuakeParser.bCtrlGates:
                                     print(inner_op.operation.name)
                                     if len(inner_op.operands) == 2:
                                         print("ctrl")
+                                    
 
                                     elif len(inner_op.operands) == 1:
                                         if "is_adj" in inner_op.attributes:
