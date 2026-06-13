@@ -16,7 +16,8 @@ class cir:
         name: str
         qbits: list[int]
         time: int
-        parameters: list[float | str] | None = None # if not none; has angles
+        parameters: list[float | str] | None = None #if not none; has angles and the pauli word! Pauli word will be last; 
+                                                    #be prepped to output that if the gate is pauli
         custom_gate: ndarray | None = None # if not none; custom_gate
 
 
@@ -29,12 +30,13 @@ class cir:
             qb_str = ",".join(str(q) for q in self.qbits)
             return f"{self.name}({qb_str})@t{self.time}{params}{cg}"
 
+
     qCount: int = 0
     currTime: int = 0
-    qvecs: dict[int, qvec] = field(default_factory=dict)
+    qvecs: dict[int, qvec] = field(default_factory=dict) #The key is the reg they are introduced to
     gates: list[gate] = field(default_factory=list)
-    ref_reg: dict[int, int] = field(default_factory=dict)
-    val_reg: dict[str, float | str] = field(default_factory=dict)
+    ref_reg: dict[int, int] = field(default_factory=dict) #the key is the reg the reference is placed into 
+    val_reg: dict[str, float | str] = field(default_factory=dict) # the ksy is %cst or %arg
     name: str = "testname"
     ir = {}
 

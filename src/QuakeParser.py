@@ -7,8 +7,11 @@ from CirDat import cir
 import io
 from typing import ClassVar
 
+DEBUG_INFO = False
+
 @dataclass
 class QuakeParser:
+
     bCtrlGates: ClassVar[list[str]] = ["quake.x", "quake.y", "quake.z","quake.h", "quake.s", "quake.t"]
     aCtrlGates: tuple[str, ...] = ("quake.r1", "quake.rx", "quake.ry", "quake.rz")
     #aagates: tuple[str, ...] = ("quake.phased_rx", "quake.u2") #These exist in the quake ops def. file, but I cannot figure out how to get them to generate from python cudaq. 
@@ -46,8 +49,6 @@ class QuakeParser:
     @staticmethod 
     def parse_quake_string(quake_mlir_code: str) -> cir:
 
-
-
         #Please pass the owner of a qubit or cst operand NOT ARG
         def get_loc(opOwner: str) -> str:
             loc: int | str = str(opOwner).split()[0].strip("%")
@@ -57,45 +58,46 @@ class QuakeParser:
         #retrieve the %CST value or query the user for the value
         ### DO NOT PASS THE OWNER OF A %ARG operand to this function, that passes the whole kernel
         ### We process the operand, not it's owner here
-        def handle_angles(pCir: cir, op) -> float | str:
+        def handle_angles(pCir: cir, op, main_op) -> float | str:
             value: float | str = ""
             
             if str(op).startswith("Value(%"):
                 #get cst value
                 value = pCir.get_value(get_loc(op.owner))
-                print("CST_VAL")
+                if DEBUG_INFO: print("CST_VAL")
 
             else:
                 #try to reconstruct the arg and collect the value if it exists, if not, query user. 
                 reconstructed_name: str = "%arg" + str(op).split(":")[1].strip(" )")
                 try:
                     value = pCir.get_value(reconstructed_name)
-                    print(f"{reconstructed_name} found")
+                    if DEBUG_INFO: print(f"{reconstructed_name} found")
                 except KeyError:
                     #query user
+                    print(main_op)
                     print("A value passed by argument (to the kernel) has been found. "
-                        "Due to how compilation works, this is not available in quake.")
+                        "Due to how compilation works, the information that would be passed here is not available in quake.")
                     
                     while True:
-                        user_input = input("Please enter the value or press enter to continue without values: ").strip()
+                        user_input = input(f"Please enter the value of {reconstructed_name} or press enter to continue without values: ").strip()
                         
                         #enter to skip
                         if user_input == "":
                             print("Continuing without value.")
                             value = reconstructed_name
-                            print(f"no val: {reconstructed_name}, inserting {value}")
+                            if DEBUG_INFO: print(f"no val: {reconstructed_name}, inserting {value}")
                             break
                             
                         #enter float
                         try:
                             value = float(user_input)
 
-                            print(f"new val: {reconstructed_name}, inserting {value}")
+                            if DEBUG_INFO:  print(f"new val: {reconstructed_name}, inserting {value}")
                             break
                         except ValueError:
                             print("Invalid input. Please enter a valid decimal number or press Enter to skip.")
 
-
+                    print("\n")
                     pCir.val_reg[reconstructed_name] = value
                 
             return value
@@ -115,16 +117,17 @@ class QuakeParser:
                     for region in op.regions:
                         for block in region.blocks:
                             for inner_op in block.operations:
-                                print("||||", inner_op)
-                                print("_______________")
-                                for attr in inner_op.attributes:
-                                    print(attr.name, attr.attr)
-                                #result_type = inner_op.results[0].type
-                                #type_str = str(result_type)
-                                #print("TYPE STR", type_str)
-                                for item in inner_op.operands:
-                                    print(item)
-                                    #print(dir(item))
+                                if DEBUG_INFO: 
+                                    print("||||", inner_op)
+                                    print("_______________")
+                                    for attr in inner_op.attributes:
+                                        print(attr.name, attr.attr)
+                                    #result_type = inner_op.results[0].type
+                                    #type_str = str(result_type)
+                                    #print("TYPE STR", type_str)
+                                    for item in inner_op.operands:
+                                        print(item)
+                                        #print(dir(item))
 
                                 op_name: str = str(inner_op.operation.name)
                                 qbits = []
@@ -135,7 +138,7 @@ class QuakeParser:
                                     loc = get_loc(inner_op)
                                     value: float = float(str(inner_op.attributes["value"]).split(":")[0].strip())
                                     parsedCir.save_value(get_loc(inner_op), value)
-                                    print("value stored")
+                                    if DEBUG_INFO: print("value stored")
 
                             
                                 # if it is quake.alloca, we need to grab the reg size and record mapping
@@ -206,7 +209,7 @@ class QuakeParser:
                                             qbits.append(parsedCir.find_qubit(int(get_loc(orand.owner))))
 
                                         except ValueError: #this will trigger if it is a %cst or a %arg0 (AKA an angle)
-                                            angles.append(handle_angles(parsedCir, orand))
+                                            angles.append(handle_angles(parsedCir, orand, inner_op))
                                         
 
 
@@ -217,34 +220,109 @@ class QuakeParser:
                                         print("unrecognized number of operands for agate")
 
                                     parsedCir.add_gate(op_name, qbits, angles)
-                                    print(parsedCir.gates[-1])
         
 
 
                                 #parse measurement gates
                                 elif op_name in QuakeParser.mGates:
-                                    if str(inner_op.operands[0].type) == "!quake.ref":
-                                        print("single measure")
+                                    orand = inner_op.operands[0] #measure only ever has one operand
+                                    if str(orand.type) == "!quake.ref":
+                                        if DEBUG_INFO: print("single measure")
+                                        qbits.append(parsedCir.find_qubit(int(get_loc(orand.owner))))
                                     else:
-                                        print("qvec measure")
+                                        if DEBUG_INFO: print("qvec measure")
+                                        qvec_key = int(get_loc(orand.owner)) #this will lead to the correct qvec
+                                        qvec = parsedCir.qvecs[qvec_key]
 
+                                        for i in range(qvec.base, qvec.base + qvec.size): #if it's a qvec, make sure to add the correct qubits to the qbit array
+                                            qbits.append(i)
+
+                                    parsedCir.add_gate(op_name, qbits)
+
+    
 
                                 #parse u3 gate
                                 elif op_name == "quake.u3":
-                                    print("u3!")
+                                    if DEBUG_INFO: print("u3!")
+                                    #3 angles followed by a qubit, I'll just hard code this, lol
+                                    angles = []
 
+                                    #handle angles
+                                    for i in range(3):
+                                        angles.append(handle_angles(parsedCir, inner_op.operands[i], inner_op))
 
+                                    #qubits!
+
+                                    for i in range(3, len(inner_op.operands)):
+                                        qbits.append(int(get_loc(inner_op.operands[i].owner)))
+                                        if i == 4:
+                                            op_name = op_name.replace(".", ".c")
+                                    parsedCir.add_gate(op_name, qbits, angles)
+
+                                    
 
                                 #parse exp_pauli gate
                                 elif op_name == "quake.exp_pauli":
-                                    print("exp_pauli!")
+                                    if DEBUG_INFO: print("exp_pauli!")
+
+                                    params = []
+
+                                    params.append(handle_angles(parsedCir, inner_op.operands[0], inner_op))
+                                    
+                                    #handle qvec or single qubit
+                                    qrand = inner_op.operands[1]
+                                    if str(qrand.type) == "!quake.ref":
+                                        qbits.append(parsedCir.find_qubit(int(get_loc(qrand.owner))))
+                                    else:
+                                        qvec_key = int(get_loc(qrand.owner)) #this will lead to the correct qvec
+                                        qvec = parsedCir.qvecs[qvec_key]
+
+                                        for i in range(qvec.base, qvec.base + qvec.size): #if it's a qvec, make sure to add the correct qubits to the qbit array
+                                            qbits.append(i)
 
 
+                                    if len(inner_op.operands) == 2: # how it parses if the word it hard coded
+                                        params.append(str(inner_op.attributes["pauliLiteral"]).strip("\""))
+
+                                    elif len(inner_op.operands) == 3:
+
+                                        print(inner_op)
+                                        print("A pauliword passed by argument (to the kernel) has been found.")
+                                        print("Due to how compilation works, the value is not available in quake.")
+                                        print(f"Target register size: {len(qbits)} qubit(s).")
+                                        
+                                        while True: #I didn't want to write the verification below, AI did that. 
+                                            user_input = input(f"Please enter the {len(qbits)}-character Pauli word (or Enter to skip): ").strip().upper()
+                                            
+                                            # Allow skipping
+                                            if user_input == "":
+                                                print("Continuing without string verification value.")
+                                                params.append("UNKNOWN")
+                                                break
+                                                
+                                            # Validate 1: Check length matches target qubit allocations
+                                            if len(user_input) != len(qbits):
+                                                print(f"Error: Word length ({len(user_input)}) must strictly match targeted qubit count ({len(qbits)}).")
+                                                continue
+                                                
+                                            # Validate 2: Check all characters are strict Pauli primitives
+                                            if not all(char in "IXYZ" for char in user_input):
+                                                print("Error: Pauli strings must strictly consist of characters: I, X, Y, or Z.")
+                                                continue
+                                                
+                                            # If everything passes, assign it to your parameter track
+                                            print(f"Successfully tracked Pauli word parameter: {user_input}")
+                                            params.append(user_input)
+                                            break
+
+                                    parsedCir.add_gate(op_name, qbits, params)
+                                    
 
 
-
-
-                                print("\n\n\n\n")
+                                if DEBUG_INFO: 
+                                    if parsedCir.gates:
+                                        print("recent gate: ", parsedCir.gates[-1])
+                                    print("\n\n\n\n")
                                 
             return parsedCir
 

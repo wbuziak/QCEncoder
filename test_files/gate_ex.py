@@ -83,10 +83,13 @@ def ultimate_quake_inspector(
     # -------------------------------------------------------------
     u3(u3_a1, u3_a2, u3_a3, q[1])
 
+    u3.ctrl(u3_a1, u3_a2, u3_a3, q[0], q[1])
+
     # -------------------------------------------------------------
     # 4. special case: quake.exp_pauli
     # -------------------------------------------------------------
     exp_pauli(pauli_coeff, exp_q, "XZYI")  # Example with a specific Pauli word
+    exp_pauli(pauli_coeff, exp_q, word)  # Example with a specific Pauli word
 
     # -------------------------------------------------------------
     # 5. Custom gate: 
