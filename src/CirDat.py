@@ -1,4 +1,5 @@
 from dataclasses import dataclass, field
+from numpy import array, ndarray
 
 @dataclass
 class cir:
@@ -10,21 +11,45 @@ class cir:
 
     @dataclass
     class gate:
+        #if is a ctrl gate, it will be reflected in the name quake.cx etc (as in the cudaq)
+        #same with the adjoint gates
         name: str
         qbits: list[int]
         time: int
+        parameters: list[float | str] | None = None #if not none; has angles and the pauli word! Pauli word will be last; 
+                                                    #be prepped to output that if the gate is pauli
+        custom_gate: ndarray | None = None # if not none; custom_gate
+
+
+        def __str__(self) -> str:
+            """Concise human-readable representation."""
+            params = ""
+            if self.parameters:
+                params = f" params={self.parameters}"
+            cg = " custom_gate" if self.custom_gate is not None else ""
+            qb_str = ",".join(str(q) for q in self.qbits)
+            return f"{self.name}({qb_str})@t{self.time}{params}{cg}"
+
 
     qCount: int = 0
     currTime: int = 0
-    qvecs: dict[int, qvec] = field(default_factory=dict)
+    qvecs: dict[int, qvec] = field(default_factory=dict) #The key is the reg they are introduced to
     gates: list[gate] = field(default_factory=list)
-    ref_reg: dict[int, int] = field(default_factory=dict)
+    ref_reg: dict[int, int] = field(default_factory=dict) #the key is the reg the reference is placed into 
+    val_reg: dict[str, float | str] = field(default_factory=dict) # the ksy is %cst or %arg
     name: str = "testname"
     ir = {}
 
-    def add_gate(self, name: str, qbits: list[int]):
-        self.gates.append(self.gate(name, qbits, self.currTime))
+
+    def save_value(self, vRegLbl: str, value: float | int):
+        self.val_reg[vRegLbl] = value
+
+    def add_gate(self, name: str, qbits: list[int], params: list[float | str] | None = None, cust_gate: ndarray | None = None):
+        self.gates.append(self.gate(name, qbits, self.currTime, parameters=params, custom_gate=cust_gate))
         self.currTime += 1
+
+    def get_value(self, vRegLbl) -> float | str:
+        return self.val_reg[vRegLbl]
 
     def add_qvec(self, loc: int, base: int, size: int):
         self.qvecs[loc] = self.qvec(base, size)
@@ -38,7 +63,7 @@ class cir:
         self.ref_reg[regNum] = absolute_idx
     
     def get_ir(self):
-        return self.ir
+        return self.ir 
 
     def init_ir(self):
         last = [] # indexes correspond to qubit, the last thing to happen for each qubit, initialized to be q0_start, etc.
@@ -78,9 +103,6 @@ class cir:
         if "q0_end" not in self.ir:
             for i in range(0, self.qCount):
                 self.ir[f"q{i}_end"] = last[i] # add end qubits
-
-
-
 
     def get_gates(self):
         return self.gates

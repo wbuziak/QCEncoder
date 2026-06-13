@@ -139,8 +139,7 @@ class cir:
             for mz in measurement:
                 f.write(f"\t\"{mz}\" [style=filled, fillcolor=yellow]\n")
             f.write("}\n")
-
-
+            
     def __str__(self):
         out: str = ""
         print(f"Total qubits: {self.qCount}")
