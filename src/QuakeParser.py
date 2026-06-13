@@ -46,9 +46,60 @@ class QuakeParser:
     @staticmethod 
     def parse_quake_string(quake_mlir_code: str) -> cir:
 
-        def get_loc(op: str) -> str:
-            loc: int | str = str(op).split()[0].strip("%")
+
+
+        #Please pass the owner of a qubit or cst operand NOT ARG
+        def get_loc(opOwner: str) -> str:
+            loc: int | str = str(opOwner).split()[0].strip("%")
             return loc
+
+
+        #retrieve the %CST value or query the user for the value
+        ### DO NOT PASS THE OWNER OF A %ARG operand to this function, that passes the whole kernel
+        ### We process the operand, not it's owner here
+        def handle_angles(pCir: cir, op) -> float | str:
+            value: float | str = ""
+            
+            if str(op).startswith("Value(%"):
+                #get cst value
+                value = pCir.get_value(get_loc(op.owner))
+                print("CST_VAL")
+
+            else:
+                #try to reconstruct the arg and collect the value if it exists, if not, query user. 
+                reconstructed_name: str = "%arg" + str(op).split(":")[1].strip(" )")
+                try:
+                    value = pCir.get_value(reconstructed_name)
+                    print(f"{reconstructed_name} found")
+                except KeyError:
+                    #query user
+                    print("A value passed by argument (to the kernel) has been found. "
+                        "Due to how compilation works, this is not available in quake.")
+                    
+                    while True:
+                        user_input = input("Please enter the value or press enter to continue without values: ").strip()
+                        
+                        #enter to skip
+                        if user_input == "":
+                            print("Continuing without value.")
+                            value = reconstructed_name
+                            print(f"no val: {reconstructed_name}, inserting {value}")
+                            break
+                            
+                        #enter float
+                        try:
+                            value = float(user_input)
+
+                            print(f"new val: {reconstructed_name}, inserting {value}")
+                            break
+                        except ValueError:
+                            print("Invalid input. Please enter a valid decimal number or press Enter to skip.")
+
+
+                    pCir.val_reg[reconstructed_name] = value
+                
+            return value
+
 
         context = ir.Context()
         with context:
@@ -75,18 +126,20 @@ class QuakeParser:
                                     print(item)
                                     #print(dir(item))
 
-                                
+                                op_name: str = str(inner_op.operation.name)
+                                qbits = []
+ 
 
-                                if inner_op.operation.name == "arith.constant":
+                                if op_name == "arith.constant":
                                     #find the reg (will be like %cst or %cst_1)
                                     loc = get_loc(inner_op)
-                                    value: float = float(str(inner_op.attributes["value"]).split(":")[0])
-                                    parsedCir.save_value(inner_op, value)
+                                    value: float = float(str(inner_op.attributes["value"]).split(":")[0].strip())
+                                    parsedCir.save_value(get_loc(inner_op), value)
                                     print("value stored")
 
                             
                                 # if it is quake.alloca, we need to grab the reg size and record mapping
-                                elif inner_op.operation.name == "quake.alloca":
+                                elif op_name == "quake.alloca":
 
                                     #search throught the result type to find the allocation size
                                     result_type = inner_op.results[0].type
@@ -102,7 +155,7 @@ class QuakeParser:
 
                                     
                                 #assigns specific qubit values to registers via extraction of references
-                                elif inner_op.operation.name == "quake.extract_ref": 
+                                elif op_name == "quake.extract_ref": 
                                     #get register location 
                                     loc = int(get_loc(inner_op))
 
@@ -117,61 +170,78 @@ class QuakeParser:
                                     parsedCir.add_ref(loc, absolute)
 
                                 
+                                
+                                #basic gates without custom angles
+                                elif op_name in QuakeParser.bCtrlGates:
 
-                                elif inner_op.operation.name in QuakeParser.bCtrlGates:
-                                    print(inner_op.operation.name)
+                                    #get qbit list
+                                    for orand in list(inner_op.operands):
+                                        qbits.append(parsedCir.find_qubit(int(get_loc(orand.owner))))
+
+                                    #check if ctrl; update name in case
                                     if len(inner_op.operands) == 2:
-                                        print("ctrl")
-                                    
+                                        op_name = op_name.replace(".", ".c")
 
+                                    #check if adj; update name in case
                                     elif len(inner_op.operands) == 1:
                                         if "is_adj" in inner_op.attributes:
-                                            print("adjoint")
-                                        else:
-                                            print("unctrl")
+                                            op_name = op_name + "dg"
 
                                     else:
                                         print("unrecognized number of operands for bCtrlGate")
 
-                                elif inner_op.operation.name in QuakeParser.aCtrlGates:
+                                    #add gate to circuit; possible issue if gate formatting unrecognized
+                                    parsedCir.add_gate(op_name, qbits)
+
+
+
+                                #Parse gates with a single angle input; handles both ctrl and not 
+                                elif op_name in QuakeParser.aCtrlGates:
+                                    angles: list[float | str] = []
+
+                                    #get qbit list
+                                    for orand in list(inner_op.operands):
+
+                                        try:
+                                            qbits.append(parsedCir.find_qubit(int(get_loc(orand.owner))))
+
+                                        except ValueError: #this will trigger if it is a %cst or a %arg0 (AKA an angle)
+                                            angles.append(handle_angles(parsedCir, orand))
+                                        
+
+
                                     if len(inner_op.operands) == 3:
-                                        print("ctrl")
-                                    elif len(inner_op.operands) == 2:
-                                        print("unctrl")
-                                    else:
+                                        op_name = op_name.replace(".", ".c")
+
+                                    elif len(inner_op.operands) != 2:
                                         print("unrecognized number of operands for agate")
 
+                                    parsedCir.add_gate(op_name, qbits, angles)
+                                    print(parsedCir.gates[-1])
+        
 
 
-                                elif inner_op.operation.name in QuakeParser.mGates:
+                                #parse measurement gates
+                                elif op_name in QuakeParser.mGates:
                                     if str(inner_op.operands[0].type) == "!quake.ref":
                                         print("single measure")
                                     else:
                                         print("qvec measure")
 
 
-
-
-                                elif inner_op.operation.name == "quake.u3":
+                                #parse u3 gate
+                                elif op_name == "quake.u3":
                                     print("u3!")
 
 
 
-
-                                elif inner_op.operation.name == "quake.exp_pauli":
+                                #parse exp_pauli gate
+                                elif op_name == "quake.exp_pauli":
                                     print("exp_pauli!")
 
 
 
-                                '''
-                                elif inner_op.operation.name.startswith("quake.") and inner_op.operation.name != "quake.dealloc":
-                                    qbits = []
-                                    for orand in list(inner_op.operands):
-                                        qbits.append(parsedCir.find_qubit(int(str(orand).split()[0].split("%")[1])))
-                                    parsedCir.add_gate(inner_op.operation.name, qbits)
-                                '''
 
-                                #HANDLE CUSTOM ANGLES////
 
 
                                 print("\n\n\n\n")

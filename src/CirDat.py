@@ -16,16 +16,25 @@ class cir:
         name: str
         qbits: list[int]
         time: int
-        parameters: list[float] | None = None # if not none; has angles
+        parameters: list[float | str] | None = None # if not none; has angles
         custom_gate: ndarray | None = None # if not none; custom_gate
 
+
+        def __str__(self) -> str:
+            """Concise human-readable representation."""
+            params = ""
+            if self.parameters:
+                params = f" params={self.parameters}"
+            cg = " custom_gate" if self.custom_gate is not None else ""
+            qb_str = ",".join(str(q) for q in self.qbits)
+            return f"{self.name}({qb_str})@t{self.time}{params}{cg}"
 
     qCount: int = 0
     currTime: int = 0
     qvecs: dict[int, qvec] = field(default_factory=dict)
     gates: list[gate] = field(default_factory=list)
     ref_reg: dict[int, int] = field(default_factory=dict)
-    val_reg: dict[str, float | int] = field(default_factory=dict)
+    val_reg: dict[str, float | str] = field(default_factory=dict)
     name: str = "testname"
     ir = {}
 
@@ -33,12 +42,12 @@ class cir:
     def save_value(self, vRegLbl: str, value: float | int):
         self.val_reg[vRegLbl] = value
 
-    def add_gate(self, name: str, qbits: list[int], params: list[float] | None = None, cust_gate: ndarray | None = None):
+    def add_gate(self, name: str, qbits: list[int], params: list[float | str] | None = None, cust_gate: ndarray | None = None):
         self.gates.append(self.gate(name, qbits, self.currTime, parameters=params, custom_gate=cust_gate))
         self.currTime += 1
 
-    
-
+    def get_value(self, vRegLbl) -> float | str:
+        return self.val_reg[vRegLbl]
 
     def add_qvec(self, loc: int, base: int, size: int):
         self.qvecs[loc] = self.qvec(base, size)
