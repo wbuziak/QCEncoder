@@ -7,7 +7,7 @@ from CirDat import cir
 import io
 from typing import ClassVar
 
-DEBUG_INFO = False
+DEBUG_INFO = False #if True, this will print out the quake parsing information for every line. 
 
 @dataclass
 class QuakeParser:
@@ -111,6 +111,19 @@ class QuakeParser:
 
             #print(quake_mlir_code)
             module = ir.Module.parse(quake_mlir_code)
+            
+            #find the kernel name and save it
+            if "cc.python_uniqued" in module.operation.attributes:
+                raw_kernel_name = str(module.operation.attributes["cc.python_uniqued"]).strip('"')
+                kernel_name = raw_kernel_name.split("..")[0]
+            else:
+                kernel_name = "unknown_kernel"
+
+            parsedCir.name = kernel_name
+            print(f"--- Parsing Quantum Kernel: {parsedCir.name} ---")
+
+
+
             #Walk through quake ast, yay! 
             for op in module.body.operations:
                 if op.operation.name == "func.func":
