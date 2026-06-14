@@ -1,7 +1,10 @@
 from QuakeParser import QuakeParser
 from CirDat import cir
-
-h = QuakeParser.parse_quake_file("GHZ_quake.qke")
+q = ""
+with open("GHZ_quake.qke", "r") as f:
+    q = f.read()
+h = QuakeParser.prep_quake_string(q)
+h = QuakeParser.parse_quake_string(h)
 print(h)
 print()
 print(h.get_gates())
