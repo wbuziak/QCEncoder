@@ -1,42 +1,18 @@
 digraph G {
-	"mz_10" -> "q6_end"
-	"cx_0_4_4" -> "mz_10"
-	"cx_0_7_7" -> "cx_0_8_8"
-	"q7_start" -> "cx_0_7_7"
-	"q4_start" -> "cx_0_4_4"
-	"mz_10" -> "q1_end"
-	"cx_0_8_8" -> "cx_0_9_9"
-	"cx_0_4_4" -> "cx_0_5_5"
-	"mz_10" -> "q2_end"
-	"q8_start" -> "cx_0_8_8"
-	"mz_10" -> "q8_end"
-	"cx_0_2_2" -> "mz_10"
-	"cx_0_6_6" -> "mz_10"
-	"cx_0_6_6" -> "cx_0_7_7"
-	"q9_start" -> "cx_0_9_9"
-	"cx_0_7_7" -> "mz_10"
-	"q1_start" -> "cx_0_1_1"
-	"h_0_-1_0" -> "cx_0_1_1"
-	"cx_0_3_3" -> "cx_0_4_4"
-	"cx_0_8_8" -> "mz_10"
-	"mz_10" -> "q5_end"
-	"q2_start" -> "cx_0_2_2"
-	"mz_10" -> "q0_end"
-	"cx_0_5_5" -> "cx_0_6_6"
-	"mz_10" -> "q3_end"
-	"q3_start" -> "cx_0_3_3"
-	"q6_start" -> "cx_0_6_6"
-	"cx_0_3_3" -> "mz_10"
-	"cx_0_1_1" -> "cx_0_2_2"
-	"q0_start" -> "h_0_-1_0"
-	"mz_10" -> "q7_end"
-	"cx_0_1_1" -> "mz_10"
-	"cx_0_5_5" -> "mz_10"
-	"q5_start" -> "cx_0_5_5"
-	"cx_0_2_2" -> "cx_0_3_3"
-	"mz_10" -> "q9_end"
-	"mz_10" -> "q4_end"
-	"cx_0_9_9" -> "mz_10"
+	"q2_start" -> "x_2_-1_1"
+	"cr1(0.7853981633974483)_2_0_4" -> "cr1(1.5707963267948966)_2_1_6"
+	"q1_start" -> "cr1(1.5707963267948966)_1_0_3"
+	"cr1(1.5707963267948966)_2_1_6" -> "q1_end"
+	"h_2_-1_7" -> "q2_end"
+	"cr1(1.5707963267948966)_2_1_6" -> "h_2_-1_7"
+	"x_0_-1_0" -> "h_0_-1_2"
+	"q0_start" -> "x_0_-1_0"
+	"x_2_-1_1" -> "cr1(0.7853981633974483)_2_0_4"
+	"cr1(1.5707963267948966)_1_0_3" -> "h_1_-1_5"
+	"cr1(0.7853981633974483)_2_0_4" -> "q0_end"
+	"h_1_-1_5" -> "cr1(1.5707963267948966)_2_1_6"
+	"cr1(1.5707963267948966)_1_0_3" -> "cr1(0.7853981633974483)_2_0_4"
+	"h_0_-1_2" -> "cr1(1.5707963267948966)_1_0_3"
 
 	"q0_end" [style=filled, fillcolor=red]
 	"q0_start" [style=filled, fillcolor=green]
@@ -44,19 +20,4 @@ digraph G {
 	"q1_start" [style=filled, fillcolor=green]
 	"q2_end" [style=filled, fillcolor=red]
 	"q2_start" [style=filled, fillcolor=green]
-	"q3_end" [style=filled, fillcolor=red]
-	"q3_start" [style=filled, fillcolor=green]
-	"q4_end" [style=filled, fillcolor=red]
-	"q4_start" [style=filled, fillcolor=green]
-	"q5_end" [style=filled, fillcolor=red]
-	"q5_start" [style=filled, fillcolor=green]
-	"q6_end" [style=filled, fillcolor=red]
-	"q6_start" [style=filled, fillcolor=green]
-	"q7_end" [style=filled, fillcolor=red]
-	"q7_start" [style=filled, fillcolor=green]
-	"q8_end" [style=filled, fillcolor=red]
-	"q8_start" [style=filled, fillcolor=green]
-	"q9_end" [style=filled, fillcolor=red]
-	"q9_start" [style=filled, fillcolor=green]
-	"mz_10" [style=filled, fillcolor=yellow]
 }

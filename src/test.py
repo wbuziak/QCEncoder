@@ -1,7 +1,7 @@
 from QuakeParser import QuakeParser
 from CirDat import cir
 q = ""
-with open("GHZ_quake.qke", "r") as f:
+with open("QFT_quake.qke", "r") as f:
     q = f.read()
 h = QuakeParser.prep_quake_string(q)
 h = QuakeParser.parse_quake_string(h)

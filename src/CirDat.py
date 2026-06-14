@@ -74,7 +74,7 @@ class cir:
                 n = []
                 n.append(g.name[g.name.index(".")+1:]) # name of the gate
                 if g.parameters != None:
-                    n[0] += "(" + "|".join(g.parameters) + ")"
+                    n[0] += "(" + "|".join(map(str, g.parameters)) + ")"
                 for i in g.qbits:
                     n.append(str(i)) # add qubit inputs
                 if len(g.qbits) == 1:
