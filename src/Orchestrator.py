@@ -11,26 +11,23 @@ class Orchestrator:
         pyAST = PyParser.load_ast_file(filePath)
         kernels  = PyParser.find_kernels(pyAST)
 
-
-
         for kernel in kernels:
-            print(kernel)
+            #we need to import the kernel and out the quake 
             quake_ir = QuakeParser.prep_quake_string(str(kernel))
             parsedCir = QuakeParser.parse_quake_string(quake_ir)
-            TargetReps.graphviz_will_out(parsedCir)
-            TargetReps.tuple_out(parsedCir)
+            if parsedCir: #make sure a circuit was returned
+                TargetReps.graphviz_will_out(parsedCir)
+                TargetReps.tuple_out(parsedCir)
 
 
         '''
         Query the user on arguments 
+        Done in the QuakeParser (future rework perhaps raise them as exceptions, such that all interaction with user happens on this level)
         '''
 
         '''
         pass parameters to decide which outputs
-        '''
-
-        '''
-        skip storing
+        talk with othe
         '''
 
 if __name__ == "__main__":

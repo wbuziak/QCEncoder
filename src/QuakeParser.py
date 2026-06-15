@@ -47,7 +47,7 @@ class QuakeParser:
     '''
     ###THIS NOW EXPECTS LOWERED QUAKE MLIR; not normal QUAKE
     @staticmethod 
-    def parse_quake_string(quake_mlir_code: str) -> cir:
+    def parse_quake_string(quake_mlir_code: str) -> cir | None:
 
         #Please pass the owner of a qubit or cst operand NOT ARG
         def get_loc(opOwner: str) -> str:
@@ -111,6 +111,8 @@ class QuakeParser:
 
             #print(quake_mlir_code)
             module = ir.Module.parse(quake_mlir_code)
+
+
             
             #find the kernel name and save it
             if "cc.python_uniqued" in module.operation.attributes:
@@ -121,6 +123,7 @@ class QuakeParser:
 
             parsedCir.name = kernel_name
             print(f"--- Parsing Quantum Kernel: {parsedCir.name} ---")
+
 
 
 
@@ -297,7 +300,7 @@ class QuakeParser:
                                     if len(inner_op.operands) == 2: # how it parses if the word it hard coded
                                         params.append(str(inner_op.attributes["pauliLiteral"]).strip("\""))
 
-                                    elif len(inner_op.operands) == 3:
+                                    elif len(inner_op.operands) == 3: #if it's in this format, then the word is passed as an argument, we need to query for it. 
 
                                         print(inner_op)
                                         print("A pauliword passed by argument (to the kernel) has been found.")
@@ -328,9 +331,13 @@ class QuakeParser:
                                             params.append(user_input)
                                             break
 
+                                    
                                     parsedCir.add_gate(op_name, qbits, params)
                                     
 
+                                else: 
+                                    print(f"unidenifiable quake operation {inner_op}. Aborting the parse of this kernel")
+                                    return 
 
                                 if DEBUG_INFO: 
                                     if parsedCir.gates:
@@ -340,7 +347,7 @@ class QuakeParser:
             return parsedCir
 
     @staticmethod
-    def parse_quake_file(file_path: str) -> cir:
+    def parse_quake_file(file_path: str) -> cir | None:
         #load quake files
         with open(file_path, "r") as f:
             quake_mlir_code = f.read()

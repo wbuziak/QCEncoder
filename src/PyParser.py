@@ -29,17 +29,18 @@ class PyParser:
         return ast.parse(source_code)  
     
     @staticmethod
-    def find_kernels(pyAST: ast.AST): #-> list[PyKernelDecorator | PyKernel]:
-        # collection: list[PyKernelDecorator | PyKernel] = []
+    def find_kernels(pyAST: ast.AST) -> list[str]: #the quake strings
+        collection: list[str] = []
+
         kerVis = KerNodeVisitor.KerNodeVisitor()
         kerVis.visit(pyAST)
 
         return kerVis.return_kernels()
 
 
-    @staticmethod
-    def parse_from_file():
-        print("hello")
+
+
+        
 
 
 # print(pyAST := PyParser.load_ast_file("./_test_mod_for_parse.py"))
