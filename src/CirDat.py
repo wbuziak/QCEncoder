@@ -40,7 +40,6 @@ class cir:
     name: str = "testname"
     ir = {}
 
-
     def save_value(self, vRegLbl: str, value: float | int):
         self.val_reg[vRegLbl] = value
 
@@ -74,7 +73,8 @@ class cir:
             if g.name != "quake.mz": # ignore the measurement: it's not a real gate (at least one we care about putting in the ir/DAG)
                 n = []
                 n.append(g.name[g.name.index(".")+1:]) # name of the gate
-
+                if g.parameters != None:
+                    n[0] += "(" + "|".join(map(str, g.parameters)) + ")"
                 for i in g.qbits:
                     n.append(str(i)) # add qubit inputs
                 if len(g.qbits) == 1:
@@ -89,12 +89,9 @@ class cir:
                     last[g.qbits[0]] = n # update "last" list
                     last[g.qbits[1]] = n
             elif self.gates[-1].time == g.time: # if measurement is the last "gate", then its predecessor is all of the end qubits
-                end = []
-                for i in range(0, self.qCount):
-                    self.ir[f"q{i}_end"] = last[i]
-                    last[i] = f"q{i}_end"
-                    end.append(last[i])
-                self.ir[f"mz_{g.time}"] = ",".join(end)
+                self.ir[f"mz_{g.time}"] = ",".join(last)
+                for i in range(len(last)):
+                    last[i] = f"mz_{g.time}"
             else: # if the measurement is intermediate
                 c = []
                 for i in range(0, self.qCount):
@@ -110,12 +107,15 @@ class cir:
     # this method constructs a graphviz output and writes it to the corresponding file.
     # it does this by stepping back starting at the end qubits
     def graphviz_out(self):
-        edges = set()
-        with open(self.name + "_graphviz_output.txt", "w+") as f:
+        edges = set() # we only want one of each edge
+        measurement = set()
+        with open(self.name + "_graphviz_output.txt", "w+") as f: # the output file
             f.write("digraph G {\n")
             for qubit in range(0, self.qCount):
                 curr = f"q{qubit}_end"
                 while curr != None:
+                    if "mz" in curr:
+                        measurement.add(curr)
                     pred = self.ir[curr]
                     if pred == None:
                         break
@@ -127,18 +127,10 @@ class cir:
                                 #f.write(f" [label={p.split('_')[3]}]\n")
                             #else:
                                 #f.write(f" [label={p.split('_')[0][1:]}]\n")
-                        idx1 = pred[0].split("_")[1:-1] if pred[0].count("_") > 1 else [pred[0].split("_")[0][1:]]
-                        idx2 = pred[1].split("_")[1:-1] if pred[1].count("_") > 1 else [pred[1].split("_")[0][1:]]
-                        if "end" in curr:
-                            if any([str(qubit) == i for i in idx1]):
-                                pred = pred[0]
-                            else:
-                                pred = pred[1]
-                        elif any([i == idx1[0] or i == idx1[-1] for i in curr.split("_")[1:-1]]):
-                            pred = pred[0]
+                        if len(pred) > 2:
+                            curr = pred[qubit]
                         else:
-                            pred = pred[1]
-                        curr = pred
+                            curr = pred[0] if str(qubit) in pred[0].split("_") else pred[1]
                         continue
                     edges.add(f"\t\"{pred}\" -> \"{curr}\"\n")
                     #if pred.count("_") > 1:
@@ -146,12 +138,6 @@ class cir:
                     #else:
                         #f.write(f" [label={pred.split('_')[0][1:]}]\n")
                     curr = pred
-            measurement = set()
-            for k in list(self.ir):
-                if "mz" in k:
-                    measurement.add(k)
-                    for i in self.ir[k].split(","):
-                        edges.add(f"\t\"{i}\" -> \"{k}\"\n")
             for edge in edges:
                 f.write(edge)
             f.write("\n")
