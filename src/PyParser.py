@@ -135,7 +135,6 @@ class KernelFinder(ast.NodeVisitor):
     def get_location(self, node) -> list[tuple[str, str]]:
         runningLoc: list[tuple[str, str]] = []
         currNode = node.parent
-
         currNode = getattr(node, 'parent', None)
         
         while currNode is not None and not isinstance(currNode, ast.Module):
@@ -165,7 +164,7 @@ class KernelFinder(ast.NodeVisitor):
 
     #TODO: add support for finding when cudaq or cudaq kernel or make_kernel is aliased within the code (involves visit_Assign)
     #TODO: scan for functions that return a kernel, add those to the assign visit list!! (fixes some of not being able to see inside functions)
-
+   
 
     def visit_FunctionDef(self, node):
         for decorator in node.decorator_list:
@@ -200,8 +199,6 @@ class KernelFinder(ast.NodeVisitor):
                             "location": self.get_location(node)
                         })
         self.generic_visit(node)
-
-
 
 
 

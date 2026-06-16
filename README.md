@@ -16,6 +16,11 @@ Create a quantum circuit encoder that takes in a pre-defined quantum circuit / a
  - numpy
  - ipython
 
+
+## Current Limitations
+ - Does not support circuits with classical control-flow (if cc.* appears in the quake, we cannot parse it)
+ - The kernel finding in the python files is limited to circuits that are not found within a function.
+
 ## Reach Goals
 
  - Use pre-trained diffusion models to generate quantum circuits.
