@@ -20,6 +20,7 @@ def create_GHZ_circuit(qubit_count: int):
 
     return kernel
 
+qubit_count = 10
 kernel = cudaq.make_kernel()
 q = kernel.qalloc(qubit_count)
 

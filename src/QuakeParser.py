@@ -333,7 +333,8 @@ class QuakeParser:
 
                                     
                                     parsedCir.add_gate(op_name, qbits, params)
-                                    
+                                elif op_name == "func.return":
+                                    pass
 
                                 else: 
                                     print(f"unidenifiable quake operation {inner_op}. Aborting the parse of this kernel")
