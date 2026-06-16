@@ -60,7 +60,7 @@ def graphviz_will_out(cir):
                     dag.node(f'{curr}', f'{curr}')
                 dag.edge(f'{pred}', f'{curr}')
             curr = pred # curr becomes pred
-    dag.render()
+    dag.render(directory='../output')
 
 def plaintext_out(cir):
     with open(cir.name + "_plaintext_output.txt", "w+") as f:
@@ -107,5 +107,5 @@ def graphviz_out(cir):
                 dag.node(f'{pred}', f'{pred}')
             dag.edge(f'{pred}', f'{curr}')
             curr = pred # curr becomes pred
-    dag.render()
+    dag.render(directory='../output')
             
