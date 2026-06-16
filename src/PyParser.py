@@ -96,7 +96,7 @@ class PyParser:
             with contextlib.redirect_stdout(devnull), contextlib.redirect_stderr(devnull): 
                 exec(compiled_fake_file, isolated_globals)
 
-        pprint(isolated_globals)
+        #pprint(isolated_globals)
 
         for kernel in easyKernels:
             if kernel["location"]:
