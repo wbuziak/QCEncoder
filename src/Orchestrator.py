@@ -19,6 +19,7 @@ class Orchestrator:
             quake_ir = QuakeParser.prep_quake_string(str(kernel))
             parsedCir = QuakeParser.parse_quake_string(quake_ir)
             if parsedCir: #make sure a circuit was returned
+                parsedCir.init_ir()
                 try:
                     TargetReps.graphviz_will_out(parsedCir)
                 except Exception as e:
@@ -27,7 +28,14 @@ class Orchestrator:
                     TargetReps.tuple_out(parsedCir)
                 except Exception as e:
                     print(f"Error outputting tuple for kernel: {e}")
-
+                try:
+                    TargetReps.graphviz_out(parsedCir)
+                except Exception as e:
+                    print(f"Error outputting graphviz for kernel: {e}")
+                try:
+                    TargetReps.plaintext_out(parsedCir)
+                except Exception as e:
+                    print(f"Error outputting plaintext for kernel: {e}")
 
 
         '''

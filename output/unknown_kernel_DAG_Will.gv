@@ -1,0 +1,54 @@
+digraph unknown_kernel_DAG_Will {
+	Start [label=Start color=green style=filled]
+	End [label=End color=red style=filled]
+	"quake.h(0)@t0" [label=h]
+	"quake.cx(0,1)@t1" [label=cx]
+	"quake.cx(0,2)@t2" [label=cx]
+	"quake.cx(0,3)@t3" [label=cx]
+	"quake.cx(0,4)@t4" [label=cx]
+	"quake.cx(0,5)@t5" [label=cx]
+	"quake.cx(0,6)@t6" [label=cx]
+	"quake.cx(0,7)@t7" [label=cx]
+	"quake.cx(0,8)@t8" [label=cx]
+	"quake.cx(0,9)@t9" [label=cx]
+	"quake.mz(0,1,2,3,4,5,6,7,8,9)@t10" [label=mz color=yellow style=filled]
+	Start -> "quake.h(0)@t0"
+	"quake.h(0)@t0" -> "quake.cx(0,1)@t1"
+	Start -> "quake.cx(0,1)@t1"
+	"quake.cx(0,1)@t1" -> "quake.cx(0,2)@t2"
+	Start -> "quake.cx(0,2)@t2"
+	"quake.cx(0,2)@t2" -> "quake.cx(0,3)@t3"
+	Start -> "quake.cx(0,3)@t3"
+	"quake.cx(0,3)@t3" -> "quake.cx(0,4)@t4"
+	Start -> "quake.cx(0,4)@t4"
+	"quake.cx(0,4)@t4" -> "quake.cx(0,5)@t5"
+	Start -> "quake.cx(0,5)@t5"
+	"quake.cx(0,5)@t5" -> "quake.cx(0,6)@t6"
+	Start -> "quake.cx(0,6)@t6"
+	"quake.cx(0,6)@t6" -> "quake.cx(0,7)@t7"
+	Start -> "quake.cx(0,7)@t7"
+	"quake.cx(0,7)@t7" -> "quake.cx(0,8)@t8"
+	Start -> "quake.cx(0,8)@t8"
+	"quake.cx(0,8)@t8" -> "quake.cx(0,9)@t9"
+	Start -> "quake.cx(0,9)@t9"
+	"quake.cx(0,9)@t9" -> "quake.mz(0,1,2,3,4,5,6,7,8,9)@t10"
+	"quake.cx(0,1)@t1" -> "quake.mz(0,1,2,3,4,5,6,7,8,9)@t10"
+	"quake.cx(0,2)@t2" -> "quake.mz(0,1,2,3,4,5,6,7,8,9)@t10"
+	"quake.cx(0,3)@t3" -> "quake.mz(0,1,2,3,4,5,6,7,8,9)@t10"
+	"quake.cx(0,4)@t4" -> "quake.mz(0,1,2,3,4,5,6,7,8,9)@t10"
+	"quake.cx(0,5)@t5" -> "quake.mz(0,1,2,3,4,5,6,7,8,9)@t10"
+	"quake.cx(0,6)@t6" -> "quake.mz(0,1,2,3,4,5,6,7,8,9)@t10"
+	"quake.cx(0,7)@t7" -> "quake.mz(0,1,2,3,4,5,6,7,8,9)@t10"
+	"quake.cx(0,8)@t8" -> "quake.mz(0,1,2,3,4,5,6,7,8,9)@t10"
+	"quake.cx(0,9)@t9" -> "quake.mz(0,1,2,3,4,5,6,7,8,9)@t10"
+	"quake.mz(0,1,2,3,4,5,6,7,8,9)@t10" -> End
+	"quake.mz(0,1,2,3,4,5,6,7,8,9)@t10" -> End
+	"quake.mz(0,1,2,3,4,5,6,7,8,9)@t10" -> End
+	"quake.mz(0,1,2,3,4,5,6,7,8,9)@t10" -> End
+	"quake.mz(0,1,2,3,4,5,6,7,8,9)@t10" -> End
+	"quake.mz(0,1,2,3,4,5,6,7,8,9)@t10" -> End
+	"quake.mz(0,1,2,3,4,5,6,7,8,9)@t10" -> End
+	"quake.mz(0,1,2,3,4,5,6,7,8,9)@t10" -> End
+	"quake.mz(0,1,2,3,4,5,6,7,8,9)@t10" -> End
+	"quake.mz(0,1,2,3,4,5,6,7,8,9)@t10" -> End
+}

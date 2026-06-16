@@ -109,9 +109,10 @@ class QuakeParser:
             parsedCir: cir = cir()
             context.allow_unregistered_dialects = True
 
-            #print(quake_mlir_code)
+            print(quake_mlir_code)
             module = ir.Module.parse(quake_mlir_code)
 
+            
 
             
             #find the kernel name and save it
@@ -122,7 +123,7 @@ class QuakeParser:
                 kernel_name = "unknown_kernel"
 
             parsedCir.name = kernel_name
-            print(f"--- Parsing Quantum Kernel: {parsedCir.name} ---")
+            print(f"\n\n--- Parsing Quantum Kernel: {parsedCir.name} ---")
 
 
 
