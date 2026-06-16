@@ -2,7 +2,7 @@ import CirDat
 import graphviz as gv
 
 def tuple_out(cir):
-    with open("../output" + cir.name + "_tuple_output.txt", "w+") as f:
+    with open("../output/" + cir.name + "_tuple_output.txt", "w+") as f:
         for g in cir.gates:
             f.write(f"({g.name[g.name.index('.')+1:]},[")
             f.write(f"{g.qbits[0]}")

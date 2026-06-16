@@ -19,6 +19,7 @@ class Orchestrator:
             quake_ir = QuakeParser.prep_quake_string(str(kernel))
             parsedCir = QuakeParser.parse_quake_string(quake_ir)
             if parsedCir: #make sure a circuit was returned
+                parsedCir.init_ir()
                 TargetReps.graphviz_will_out(parsedCir)
                 TargetReps.tuple_out(parsedCir)
 
