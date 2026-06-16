@@ -110,38 +110,30 @@ class cir:
         edges = set() # we only want one of each edge
         measurement = set()
         with open(self.name + "_graphviz_output.txt", "w+") as f: # the output file
-            f.write("digraph G {\n")
-            for qubit in range(0, self.qCount):
-                curr = f"q{qubit}_end"
-                while curr != None:
-                    if "mz" in curr:
-                        measurement.add(curr)
-                    pred = self.ir[curr]
-                    if pred == None:
+            f.write("digraph G {\n") # necessary header for graphviz
+            for qubit in range(0, self.qCount): # go through all the qubits
+                curr = f"q{qubit}_end" # our current qubit is the ith qubit
+                while curr != None: # loop backwards until None (passing the start qubit)
+                    if "mz" in curr: # add measurements as they appear
+                        measurement.add(curr) 
+                    pred = self.ir[curr] # the predecessor to the current qubit
+                    if pred == None: # break early if the predecessor is None (we have already added the edge from the current gate/qubit to the next gate)
                         break
-                    if "," in pred:
-                        pred = pred.split(",")
-                        for p in pred:
+                    if "," in pred: # if the gate has multiple inputs
+                        pred = pred.split(",") # separate the inputs
+                        for p in pred: # add edges for all pred -> curr pairs
                             edges.add(f"\t\"{p}\" -> \"{curr}\"\n")
-                            #if p.count("_") > 1:
-                                #f.write(f" [label={p.split('_')[3]}]\n")
-                            #else:
-                                #f.write(f" [label={p.split('_')[0][1:]}]\n")
-                        if len(pred) > 2:
-                            curr = pred[qubit]
+                        if len(pred) > 2: # this is a special case with the measurement as it is tied to all qubits, we just select the one we started on and take that path
+                            curr = pred[qubit] 
                         else:
-                            curr = pred[0] if str(qubit) in pred[0].split("_") else pred[1]
+                            curr = pred[0] if str(qubit) in pred[0].split("_") else pred[1] # choose the matching predecessor (equivalent qubit)
                         continue
-                    edges.add(f"\t\"{pred}\" -> \"{curr}\"\n")
-                    #if pred.count("_") > 1:
-                        #f.write(f" [label={pred.split('_')[3]}]\n")
-                    #else:
-                        #f.write(f" [label={pred.split('_')[0][1:]}]\n")
-                    curr = pred
-            for edge in edges:
+                    edges.add(f"\t\"{pred}\" -> \"{curr}\"\n") # if it is a single input gate, just add the edge
+                    curr = pred # pred becomes curr
+            for edge in edges: # write the edges to the output file
                 f.write(edge)
             f.write("\n")
-            for qubit in range(0, self.qCount):
+            for qubit in range(0, self.qCount): # write the coloring of qubits and measurements
                 f.write(f"\t\"q{qubit}_end\" [style=filled, fillcolor=red]\n")
                 f.write(f"\t\"q{qubit}_start\" [style=filled, fillcolor=green]\n")
             for mz in measurement:
