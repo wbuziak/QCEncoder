@@ -8,19 +8,19 @@ class Orchestrator:
     @staticmethod
     def parse_all_from_file(filePath: str | Path):
 
-        print(f"Grabbing AST from: {filePath}")
+        print(f"Grabbing AST from: {filePath}\n")
         pyAST = PyParser.load_ast_file(filePath)
 
-        print("Finding kernels in AST...")
+        print("Finding kernels in AST...\n")
         kernels_paths = PyParser.find_kernel_paths(pyAST)
 
-
-        print("Extracting kernel code from AST...")
+        print(f"Found {len(kernels_paths)} in the AST; Attempting to extracte kernel code from AST...\n")
         kernels = PyParser.extract_kernel_code(pyAST, kernels_paths)
 
-        print(f"Retrieved {len(kernels)} kernels in file: {filePath}")
+        print(f"Retrieved {len(kernels)} kernels in file: {filePath}\n")
         print("Note: some kernels may not be retrievable")
-
+        
+        parsed = 0
         for name, kernel in kernels.items():
             #we need to import the kernel and out the quake 
             
@@ -55,8 +55,11 @@ class Orchestrator:
                     TargetReps.plaintext_out(parsedCir)
                 except Exception as e:
                     print(f"Error outputting plaintext for kernel: {e}")
+                parsed += 1
             else:
                 print(f"Error parsing kernel: {name}, skipping outputting representations")
+            
+        print(f"\nSuccessfully parsed {parsed}/{len(kernels)} kernels retrieved from file: {filePath}")
 
 
         '''
