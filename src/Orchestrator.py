@@ -8,11 +8,14 @@ from pathlib import Path
 class Orchestrator:
     @staticmethod
     def parse_all_from_file(filePath: str | Path):
-        pyAST = PyParser.load_ast_file(filePath)
-        kernels  = PyParser.find_kernels(pyAST)
+        pyAST = PyParser.load_ast_from_notebook(filePath)
+        kernels_paths = PyParser.find_kernel_paths(pyAST)
+        kernels = PyParser.extract_kernel_code(pyAST, kernels_paths)
 
         for kernel in kernels:
             #we need to import the kernel and out the quake 
+            
+            #print(kernel)
             quake_ir = QuakeParser.prep_quake_string(str(kernel))
             parsedCir = QuakeParser.parse_quake_string(quake_ir)
             if parsedCir: #make sure a circuit was returned
@@ -30,5 +33,6 @@ class Orchestrator:
         talk with othe
         '''
 
-if __name__ == "__main__":
-    Orchestrator.parse_all_from_file("GHZ.py")
+if __name__ == "__main__": 
+    Orchestrator.parse_all_from_file("../circuits/GHZ.ipynb")
+    #Orchestrator.parse_all_from_file("../misc_files/GHZ.py")
