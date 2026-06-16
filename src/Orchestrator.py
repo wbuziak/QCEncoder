@@ -8,7 +8,7 @@ from pathlib import Path
 class Orchestrator:
     @staticmethod
     def parse_all_from_file(filePath: str | Path):
-        pyAST = PyParser.load_ast_from_notebook(filePath)
+        pyAST = PyParser.load_ast_file(filePath)
         kernels_paths = PyParser.find_kernel_paths(pyAST)
         kernels = PyParser.extract_kernel_code(pyAST, kernels_paths)
 
@@ -34,5 +34,5 @@ class Orchestrator:
         '''
 
 if __name__ == "__main__": 
-    Orchestrator.parse_all_from_file("../circuits/GHZ.ipynb")
-    #Orchestrator.parse_all_from_file("../misc_files/GHZ.py")
+    #Orchestrator.parse_all_from_file("../circuits/GHZ.ipynb")
+    Orchestrator.parse_all_from_file("../misc_files/GHZ.py")
