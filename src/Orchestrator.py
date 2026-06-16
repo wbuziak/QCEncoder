@@ -22,6 +22,8 @@ class Orchestrator:
                 parsedCir.init_ir()
                 TargetReps.graphviz_will_out(parsedCir)
                 TargetReps.tuple_out(parsedCir)
+                TargetReps.graphviz_out(parsedCir)
+                TargetReps.plaintext_out(parsedCir)
 
 
         '''
