@@ -1,10 +1,8 @@
-import importlib
 import ast
 import os
 import contextlib
 from pprint import pprint
 from nbconvert import PythonExporter
-import json
 from pathlib import Path
 import linecache
 
@@ -85,7 +83,7 @@ class PyParser:
         #start getting the quake of the easy kernel
         source_code = ast.unparse(pyAST) #get the source back so we can execute it 
 
-        print(source_code)
+        #print(source_code)
 
         #These next couple of lines were made with the help of AI
         spoofed_file = f"<faked_kernel_file>"

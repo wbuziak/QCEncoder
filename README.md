@@ -5,7 +5,15 @@ Create a quantum circuit encoder that takes in a pre-defined quantum circuit / a
  - We will consider a range of circuit complexity and hope to be able to process custom unitaries / gates. 
  - Additionally, we would like to take in a DAG or tensor and create the corresponding quantum circuit.
  - We begin with CUDA-Q and intend to expand to consider other popular Quantum SDK's such as qiskit.
- - Consider hybrid quantum-classical applications and how quantum circuit representation can be useful for different methods and techniques such as quantum architecture or machine learning. 
+ - Consider hybrid quantum-classical applications and how quantum circuit representation can be useful for different methods and techniques such as quantum architecture or machine learning.
+
+## Dependency
+
+ - CUDA-Q
+ - Graphviz
+ - nbconvert
+ - numpy
+
 
 ## Reach Goals
 
