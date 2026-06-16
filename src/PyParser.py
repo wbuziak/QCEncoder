@@ -5,7 +5,8 @@ from pprint import pprint
 from nbconvert import PythonExporter
 from pathlib import Path
 import linecache
-
+from cudaq.kernel.kernel_builder import PyKernel
+from cudaq.kernel.kernel_decorator import PyKernelDecorator
 import KerNodeVisitor
 
 
@@ -58,9 +59,9 @@ class PyParser:
 
 
     @staticmethod 
-    def extract_kernel_code(pyAST: ast.AST, kernelList) -> list[str]:
-        collection: list[str] = []
-
+    def extract_kernel_code(pyAST: ast.AST, kernelList) -> dict[str, str]:
+        collection: dict[str, str] = {}
+        #print(ast.dump(pyAST, indent=4))
         hardKernels = []
         easyKernels = []
         
@@ -97,17 +98,29 @@ class PyParser:
                 exec(compiled_fake_file, isolated_globals)
 
         #pprint(isolated_globals)
-
+        #pprint(dir(isolated_globals['k']))
+        
         for kernel in easyKernels:
             if kernel["location"]:
                 parentObj = isolated_globals[kernel["location"].pop(0)[0]]
                 while kernel["location"]:
                     parentObj = getattr(parentObj, kernel["location"].pop(0)[0])
-                collection.append(str(getattr(parentObj, kernel["name"])))
+                collection[kernel['name']] = str(getattr(parentObj, kernel["name"]))
             else: 
-                collection.append(str(isolated_globals[kernel["name"]]))
+                collection[kernel['name']] = str(isolated_globals[kernel["name"]])
+
+
+        #sometimes kernel objects are created by calling a function that returns a kernel, so we need to find those as well, this is the easiest way to extend coverage
+        for id, obj in isolated_globals.items():
+            if isinstance(obj, PyKernel): # the objects we look for cannot be PyKernelDecoratores
+                if id not in collection.keys():
+                    collection[id] = str(obj)
+
+
+
 
         return collection
+
 
 
     @staticmethod
@@ -128,6 +141,8 @@ class KernelFinder(ast.NodeVisitor):
 
     def __init__(self):
         self.results = [] 
+        self.possible_kernels = []
+        self.possible_kernel_makers = []
         self.kernel_imported: list[str] = ["kernel"]
         self.cudaq_asname: list[str] = ["cudaq"]
 

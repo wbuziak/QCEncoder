@@ -1,0 +1,11 @@
+quake.h(0)@t0
+quake.cx(0,1)@t1
+quake.cx(0,2)@t2
+quake.cx(0,3)@t3
+quake.cx(0,4)@t4
+quake.cx(0,5)@t5
+quake.cx(0,6)@t6
+quake.cx(0,7)@t7
+quake.cx(0,8)@t8
+quake.cx(0,9)@t9
+quake.mz(0,1,2,3,4,5,6,7,8,9)@t10

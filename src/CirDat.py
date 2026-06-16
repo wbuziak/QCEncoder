@@ -37,7 +37,7 @@ class cir:
     gates: list[gate] = field(default_factory=list)
     ref_reg: dict[int, int] = field(default_factory=dict) #the key is the reg the reference is placed into 
     val_reg: dict[str, float | str] = field(default_factory=dict) # the ksy is %cst or %arg
-    name: str = "testname"
+    name: str = ""
     ir = {}
 
     def save_value(self, vRegLbl: str, value: float | int):
