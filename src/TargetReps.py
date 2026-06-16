@@ -2,7 +2,7 @@ import CirDat
 import graphviz as gv
 
 def tuple_out(cir):
-    with open(cir.name + "_tuple_output.txt", "w+") as f:
+    with open("../output" + cir.name + "_tuple_output.txt", "w+") as f:
         for g in cir.gates:
             f.write(f"({g.name[g.name.index('.')+1:]},[")
             f.write(f"{g.qbits[0]}")
@@ -11,7 +11,7 @@ def tuple_out(cir):
             f.write(f"],{g.time})\n")
 
 def graphviz_will_out(cir):
-    dag = gv.Digraph
+    dag = gv.Digraph(format='png')
     dag.node('End', 'End')
     dag.node('Start', 'Start')
     for qubit in range(0, cir.qCount): # go through all the qubits
@@ -68,7 +68,7 @@ def plaintext_out(cir):
             f.write(f"{g}\n")
 
 def graphviz_out(cir):
-    dag = gv.Digraph
+    dag = gv.Digraph()
     for qubit in range(0, cir.qCount): # go through all the qubits
         curr = f"q{qubit}_end" # our current qubit is the ith qubit
         while curr != None: # loop backwards until None (passing the start qubit)
