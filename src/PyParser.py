@@ -7,58 +7,40 @@ from pathlib import Path
 import linecache
 from cudaq.kernel.kernel_builder import PyKernel
 from cudaq.kernel.kernel_decorator import PyKernelDecorator
-import KerNodeVisitor
+import magic
 
 
 class PyParser:
-    #TODO: make something to auto identify the file type (py or jupyter)
-    '''
-    This method was made with AI, I didn't know nbconvert had a python package, I just thought is was a cli tool 
-    '''
-    @staticmethod 
-    def load_ast_from_notebook(notebook_path) -> ast.AST:
-             
-        #use nbconvert to into python
-        exporter = PythonExporter()
-        source_code, _ = exporter.from_filename(notebook_path)
-        
-        #Now do it with python
-        pyAST = ast.parse(source_code)
-        annotator = ParentAnnotator()
-        annotator.visit(pyAST)
-        return pyAST
-
-
+    
     @staticmethod
     def load_ast_file(filePath: str | Path) -> ast.AST:
         if isinstance(filePath, str):
             filePath = Path(filePath)
- 
+
         if not isinstance(filePath, Path):
             raise TypeError("filePath must be a pathlib.Path or str")
 
         if not filePath.exists():
             raise FileNotFoundError(f"file not at {filePath}")
 
-        #Read the source code directly and parse it
-        source_code = filePath.read_text(encoding="utf-8")
-
-
+        #detect if it is either a juptyer notebook or python file
+        fileType = magic.from_file(filePath, mime=True)
+        if fileType == "text/x-script.python":
+            #Read the source code directly and parse it
+            source_code = filePath.read_text(encoding="utf-8")
+        elif fileType == "application/json":
+            #use nbconvert to into python
+            exporter = PythonExporter()
+            source_code, _ = exporter.from_filename(filePath)
+        else:
+            raise TypeError(f"Expected Jupyter Notebook or Python file, got: {fileType}")
+        
         pyAST = ast.parse(source_code)
         #Add in parent nodes
         annotator = ParentAnnotator()
         annotator.visit(pyAST)
 
         return pyAST
-    
-
-    @staticmethod
-    def find_kernels(pyAST: ast.AST): #the quake strings
-        kerVis = KerNodeVisitor.KerNodeVisitor()
-        kerVis.visit(pyAST)
-
-        return kerVis.return_kernels()
-
 
     @staticmethod 
     def extract_kernel_code(pyAST: ast.AST, kernelList) -> dict[str, str]:
@@ -218,28 +200,7 @@ class KernelFinder(ast.NodeVisitor):
 
 if __name__ == "__main__":
     pyAST = PyParser.load_ast_file("../misc_files/GHZ.py")
-    kernel_locations = PyParser.find_kernel_path(pyAST)
+    kernel_locations = PyParser.find_kernel_paths(pyAST)
     pprint(kernel_locations)
     PyParser.extract_kernel_code(pyAST, kernel_locations)
 
-
-
-
-
-        
-
-
-# print(pyAST := PyParser.load_ast_file("./_test_mod_for_parse.py"))
-# PyParser.find_kernels(pyAST)
-
-#code for testing:
-# if(1):
-#     t = PyParser.load_ast_file('./GHZ.py')
-# else:
-#     t = ast.parse('kernel = cudaq.make_kernel()')
-# x = KerNodeVisitor.KerNodeVisitor()
-# print(ast.dump(t, indent=2))
-# print()
-# x.visit(t)
-# print()
-# print(x.return_kernels())
