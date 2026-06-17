@@ -2,6 +2,24 @@ digraph ultimate_quake_inspector_DAG_Will {
 	Start [label=Start color=green style=filled]
 	End [label=End color=red style=filled]
 	"quake.x(0)@t0" [label=x]
+	"quake.x(2)@t1" [label=x]
+	"quake.h(0)@t2" [label=h]
+	"quake.cr1(1,0)@t3 params=(1.5707963267948966,)" [label=cr1]
+	"quake.cr1(2,0)@t4 params=(0.7853981633974483,)" [label=cr1]
+	"quake.h(1)@t5" [label=h]
+	"quake.cr1(2,1)@t6 params=(1.5707963267948966,)" [label=cr1]
+	"quake.h(2)@t7" [label=h]
+	"quake.h(0)@t0" [label=h]
+	"quake.cx(0,1)@t1" [label=cx]
+	"quake.cx(0,2)@t2" [label=cx]
+	"quake.cx(0,3)@t3" [label=cx]
+	"quake.cx(0,4)@t4" [label=cx]
+	"quake.cx(0,5)@t5" [label=cx]
+	"quake.cx(0,6)@t6" [label=cx]
+	"quake.cx(0,7)@t7" [label=cx]
+	"quake.cx(0,8)@t8" [label=cx]
+	"quake.cx(0,9)@t9" [label=cx]
+	"quake.mz(0,1,2,3,4,5,6,7,8,9)@t10" [label=mz color=yellow style=filled]
 	"quake.y(1)@t1" [label=y]
 	"quake.z(2)@t2" [label=z]
 	"quake.h(3)@t3" [label=h]
@@ -14,22 +32,22 @@ digraph ultimate_quake_inspector_DAG_Will {
 	"quake.swap(2,3)@t10" [label=swap]
 	"quake.cs(0,3)@t11" [label=cs]
 	"quake.ct(1,4)@t12" [label=ct]
-	"quake.rx(0)@t13 params=(6.0,)" [label=rx]
-	"quake.ry(1)@t14 params=(6.0,)" [label=ry]
-	"quake.rz(2)@t15 params=(6.0,)" [label=rz]
-	"quake.r1(3)@t16 params=(6.0,)" [label=r1]
+	"quake.rx(0)@t13 params=(0.1,)" [label=rx]
+	"quake.ry(1)@t14 params=(0.1,)" [label=ry]
+	"quake.rz(2)@t15 params=(0.1,)" [label=rz]
+	"quake.r1(3)@t16 params=(0.1,)" [label=r1]
 	"quake.rz(4)@t17 params=(1.5707963267948966,)" [label=rz]
 	"quake.rz(0)@t18 params=(0.7853981633974483,)" [label=rz]
-	"quake.crx(0,1)@t19 params=(6.0,)" [label=crx]
-	"quake.cry(1,2)@t20 params=(6.0,)" [label=cry]
-	"quake.crz(2,3)@t21 params=(6.0,)" [label=crz]
-	"quake.cr1(3,4)@t22 params=(6.0,)" [label=cr1]
+	"quake.crx(0,1)@t19 params=(0.1,)" [label=crx]
+	"quake.cry(1,2)@t20 params=(0.1,)" [label=cry]
+	"quake.crz(2,3)@t21 params=(0.1,)" [label=crz]
+	"quake.cr1(3,4)@t22 params=(0.1,)" [label=cr1]
 	"quake.sdg(0)@t23" [label=sdg]
 	"quake.tdg(1)@t24" [label=tdg]
-	"quake.u3(1)@t25 params=(5.0, 6.0, 7.0)" [label=u3]
-	"quake.cu3(0,1)@t26 params=(5.0, 6.0, 7.0)" [label=cu3]
-	"quake.exp_pauli(5,6,7,8)@t27 params=(5.0, 'XZYI')" [label=exp_pauli]
-	"quake.exp_pauli(5,6,7,8)@t28 params=(5.0, 'YZZZ')" [label=exp_pauli]
+	"quake.u3(1)@t25 params=(0.2, 0.3, 0.4)" [label=u3]
+	"quake.cu3(0,1)@t26 params=(0.2, 0.3, 0.4)" [label=cu3]
+	"quake.exp_pauli(5,6,7,8)@t27 params=(0.5, 'XZYI')" [label=exp_pauli]
+	"quake.exp_pauli(5,6,7,8)@t28 params=(0.5, 'XYZI')" [label=exp_pauli]
 	"quake.mx(0)@t29" [label=mx color=yellow style=filled]
 	"quake.my(1)@t30" [label=my color=yellow style=filled]
 	"quake.mz(2)@t31" [label=mz color=yellow style=filled]
@@ -77,8 +95,8 @@ digraph ultimate_quake_inspector_DAG_Will {
 	"quake.cx(0,7)@t7" -> "quake.mz(0,1,2,3,4,5,6,7,8,9)@t10"
 	"quake.cx(0,8)@t8" -> "quake.mz(0,1,2,3,4,5,6,7,8,9)@t10"
 	"quake.cx(0,9)@t9" -> "quake.mz(0,1,2,3,4,5,6,7,8,9)@t10"
-	"quake.cr1(3,4)@t22 params=(6.0,)" -> End
-	"quake.cr1(3,4)@t22 params=(6.0,)" -> End
+	"quake.cr1(3,4)@t22 params=(0.1,)" -> End
+	"quake.cr1(3,4)@t22 params=(0.1,)" -> End
 	"quake.mx(5,6,7,8)@t32" -> End
 	"quake.mx(5,6,7,8)@t32" -> End
 	"quake.mx(5,6,7,8)@t32" -> End
@@ -103,38 +121,38 @@ digraph ultimate_quake_inspector_DAG_Will {
 	"quake.swap(2,3)@t10" -> "quake.cs(0,3)@t11"
 	"quake.cy(1,2)@t7" -> "quake.ct(1,4)@t12"
 	Start -> "quake.ct(1,4)@t12"
-	"quake.cs(0,3)@t11" -> "quake.rx(0)@t13 params=(6.0,)"
-	"quake.ct(1,4)@t12" -> "quake.ry(1)@t14 params=(6.0,)"
-	"quake.swap(2,3)@t10" -> "quake.rz(2)@t15 params=(6.0,)"
-	"quake.cs(0,3)@t11" -> "quake.r1(3)@t16 params=(6.0,)"
+	"quake.cs(0,3)@t11" -> "quake.rx(0)@t13 params=(0.1,)"
+	"quake.ct(1,4)@t12" -> "quake.ry(1)@t14 params=(0.1,)"
+	"quake.swap(2,3)@t10" -> "quake.rz(2)@t15 params=(0.1,)"
+	"quake.cs(0,3)@t11" -> "quake.r1(3)@t16 params=(0.1,)"
 	"quake.ct(1,4)@t12" -> "quake.rz(4)@t17 params=(1.5707963267948966,)"
-	"quake.rx(0)@t13 params=(6.0,)" -> "quake.rz(0)@t18 params=(0.7853981633974483,)"
-	"quake.rz(0)@t18 params=(0.7853981633974483,)" -> "quake.crx(0,1)@t19 params=(6.0,)"
-	"quake.ry(1)@t14 params=(6.0,)" -> "quake.crx(0,1)@t19 params=(6.0,)"
-	"quake.crx(0,1)@t19 params=(6.0,)" -> "quake.cry(1,2)@t20 params=(6.0,)"
-	"quake.rz(2)@t15 params=(6.0,)" -> "quake.cry(1,2)@t20 params=(6.0,)"
-	"quake.cry(1,2)@t20 params=(6.0,)" -> "quake.crz(2,3)@t21 params=(6.0,)"
-	"quake.r1(3)@t16 params=(6.0,)" -> "quake.crz(2,3)@t21 params=(6.0,)"
-	"quake.crz(2,3)@t21 params=(6.0,)" -> "quake.cr1(3,4)@t22 params=(6.0,)"
-	"quake.rz(4)@t17 params=(1.5707963267948966,)" -> "quake.cr1(3,4)@t22 params=(6.0,)"
-	"quake.crx(0,1)@t19 params=(6.0,)" -> "quake.sdg(0)@t23"
-	"quake.cry(1,2)@t20 params=(6.0,)" -> "quake.tdg(1)@t24"
-	"quake.tdg(1)@t24" -> "quake.u3(1)@t25 params=(5.0, 6.0, 7.0)"
-	"quake.sdg(0)@t23" -> "quake.cu3(0,1)@t26 params=(5.0, 6.0, 7.0)"
-	"quake.u3(1)@t25 params=(5.0, 6.0, 7.0)" -> "quake.cu3(0,1)@t26 params=(5.0, 6.0, 7.0)"
-	Start -> "quake.exp_pauli(5,6,7,8)@t27 params=(5.0, 'XZYI')"
-	Start -> "quake.exp_pauli(5,6,7,8)@t27 params=(5.0, 'XZYI')"
-	Start -> "quake.exp_pauli(5,6,7,8)@t27 params=(5.0, 'XZYI')"
-	Start -> "quake.exp_pauli(5,6,7,8)@t27 params=(5.0, 'XZYI')"
-	"quake.exp_pauli(5,6,7,8)@t27 params=(5.0, 'XZYI')" -> "quake.exp_pauli(5,6,7,8)@t28 params=(5.0, 'YZZZ')"
-	"quake.exp_pauli(5,6,7,8)@t27 params=(5.0, 'XZYI')" -> "quake.exp_pauli(5,6,7,8)@t28 params=(5.0, 'YZZZ')"
-	"quake.exp_pauli(5,6,7,8)@t27 params=(5.0, 'XZYI')" -> "quake.exp_pauli(5,6,7,8)@t28 params=(5.0, 'YZZZ')"
-	"quake.exp_pauli(5,6,7,8)@t27 params=(5.0, 'XZYI')" -> "quake.exp_pauli(5,6,7,8)@t28 params=(5.0, 'YZZZ')"
-	"quake.cu3(0,1)@t26 params=(5.0, 6.0, 7.0)" -> "quake.mx(0)@t29"
-	"quake.cu3(0,1)@t26 params=(5.0, 6.0, 7.0)" -> "quake.my(1)@t30"
-	"quake.crz(2,3)@t21 params=(6.0,)" -> "quake.mz(2)@t31"
-	"quake.exp_pauli(5,6,7,8)@t28 params=(5.0, 'YZZZ')" -> "quake.mx(5,6,7,8)@t32"
-	"quake.exp_pauli(5,6,7,8)@t28 params=(5.0, 'YZZZ')" -> "quake.mx(5,6,7,8)@t32"
-	"quake.exp_pauli(5,6,7,8)@t28 params=(5.0, 'YZZZ')" -> "quake.mx(5,6,7,8)@t32"
-	"quake.exp_pauli(5,6,7,8)@t28 params=(5.0, 'YZZZ')" -> "quake.mx(5,6,7,8)@t32"
+	"quake.rx(0)@t13 params=(0.1,)" -> "quake.rz(0)@t18 params=(0.7853981633974483,)"
+	"quake.rz(0)@t18 params=(0.7853981633974483,)" -> "quake.crx(0,1)@t19 params=(0.1,)"
+	"quake.ry(1)@t14 params=(0.1,)" -> "quake.crx(0,1)@t19 params=(0.1,)"
+	"quake.crx(0,1)@t19 params=(0.1,)" -> "quake.cry(1,2)@t20 params=(0.1,)"
+	"quake.rz(2)@t15 params=(0.1,)" -> "quake.cry(1,2)@t20 params=(0.1,)"
+	"quake.cry(1,2)@t20 params=(0.1,)" -> "quake.crz(2,3)@t21 params=(0.1,)"
+	"quake.r1(3)@t16 params=(0.1,)" -> "quake.crz(2,3)@t21 params=(0.1,)"
+	"quake.crz(2,3)@t21 params=(0.1,)" -> "quake.cr1(3,4)@t22 params=(0.1,)"
+	"quake.rz(4)@t17 params=(1.5707963267948966,)" -> "quake.cr1(3,4)@t22 params=(0.1,)"
+	"quake.crx(0,1)@t19 params=(0.1,)" -> "quake.sdg(0)@t23"
+	"quake.cry(1,2)@t20 params=(0.1,)" -> "quake.tdg(1)@t24"
+	"quake.tdg(1)@t24" -> "quake.u3(1)@t25 params=(0.2, 0.3, 0.4)"
+	"quake.sdg(0)@t23" -> "quake.cu3(0,1)@t26 params=(0.2, 0.3, 0.4)"
+	"quake.u3(1)@t25 params=(0.2, 0.3, 0.4)" -> "quake.cu3(0,1)@t26 params=(0.2, 0.3, 0.4)"
+	Start -> "quake.exp_pauli(5,6,7,8)@t27 params=(0.5, 'XZYI')"
+	Start -> "quake.exp_pauli(5,6,7,8)@t27 params=(0.5, 'XZYI')"
+	Start -> "quake.exp_pauli(5,6,7,8)@t27 params=(0.5, 'XZYI')"
+	Start -> "quake.exp_pauli(5,6,7,8)@t27 params=(0.5, 'XZYI')"
+	"quake.exp_pauli(5,6,7,8)@t27 params=(0.5, 'XZYI')" -> "quake.exp_pauli(5,6,7,8)@t28 params=(0.5, 'XYZI')"
+	"quake.exp_pauli(5,6,7,8)@t27 params=(0.5, 'XZYI')" -> "quake.exp_pauli(5,6,7,8)@t28 params=(0.5, 'XYZI')"
+	"quake.exp_pauli(5,6,7,8)@t27 params=(0.5, 'XZYI')" -> "quake.exp_pauli(5,6,7,8)@t28 params=(0.5, 'XYZI')"
+	"quake.exp_pauli(5,6,7,8)@t27 params=(0.5, 'XZYI')" -> "quake.exp_pauli(5,6,7,8)@t28 params=(0.5, 'XYZI')"
+	"quake.cu3(0,1)@t26 params=(0.2, 0.3, 0.4)" -> "quake.mx(0)@t29"
+	"quake.cu3(0,1)@t26 params=(0.2, 0.3, 0.4)" -> "quake.my(1)@t30"
+	"quake.crz(2,3)@t21 params=(0.1,)" -> "quake.mz(2)@t31"
+	"quake.exp_pauli(5,6,7,8)@t28 params=(0.5, 'XYZI')" -> "quake.mx(5,6,7,8)@t32"
+	"quake.exp_pauli(5,6,7,8)@t28 params=(0.5, 'XYZI')" -> "quake.mx(5,6,7,8)@t32"
+	"quake.exp_pauli(5,6,7,8)@t28 params=(0.5, 'XYZI')" -> "quake.mx(5,6,7,8)@t32"
+	"quake.exp_pauli(5,6,7,8)@t28 params=(0.5, 'XYZI')" -> "quake.mx(5,6,7,8)@t32"
 }
