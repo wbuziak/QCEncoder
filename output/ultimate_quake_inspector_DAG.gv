@@ -2,42 +2,13 @@ digraph ultimate_quake_inspector_DAG {
 	q0_start [label=q0_start color=green style=filled]
 	q1_start [label=q1_start color=green style=filled]
 	q2_start [label=q2_start color=green style=filled]
-	"quake.x(0)@t0" [label=x]
-	"quake.x(2)@t1" [label=x]
-	"quake.h(0)@t2" [label=h]
-	"quake.cr1(1,0)@t3 params=(1.5707963267948966,)" [label=cr1]
-	"quake.cr1(2,0)@t4 params=(0.7853981633974483,)" [label=cr1]
-	"quake.h(1)@t5" [label=h]
-	"quake.cr1(2,1)@t6 params=(1.5707963267948966,)" [label=cr1]
-	"quake.h(2)@t7" [label=h]
-	q0_end [label=q0_end color=red style=filled]
-	q1_end [label=q1_end color=red style=filled]
-	q2_end [label=q2_end color=red style=filled]
 	q3_start [label=q3_start color=green style=filled]
 	q4_start [label=q4_start color=green style=filled]
 	q5_start [label=q5_start color=green style=filled]
 	q6_start [label=q6_start color=green style=filled]
 	q7_start [label=q7_start color=green style=filled]
 	q8_start [label=q8_start color=green style=filled]
-	q9_start [label=q9_start color=green style=filled]
-	"quake.h(0)@t0" [label=h]
-	"quake.cx(0,1)@t1" [label=cx]
-	"quake.cx(0,2)@t2" [label=cx]
-	"quake.cx(0,3)@t3" [label=cx]
-	"quake.cx(0,4)@t4" [label=cx]
-	"quake.cx(0,5)@t5" [label=cx]
-	"quake.cx(0,6)@t6" [label=cx]
-	"quake.cx(0,7)@t7" [label=cx]
-	"quake.cx(0,8)@t8" [label=cx]
-	"quake.cx(0,9)@t9" [label=cx]
-	"quake.mz(0,1,2,3,4,5,6,7,8,9)@t10" [label=mz color=yellow style=filled]
-	q3_end [label=q3_end color=red style=filled]
-	q4_end [label=q4_end color=red style=filled]
-	q5_end [label=q5_end color=red style=filled]
-	q6_end [label=q6_end color=red style=filled]
-	q7_end [label=q7_end color=red style=filled]
-	q8_end [label=q8_end color=red style=filled]
-	q9_end [label=q9_end color=red style=filled]
+	"quake.x(0)@t0" [label=x]
 	"quake.y(1)@t1" [label=y]
 	"quake.z(2)@t2" [label=z]
 	"quake.h(3)@t3" [label=h]
@@ -70,56 +41,16 @@ digraph ultimate_quake_inspector_DAG {
 	"quake.my(1)@t30" [label=my color=yellow style=filled]
 	"quake.mz(2)@t31" [label=mz color=yellow style=filled]
 	"quake.mx(5,6,7,8)@t32" [label=mx color=yellow style=filled]
+	q0_end [label=q0_end color=red style=filled]
+	q1_end [label=q1_end color=red style=filled]
+	q2_end [label=q2_end color=red style=filled]
+	q3_end [label=q3_end color=red style=filled]
+	q4_end [label=q4_end color=red style=filled]
+	q5_end [label=q5_end color=red style=filled]
+	q6_end [label=q6_end color=red style=filled]
+	q7_end [label=q7_end color=red style=filled]
+	q8_end [label=q8_end color=red style=filled]
 	q0_start -> "quake.x(0)@t0"
-	q2_start -> "quake.x(2)@t1"
-	"quake.x(0)@t0" -> "quake.h(0)@t2"
-	q1_start -> "quake.cr1(1,0)@t3 params=(1.5707963267948966,)"
-	"quake.h(0)@t2" -> "quake.cr1(1,0)@t3 params=(1.5707963267948966,)"
-	"quake.x(2)@t1" -> "quake.cr1(2,0)@t4 params=(0.7853981633974483,)"
-	"quake.cr1(1,0)@t3 params=(1.5707963267948966,)" -> "quake.cr1(2,0)@t4 params=(0.7853981633974483,)"
-	"quake.cr1(1,0)@t3 params=(1.5707963267948966,)" -> "quake.h(1)@t5"
-	"quake.cr1(2,0)@t4 params=(0.7853981633974483,)" -> "quake.cr1(2,1)@t6 params=(1.5707963267948966,)"
-	"quake.h(1)@t5" -> "quake.cr1(2,1)@t6 params=(1.5707963267948966,)"
-	"quake.cr1(2,1)@t6 params=(1.5707963267948966,)" -> "quake.h(2)@t7"
-	"quake.mx(0)@t29" -> q0_end
-	"quake.my(1)@t30" -> q1_end
-	"quake.mz(2)@t31" -> q2_end
-	q0_start -> "quake.h(0)@t0"
-	"quake.h(0)@t0" -> "quake.cx(0,1)@t1"
-	q1_start -> "quake.cx(0,1)@t1"
-	"quake.cx(0,1)@t1" -> "quake.cx(0,2)@t2"
-	q2_start -> "quake.cx(0,2)@t2"
-	"quake.cx(0,2)@t2" -> "quake.cx(0,3)@t3"
-	q3_start -> "quake.cx(0,3)@t3"
-	"quake.cx(0,3)@t3" -> "quake.cx(0,4)@t4"
-	q4_start -> "quake.cx(0,4)@t4"
-	"quake.cx(0,4)@t4" -> "quake.cx(0,5)@t5"
-	q5_start -> "quake.cx(0,5)@t5"
-	"quake.cx(0,5)@t5" -> "quake.cx(0,6)@t6"
-	q6_start -> "quake.cx(0,6)@t6"
-	"quake.cx(0,6)@t6" -> "quake.cx(0,7)@t7"
-	q7_start -> "quake.cx(0,7)@t7"
-	"quake.cx(0,7)@t7" -> "quake.cx(0,8)@t8"
-	q8_start -> "quake.cx(0,8)@t8"
-	"quake.cx(0,8)@t8" -> "quake.cx(0,9)@t9"
-	q9_start -> "quake.cx(0,9)@t9"
-	"quake.cx(0,9)@t9" -> "quake.mz(0,1,2,3,4,5,6,7,8,9)@t10"
-	"quake.cx(0,1)@t1" -> "quake.mz(0,1,2,3,4,5,6,7,8,9)@t10"
-	"quake.cx(0,2)@t2" -> "quake.mz(0,1,2,3,4,5,6,7,8,9)@t10"
-	"quake.cx(0,3)@t3" -> "quake.mz(0,1,2,3,4,5,6,7,8,9)@t10"
-	"quake.cx(0,4)@t4" -> "quake.mz(0,1,2,3,4,5,6,7,8,9)@t10"
-	"quake.cx(0,5)@t5" -> "quake.mz(0,1,2,3,4,5,6,7,8,9)@t10"
-	"quake.cx(0,6)@t6" -> "quake.mz(0,1,2,3,4,5,6,7,8,9)@t10"
-	"quake.cx(0,7)@t7" -> "quake.mz(0,1,2,3,4,5,6,7,8,9)@t10"
-	"quake.cx(0,8)@t8" -> "quake.mz(0,1,2,3,4,5,6,7,8,9)@t10"
-	"quake.cx(0,9)@t9" -> "quake.mz(0,1,2,3,4,5,6,7,8,9)@t10"
-	"quake.cr1(3,4)@t22 params=(0.1,)" -> q3_end
-	"quake.cr1(3,4)@t22 params=(0.1,)" -> q4_end
-	"quake.mx(5,6,7,8)@t32" -> q5_end
-	"quake.mx(5,6,7,8)@t32" -> q6_end
-	"quake.mx(5,6,7,8)@t32" -> q7_end
-	"quake.mx(5,6,7,8)@t32" -> q8_end
-	"quake.mz(0,1,2,3,4,5,6,7,8,9)@t10" -> q9_end
 	q1_start -> "quake.y(1)@t1"
 	q2_start -> "quake.z(2)@t2"
 	q3_start -> "quake.h(3)@t3"
@@ -173,4 +104,13 @@ digraph ultimate_quake_inspector_DAG {
 	"quake.exp_pauli(5,6,7,8)@t28 params=(0.5, 'XYZI')" -> "quake.mx(5,6,7,8)@t32"
 	"quake.exp_pauli(5,6,7,8)@t28 params=(0.5, 'XYZI')" -> "quake.mx(5,6,7,8)@t32"
 	"quake.exp_pauli(5,6,7,8)@t28 params=(0.5, 'XYZI')" -> "quake.mx(5,6,7,8)@t32"
+	"quake.mx(0)@t29" -> q0_end
+	"quake.my(1)@t30" -> q1_end
+	"quake.mz(2)@t31" -> q2_end
+	"quake.cr1(3,4)@t22 params=(0.1,)" -> q3_end
+	"quake.cr1(3,4)@t22 params=(0.1,)" -> q4_end
+	"quake.mx(5,6,7,8)@t32" -> q5_end
+	"quake.mx(5,6,7,8)@t32" -> q6_end
+	"quake.mx(5,6,7,8)@t32" -> q7_end
+	"quake.mx(5,6,7,8)@t32" -> q8_end
 }

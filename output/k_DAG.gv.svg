@@ -12,533 +12,419 @@
 <!-- q0_start -->
 <g id="node1" class="node">
 <title>q0_start</title>
-<ellipse fill="green" stroke="green" cx="467.63" cy="-882" rx="42.79" ry="18"/>
-<text xml:space="preserve" text-anchor="middle" x="467.63" y="-877.33" font-family="Times,serif" font-size="14.00">q0_start</text>
-</g>
-<!-- quake.x(0)@t0 -->
-<g id="node4" class="node">
-<title>quake.x(0)@t0</title>
-<ellipse fill="none" stroke="black" cx="379.63" cy="-810" rx="27" ry="18"/>
-<text xml:space="preserve" text-anchor="middle" x="379.63" y="-805.33" font-family="Times,serif" font-size="14.00">x</text>
-</g>
-<!-- q0_start&#45;&gt;quake.x(0)@t0 -->
-<g id="edge1" class="edge">
-<title>q0_start&#45;&gt;quake.x(0)@t0</title>
-<path fill="none" stroke="black" d="M448.54,-865.81C435.97,-855.81 419.36,-842.6 405.6,-831.65"/>
-<polygon fill="black" stroke="black" points="407.8,-828.93 397.79,-825.45 403.44,-834.41 407.8,-828.93"/>
+<ellipse fill="green" stroke="green" cx="610.63" cy="-882" rx="42.79" ry="18"/>
+<text xml:space="preserve" text-anchor="middle" x="610.63" y="-877.33" font-family="Times,serif" font-size="14.00">q0_start</text>
 </g>
 <!-- quake.h(0)@t0 -->
-<g id="node22" class="node">
+<g id="node11" class="node">
 <title>quake.h(0)@t0</title>
-<ellipse fill="none" stroke="black" cx="569.63" cy="-810" rx="27" ry="18"/>
-<text xml:space="preserve" text-anchor="middle" x="569.63" y="-805.33" font-family="Times,serif" font-size="14.00">h</text>
+<ellipse fill="none" stroke="black" cx="610.63" cy="-810" rx="27" ry="18"/>
+<text xml:space="preserve" text-anchor="middle" x="610.63" y="-805.33" font-family="Times,serif" font-size="14.00">h</text>
 </g>
 <!-- q0_start&#45;&gt;quake.h(0)@t0 -->
-<g id="edge15" class="edge">
+<g id="edge1" class="edge">
 <title>q0_start&#45;&gt;quake.h(0)@t0</title>
-<path fill="none" stroke="black" d="M489.27,-866.15C504.71,-855.55 525.61,-841.21 542.23,-829.81"/>
-<polygon fill="black" stroke="black" points="543.93,-832.89 550.19,-824.34 539.97,-827.11 543.93,-832.89"/>
+<path fill="none" stroke="black" d="M610.63,-863.7C610.63,-856.41 610.63,-847.73 610.63,-839.54"/>
+<polygon fill="black" stroke="black" points="614.13,-839.62 610.63,-829.62 607.13,-839.62 614.13,-839.62"/>
 </g>
 <!-- q1_start -->
 <g id="node2" class="node">
 <title>q1_start</title>
-<ellipse fill="green" stroke="green" cx="476.63" cy="-810" rx="42.79" ry="18"/>
-<text xml:space="preserve" text-anchor="middle" x="476.63" y="-805.33" font-family="Times,serif" font-size="14.00">q1_start</text>
-</g>
-<!-- quake.cr1(1,0)@t3 params=(1.5707963267948966,) -->
-<g id="node7" class="node">
-<title>quake.cr1(1,0)@t3 params=(1.5707963267948966,)</title>
-<ellipse fill="none" stroke="black" cx="343.63" cy="-666" rx="27" ry="18"/>
-<text xml:space="preserve" text-anchor="middle" x="343.63" y="-661.33" font-family="Times,serif" font-size="14.00">cr1</text>
-</g>
-<!-- q1_start&#45;&gt;quake.cr1(1,0)@t3 params=(1.5707963267948966,) -->
-<g id="edge4" class="edge">
-<title>q1_start&#45;&gt;quake.cr1(1,0)@t3 params=(1.5707963267948966,)</title>
-<path fill="none" stroke="black" d="M462.44,-792.69C446.64,-774.66 420.22,-744.88 396.63,-720 386.9,-709.73 375.87,-698.63 366.41,-689.25"/>
-<polygon fill="black" stroke="black" points="368.9,-686.78 359.32,-682.26 363.98,-691.77 368.9,-686.78"/>
+<ellipse fill="green" stroke="green" cx="698.63" cy="-810" rx="42.79" ry="18"/>
+<text xml:space="preserve" text-anchor="middle" x="698.63" y="-805.33" font-family="Times,serif" font-size="14.00">q1_start</text>
 </g>
 <!-- quake.cx(0,1)@t1 -->
-<g id="node23" class="node">
+<g id="node12" class="node">
 <title>quake.cx(0,1)@t1</title>
-<ellipse fill="none" stroke="black" cx="588.63" cy="-738" rx="27" ry="18"/>
-<text xml:space="preserve" text-anchor="middle" x="588.63" y="-733.33" font-family="Times,serif" font-size="14.00">cx</text>
+<ellipse fill="none" stroke="black" cx="654.63" cy="-738" rx="27" ry="18"/>
+<text xml:space="preserve" text-anchor="middle" x="654.63" y="-733.33" font-family="Times,serif" font-size="14.00">cx</text>
 </g>
 <!-- q1_start&#45;&gt;quake.cx(0,1)@t1 -->
-<g id="edge17" class="edge">
+<g id="edge3" class="edge">
 <title>q1_start&#45;&gt;quake.cx(0,1)@t1</title>
-<path fill="none" stroke="black" d="M499.84,-794.5C517.25,-783.62 541.18,-768.66 559.82,-757.01"/>
-<polygon fill="black" stroke="black" points="561.64,-760 568.27,-751.73 557.93,-754.06 561.64,-760"/>
+<path fill="none" stroke="black" d="M688.21,-792.41C682.98,-784.1 676.54,-773.85 670.7,-764.56"/>
+<polygon fill="black" stroke="black" points="673.77,-762.87 665.49,-756.27 667.85,-766.6 673.77,-762.87"/>
 </g>
 <!-- q2_start -->
 <g id="node3" class="node">
 <title>q2_start</title>
-<ellipse fill="green" stroke="green" cx="498.63" cy="-738" rx="42.79" ry="18"/>
-<text xml:space="preserve" text-anchor="middle" x="498.63" y="-733.33" font-family="Times,serif" font-size="14.00">q2_start</text>
-</g>
-<!-- quake.x(2)@t1 -->
-<g id="node5" class="node">
-<title>quake.x(2)@t1</title>
-<ellipse fill="none" stroke="black" cx="415.63" cy="-666" rx="27" ry="18"/>
-<text xml:space="preserve" text-anchor="middle" x="415.63" y="-661.33" font-family="Times,serif" font-size="14.00">x</text>
-</g>
-<!-- q2_start&#45;&gt;quake.x(2)@t1 -->
-<g id="edge2" class="edge">
-<title>q2_start&#45;&gt;quake.x(2)@t1</title>
-<path fill="none" stroke="black" d="M480.21,-721.46C468.61,-711.68 453.47,-698.91 440.77,-688.2"/>
-<polygon fill="black" stroke="black" points="443.09,-685.58 433.19,-681.81 438.58,-690.93 443.09,-685.58"/>
+<ellipse fill="green" stroke="green" cx="566.63" cy="-738" rx="42.79" ry="18"/>
+<text xml:space="preserve" text-anchor="middle" x="566.63" y="-733.33" font-family="Times,serif" font-size="14.00">q2_start</text>
 </g>
 <!-- quake.cx(0,2)@t2 -->
-<g id="node24" class="node">
+<g id="node13" class="node">
 <title>quake.cx(0,2)@t2</title>
-<ellipse fill="none" stroke="black" cx="591.63" cy="-666" rx="27" ry="18"/>
-<text xml:space="preserve" text-anchor="middle" x="591.63" y="-661.33" font-family="Times,serif" font-size="14.00">cx</text>
+<ellipse fill="none" stroke="black" cx="599.63" cy="-666" rx="27" ry="18"/>
+<text xml:space="preserve" text-anchor="middle" x="599.63" y="-661.33" font-family="Times,serif" font-size="14.00">cx</text>
 </g>
 <!-- q2_start&#45;&gt;quake.cx(0,2)@t2 -->
-<g id="edge19" class="edge">
-<title>q2_start&#45;&gt;quake.cx(0,2)@t2</title>
-<path fill="none" stroke="black" d="M518.81,-721.81C532.4,-711.59 550.45,-698 565.18,-686.91"/>
-<polygon fill="black" stroke="black" points="567.21,-689.76 573.1,-680.95 563,-684.17 567.21,-689.76"/>
-</g>
-<!-- quake.h(0)@t2 -->
-<g id="node6" class="node">
-<title>quake.h(0)@t2</title>
-<ellipse fill="none" stroke="black" cx="360.63" cy="-738" rx="27" ry="18"/>
-<text xml:space="preserve" text-anchor="middle" x="360.63" y="-733.33" font-family="Times,serif" font-size="14.00">h</text>
-</g>
-<!-- quake.x(0)@t0&#45;&gt;quake.h(0)@t2 -->
-<g id="edge3" class="edge">
-<title>quake.x(0)@t0&#45;&gt;quake.h(0)@t2</title>
-<path fill="none" stroke="black" d="M375.03,-792.05C372.98,-784.49 370.51,-775.37 368.19,-766.85"/>
-<polygon fill="black" stroke="black" points="371.58,-765.98 365.59,-757.25 364.83,-767.82 371.58,-765.98"/>
-</g>
-<!-- quake.cr1(2,0)@t4 params=(0.7853981633974483,) -->
-<g id="node8" class="node">
-<title>quake.cr1(2,0)@t4 params=(0.7853981633974483,)</title>
-<ellipse fill="none" stroke="black" cx="360.63" cy="-594" rx="27" ry="18"/>
-<text xml:space="preserve" text-anchor="middle" x="360.63" y="-589.33" font-family="Times,serif" font-size="14.00">cr1</text>
-</g>
-<!-- quake.x(2)@t1&#45;&gt;quake.cr1(2,0)@t4 params=(0.7853981633974483,) -->
-<g id="edge6" class="edge">
-<title>quake.x(2)@t1&#45;&gt;quake.cr1(2,0)@t4 params=(0.7853981633974483,)</title>
-<path fill="none" stroke="black" d="M403.43,-649.46C396.52,-640.67 387.73,-629.48 379.91,-619.53"/>
-<polygon fill="black" stroke="black" points="382.67,-617.38 373.74,-611.68 377.17,-621.71 382.67,-617.38"/>
-</g>
-<!-- quake.h(0)@t2&#45;&gt;quake.cr1(1,0)@t3 params=(1.5707963267948966,) -->
 <g id="edge5" class="edge">
-<title>quake.h(0)@t2&#45;&gt;quake.cr1(1,0)@t3 params=(1.5707963267948966,)</title>
-<path fill="none" stroke="black" d="M356.52,-720.05C354.71,-712.6 352.53,-703.64 350.49,-695.22"/>
-<polygon fill="black" stroke="black" points="353.95,-694.64 348.19,-685.75 347.15,-696.29 353.95,-694.64"/>
-</g>
-<!-- quake.cr1(1,0)@t3 params=(1.5707963267948966,)&#45;&gt;quake.cr1(2,0)@t4 params=(0.7853981633974483,) -->
-<g id="edge7" class="edge">
-<title>quake.cr1(1,0)@t3 params=(1.5707963267948966,)&#45;&gt;quake.cr1(2,0)@t4 params=(0.7853981633974483,)</title>
-<path fill="none" stroke="black" d="M347.75,-648.05C349.56,-640.6 351.74,-631.64 353.78,-623.22"/>
-<polygon fill="black" stroke="black" points="357.12,-624.29 356.08,-613.75 350.32,-622.64 357.12,-624.29"/>
-</g>
-<!-- quake.h(1)@t5 -->
-<g id="node9" class="node">
-<title>quake.h(1)@t5</title>
-<ellipse fill="none" stroke="black" cx="288.63" cy="-594" rx="27" ry="18"/>
-<text xml:space="preserve" text-anchor="middle" x="288.63" y="-589.33" font-family="Times,serif" font-size="14.00">h</text>
-</g>
-<!-- quake.cr1(1,0)@t3 params=(1.5707963267948966,)&#45;&gt;quake.h(1)@t5 -->
-<g id="edge8" class="edge">
-<title>quake.cr1(1,0)@t3 params=(1.5707963267948966,)&#45;&gt;quake.h(1)@t5</title>
-<path fill="none" stroke="black" d="M331.43,-649.46C324.52,-640.67 315.73,-629.48 307.91,-619.53"/>
-<polygon fill="black" stroke="black" points="310.67,-617.38 301.74,-611.68 305.17,-621.71 310.67,-617.38"/>
-</g>
-<!-- quake.cr1(2,1)@t6 params=(1.5707963267948966,) -->
-<g id="node10" class="node">
-<title>quake.cr1(2,1)@t6 params=(1.5707963267948966,)</title>
-<ellipse fill="none" stroke="black" cx="288.63" cy="-522" rx="27" ry="18"/>
-<text xml:space="preserve" text-anchor="middle" x="288.63" y="-517.33" font-family="Times,serif" font-size="14.00">cr1</text>
-</g>
-<!-- quake.cr1(2,0)@t4 params=(0.7853981633974483,)&#45;&gt;quake.cr1(2,1)@t6 params=(1.5707963267948966,) -->
-<g id="edge9" class="edge">
-<title>quake.cr1(2,0)@t4 params=(0.7853981633974483,)&#45;&gt;quake.cr1(2,1)@t6 params=(1.5707963267948966,)</title>
-<path fill="none" stroke="black" d="M345.72,-578.5C335.87,-568.92 322.77,-556.19 311.61,-545.34"/>
-<polygon fill="black" stroke="black" points="314.23,-543 304.62,-538.54 309.35,-548.02 314.23,-543"/>
-</g>
-<!-- quake.h(1)@t5&#45;&gt;quake.cr1(2,1)@t6 params=(1.5707963267948966,) -->
-<g id="edge10" class="edge">
-<title>quake.h(1)@t5&#45;&gt;quake.cr1(2,1)@t6 params=(1.5707963267948966,)</title>
-<path fill="none" stroke="black" d="M288.63,-575.7C288.63,-568.41 288.63,-559.73 288.63,-551.54"/>
-<polygon fill="black" stroke="black" points="292.13,-551.62 288.63,-541.62 285.13,-551.62 292.13,-551.62"/>
-</g>
-<!-- quake.h(2)@t7 -->
-<g id="node11" class="node">
-<title>quake.h(2)@t7</title>
-<ellipse fill="none" stroke="black" cx="261.63" cy="-450" rx="27" ry="18"/>
-<text xml:space="preserve" text-anchor="middle" x="261.63" y="-445.32" font-family="Times,serif" font-size="14.00">h</text>
-</g>
-<!-- quake.cr1(2,1)@t6 params=(1.5707963267948966,)&#45;&gt;quake.h(2)@t7 -->
-<g id="edge11" class="edge">
-<title>quake.cr1(2,1)@t6 params=(1.5707963267948966,)&#45;&gt;quake.h(2)@t7</title>
-<path fill="none" stroke="black" d="M282.1,-504.05C279.11,-496.32 275.5,-486.96 272.15,-478.27"/>
-<polygon fill="black" stroke="black" points="275.52,-477.27 268.65,-469.2 268.99,-479.79 275.52,-477.27"/>
-</g>
-<!-- q0_end -->
-<g id="node12" class="node">
-<title>q0_end</title>
-<ellipse fill="red" stroke="red" cx="39.63" cy="-18" rx="39.63" ry="18"/>
-<text xml:space="preserve" text-anchor="middle" x="39.63" y="-13.32" font-family="Times,serif" font-size="14.00">q0_end</text>
-</g>
-<!-- q1_end -->
-<g id="node13" class="node">
-<title>q1_end</title>
-<ellipse fill="red" stroke="red" cx="136.63" cy="-18" rx="39.63" ry="18"/>
-<text xml:space="preserve" text-anchor="middle" x="136.63" y="-13.32" font-family="Times,serif" font-size="14.00">q1_end</text>
-</g>
-<!-- q2_end -->
-<g id="node14" class="node">
-<title>q2_end</title>
-<ellipse fill="red" stroke="red" cx="233.63" cy="-18" rx="39.63" ry="18"/>
-<text xml:space="preserve" text-anchor="middle" x="233.63" y="-13.32" font-family="Times,serif" font-size="14.00">q2_end</text>
+<title>q2_start&#45;&gt;quake.cx(0,2)@t2</title>
+<path fill="none" stroke="black" d="M574.62,-720.05C578.36,-712.12 582.91,-702.47 587.1,-693.59"/>
+<polygon fill="black" stroke="black" points="590.2,-695.21 591.3,-684.68 583.87,-692.23 590.2,-695.21"/>
 </g>
 <!-- q3_start -->
-<g id="node15" class="node">
+<g id="node4" class="node">
 <title>q3_start</title>
-<ellipse fill="green" stroke="green" cx="503.63" cy="-666" rx="42.79" ry="18"/>
-<text xml:space="preserve" text-anchor="middle" x="503.63" y="-661.33" font-family="Times,serif" font-size="14.00">q3_start</text>
+<ellipse fill="green" stroke="green" cx="511.63" cy="-666" rx="42.79" ry="18"/>
+<text xml:space="preserve" text-anchor="middle" x="511.63" y="-661.33" font-family="Times,serif" font-size="14.00">q3_start</text>
 </g>
 <!-- quake.cx(0,3)@t3 -->
-<g id="node25" class="node">
+<g id="node14" class="node">
 <title>quake.cx(0,3)@t3</title>
 <ellipse fill="none" stroke="black" cx="553.63" cy="-594" rx="27" ry="18"/>
 <text xml:space="preserve" text-anchor="middle" x="553.63" y="-589.33" font-family="Times,serif" font-size="14.00">cx</text>
 </g>
 <!-- q3_start&#45;&gt;quake.cx(0,3)@t3 -->
-<g id="edge21" class="edge">
+<g id="edge7" class="edge">
 <title>q3_start&#45;&gt;quake.cx(0,3)@t3</title>
-<path fill="none" stroke="black" d="M515.48,-648.41C521.57,-639.89 529.11,-629.33 535.88,-619.86"/>
-<polygon fill="black" stroke="black" points="538.71,-621.91 541.67,-611.74 533.01,-617.85 538.71,-621.91"/>
+<path fill="none" stroke="black" d="M521.8,-648.05C526.74,-639.82 532.78,-629.76 538.27,-620.61"/>
+<polygon fill="black" stroke="black" points="541.21,-622.5 543.36,-612.13 535.21,-618.9 541.21,-622.5"/>
 </g>
 <!-- q4_start -->
-<g id="node16" class="node">
+<g id="node5" class="node">
 <title>q4_start</title>
 <ellipse fill="green" stroke="green" cx="465.63" cy="-594" rx="42.79" ry="18"/>
 <text xml:space="preserve" text-anchor="middle" x="465.63" y="-589.33" font-family="Times,serif" font-size="14.00">q4_start</text>
 </g>
 <!-- quake.cx(0,4)@t4 -->
-<g id="node26" class="node">
+<g id="node15" class="node">
 <title>quake.cx(0,4)@t4</title>
 <ellipse fill="none" stroke="black" cx="515.63" cy="-522" rx="27" ry="18"/>
 <text xml:space="preserve" text-anchor="middle" x="515.63" y="-517.33" font-family="Times,serif" font-size="14.00">cx</text>
 </g>
 <!-- q4_start&#45;&gt;quake.cx(0,4)@t4 -->
-<g id="edge23" class="edge">
+<g id="edge9" class="edge">
 <title>q4_start&#45;&gt;quake.cx(0,4)@t4</title>
 <path fill="none" stroke="black" d="M477.48,-576.41C483.57,-567.89 491.11,-557.33 497.88,-547.86"/>
 <polygon fill="black" stroke="black" points="500.71,-549.91 503.67,-539.74 495.01,-545.85 500.71,-549.91"/>
 </g>
 <!-- q5_start -->
-<g id="node17" class="node">
+<g id="node6" class="node">
 <title>q5_start</title>
 <ellipse fill="green" stroke="green" cx="427.63" cy="-522" rx="42.79" ry="18"/>
 <text xml:space="preserve" text-anchor="middle" x="427.63" y="-517.33" font-family="Times,serif" font-size="14.00">q5_start</text>
 </g>
 <!-- quake.cx(0,5)@t5 -->
-<g id="node27" class="node">
+<g id="node16" class="node">
 <title>quake.cx(0,5)@t5</title>
-<ellipse fill="none" stroke="black" cx="464.63" cy="-450" rx="27" ry="18"/>
-<text xml:space="preserve" text-anchor="middle" x="464.63" y="-445.32" font-family="Times,serif" font-size="14.00">cx</text>
+<ellipse fill="none" stroke="black" cx="477.63" cy="-450" rx="27" ry="18"/>
+<text xml:space="preserve" text-anchor="middle" x="477.63" y="-445.32" font-family="Times,serif" font-size="14.00">cx</text>
 </g>
 <!-- q5_start&#45;&gt;quake.cx(0,5)@t5 -->
-<g id="edge25" class="edge">
+<g id="edge11" class="edge">
 <title>q5_start&#45;&gt;quake.cx(0,5)@t5</title>
-<path fill="none" stroke="black" d="M436.59,-504.05C440.83,-496.03 446,-486.26 450.73,-477.3"/>
-<polygon fill="black" stroke="black" points="453.73,-479.12 455.31,-468.65 447.54,-475.85 453.73,-479.12"/>
+<path fill="none" stroke="black" d="M439.48,-504.41C445.57,-495.89 453.11,-485.33 459.88,-475.86"/>
+<polygon fill="black" stroke="black" points="462.71,-477.91 465.67,-467.74 457.01,-473.85 462.71,-477.91"/>
 </g>
 <!-- q6_start -->
-<g id="node18" class="node">
+<g id="node7" class="node">
 <title>q6_start</title>
-<ellipse fill="green" stroke="green" cx="349.63" cy="-450" rx="42.79" ry="18"/>
-<text xml:space="preserve" text-anchor="middle" x="349.63" y="-445.32" font-family="Times,serif" font-size="14.00">q6_start</text>
+<ellipse fill="green" stroke="green" cx="389.63" cy="-450" rx="42.79" ry="18"/>
+<text xml:space="preserve" text-anchor="middle" x="389.63" y="-445.32" font-family="Times,serif" font-size="14.00">q6_start</text>
 </g>
 <!-- quake.cx(0,6)@t6 -->
-<g id="node28" class="node">
+<g id="node17" class="node">
 <title>quake.cx(0,6)@t6</title>
-<ellipse fill="none" stroke="black" cx="335.63" cy="-378" rx="27" ry="18"/>
-<text xml:space="preserve" text-anchor="middle" x="335.63" y="-373.32" font-family="Times,serif" font-size="14.00">cx</text>
+<ellipse fill="none" stroke="black" cx="439.63" cy="-378" rx="27" ry="18"/>
+<text xml:space="preserve" text-anchor="middle" x="439.63" y="-373.32" font-family="Times,serif" font-size="14.00">cx</text>
 </g>
 <!-- q6_start&#45;&gt;quake.cx(0,6)@t6 -->
-<g id="edge27" class="edge">
+<g id="edge13" class="edge">
 <title>q6_start&#45;&gt;quake.cx(0,6)@t6</title>
-<path fill="none" stroke="black" d="M346.17,-431.7C344.7,-424.32 342.94,-415.52 341.28,-407.25"/>
-<polygon fill="black" stroke="black" points="344.74,-406.71 339.35,-397.59 337.88,-408.08 344.74,-406.71"/>
+<path fill="none" stroke="black" d="M401.48,-432.41C407.57,-423.89 415.11,-413.33 421.88,-403.86"/>
+<polygon fill="black" stroke="black" points="424.71,-405.91 427.67,-395.74 419.01,-401.85 424.71,-405.91"/>
 </g>
 <!-- q7_start -->
-<g id="node19" class="node">
+<g id="node8" class="node">
 <title>q7_start</title>
-<ellipse fill="green" stroke="green" cx="423.63" cy="-378" rx="42.79" ry="18"/>
-<text xml:space="preserve" text-anchor="middle" x="423.63" y="-373.32" font-family="Times,serif" font-size="14.00">q7_start</text>
+<ellipse fill="green" stroke="green" cx="351.63" cy="-378" rx="42.79" ry="18"/>
+<text xml:space="preserve" text-anchor="middle" x="351.63" y="-373.32" font-family="Times,serif" font-size="14.00">q7_start</text>
 </g>
 <!-- quake.cx(0,7)@t7 -->
-<g id="node29" class="node">
+<g id="node18" class="node">
 <title>quake.cx(0,7)@t7</title>
-<ellipse fill="none" stroke="black" cx="423.63" cy="-306" rx="27" ry="18"/>
-<text xml:space="preserve" text-anchor="middle" x="423.63" y="-301.32" font-family="Times,serif" font-size="14.00">cx</text>
+<ellipse fill="none" stroke="black" cx="376.63" cy="-306" rx="27" ry="18"/>
+<text xml:space="preserve" text-anchor="middle" x="376.63" y="-301.32" font-family="Times,serif" font-size="14.00">cx</text>
 </g>
 <!-- q7_start&#45;&gt;quake.cx(0,7)@t7 -->
-<g id="edge29" class="edge">
+<g id="edge15" class="edge">
 <title>q7_start&#45;&gt;quake.cx(0,7)@t7</title>
-<path fill="none" stroke="black" d="M423.63,-359.7C423.63,-352.41 423.63,-343.73 423.63,-335.54"/>
-<polygon fill="black" stroke="black" points="427.13,-335.62 423.63,-325.62 420.13,-335.62 427.13,-335.62"/>
+<path fill="none" stroke="black" d="M357.81,-359.7C360.55,-352.04 363.83,-342.85 366.88,-334.3"/>
+<polygon fill="black" stroke="black" points="370.12,-335.64 370.19,-325.05 363.53,-333.29 370.12,-335.64"/>
 </g>
 <!-- q8_start -->
-<g id="node20" class="node">
+<g id="node9" class="node">
 <title>q8_start</title>
-<ellipse fill="green" stroke="green" cx="335.63" cy="-306" rx="42.79" ry="18"/>
-<text xml:space="preserve" text-anchor="middle" x="335.63" y="-301.32" font-family="Times,serif" font-size="14.00">q8_start</text>
+<ellipse fill="green" stroke="green" cx="259.63" cy="-306" rx="42.79" ry="18"/>
+<text xml:space="preserve" text-anchor="middle" x="259.63" y="-301.32" font-family="Times,serif" font-size="14.00">q8_start</text>
 </g>
 <!-- quake.cx(0,8)@t8 -->
-<g id="node30" class="node">
+<g id="node19" class="node">
 <title>quake.cx(0,8)@t8</title>
-<ellipse fill="none" stroke="black" cx="401.63" cy="-234" rx="27" ry="18"/>
-<text xml:space="preserve" text-anchor="middle" x="401.63" y="-229.32" font-family="Times,serif" font-size="14.00">cx</text>
+<ellipse fill="none" stroke="black" cx="259.63" cy="-234" rx="27" ry="18"/>
+<text xml:space="preserve" text-anchor="middle" x="259.63" y="-229.32" font-family="Times,serif" font-size="14.00">cx</text>
 </g>
 <!-- q8_start&#45;&gt;quake.cx(0,8)@t8 -->
-<g id="edge31" class="edge">
+<g id="edge17" class="edge">
 <title>q8_start&#45;&gt;quake.cx(0,8)@t8</title>
-<path fill="none" stroke="black" d="M350.94,-288.76C359.54,-279.64 370.42,-268.11 379.89,-258.06"/>
-<polygon fill="black" stroke="black" points="382.41,-260.5 386.72,-250.82 377.31,-255.69 382.41,-260.5"/>
+<path fill="none" stroke="black" d="M259.63,-287.7C259.63,-280.41 259.63,-271.73 259.63,-263.54"/>
+<polygon fill="black" stroke="black" points="263.13,-263.62 259.63,-253.62 256.13,-263.62 263.13,-263.62"/>
 </g>
 <!-- q9_start -->
-<g id="node21" class="node">
+<g id="node10" class="node">
 <title>q9_start</title>
-<ellipse fill="green" stroke="green" cx="313.63" cy="-234" rx="42.79" ry="18"/>
-<text xml:space="preserve" text-anchor="middle" x="313.63" y="-229.32" font-family="Times,serif" font-size="14.00">q9_start</text>
+<ellipse fill="green" stroke="green" cx="347.63" cy="-234" rx="42.79" ry="18"/>
+<text xml:space="preserve" text-anchor="middle" x="347.63" y="-229.32" font-family="Times,serif" font-size="14.00">q9_start</text>
 </g>
 <!-- quake.cx(0,9)@t9 -->
-<g id="node31" class="node">
+<g id="node20" class="node">
 <title>quake.cx(0,9)@t9</title>
-<ellipse fill="none" stroke="black" cx="363.63" cy="-162" rx="27" ry="18"/>
-<text xml:space="preserve" text-anchor="middle" x="363.63" y="-157.32" font-family="Times,serif" font-size="14.00">cx</text>
+<ellipse fill="none" stroke="black" cx="355.63" cy="-162" rx="27" ry="18"/>
+<text xml:space="preserve" text-anchor="middle" x="355.63" y="-157.32" font-family="Times,serif" font-size="14.00">cx</text>
 </g>
 <!-- q9_start&#45;&gt;quake.cx(0,9)@t9 -->
-<g id="edge33" class="edge">
+<g id="edge19" class="edge">
 <title>q9_start&#45;&gt;quake.cx(0,9)@t9</title>
-<path fill="none" stroke="black" d="M325.48,-216.41C331.57,-207.89 339.11,-197.33 345.88,-187.86"/>
-<polygon fill="black" stroke="black" points="348.71,-189.91 351.67,-179.74 343.01,-185.85 348.71,-189.91"/>
+<path fill="none" stroke="black" d="M349.61,-215.7C350.44,-208.41 351.44,-199.73 352.37,-191.54"/>
+<polygon fill="black" stroke="black" points="355.85,-191.94 353.51,-181.61 348.89,-191.15 355.85,-191.94"/>
 </g>
 <!-- quake.h(0)@t0&#45;&gt;quake.cx(0,1)@t1 -->
-<g id="edge16" class="edge">
+<g id="edge2" class="edge">
 <title>quake.h(0)@t0&#45;&gt;quake.cx(0,1)@t1</title>
-<path fill="none" stroke="black" d="M574.23,-792.05C576.29,-784.49 578.76,-775.37 581.08,-766.85"/>
-<polygon fill="black" stroke="black" points="584.44,-767.82 583.68,-757.25 577.68,-765.98 584.44,-767.82"/>
+<path fill="none" stroke="black" d="M620.62,-793.12C625.96,-784.61 632.67,-773.94 638.72,-764.32"/>
+<polygon fill="black" stroke="black" points="641.52,-766.43 643.88,-756.1 635.6,-762.71 641.52,-766.43"/>
 </g>
 <!-- quake.cx(0,1)@t1&#45;&gt;quake.cx(0,2)@t2 -->
-<g id="edge18" class="edge">
+<g id="edge4" class="edge">
 <title>quake.cx(0,1)@t1&#45;&gt;quake.cx(0,2)@t2</title>
-<path fill="none" stroke="black" d="M589.38,-719.7C589.69,-712.41 590.06,-703.73 590.41,-695.54"/>
-<polygon fill="black" stroke="black" points="593.9,-695.76 590.84,-685.62 586.91,-695.46 593.9,-695.76"/>
+<path fill="none" stroke="black" d="M642.43,-721.46C635.52,-712.67 626.73,-701.48 618.91,-691.53"/>
+<polygon fill="black" stroke="black" points="621.67,-689.38 612.74,-683.68 616.17,-693.71 621.67,-689.38"/>
 </g>
 <!-- quake.mz(0,1,2,3,4,5,6,7,8,9)@t10 -->
-<g id="node32" class="node">
+<g id="node21" class="node">
 <title>quake.mz(0,1,2,3,4,5,6,7,8,9)@t10</title>
 <ellipse fill="yellow" stroke="yellow" cx="475.63" cy="-90" rx="27" ry="18"/>
 <text xml:space="preserve" text-anchor="middle" x="475.63" y="-85.33" font-family="Times,serif" font-size="14.00">mz</text>
 </g>
 <!-- quake.cx(0,1)@t1&#45;&gt;quake.mz(0,1,2,3,4,5,6,7,8,9)@t10 -->
-<g id="edge35" class="edge">
+<g id="edge21" class="edge">
 <title>quake.cx(0,1)@t1&#45;&gt;quake.mz(0,1,2,3,4,5,6,7,8,9)@t10</title>
-<path fill="none" stroke="black" d="M602.11,-722.32C610.66,-712.24 621.26,-698.17 627.63,-684 644.21,-647.11 646.63,-635.45 646.63,-595 646.63,-595 646.63,-595 646.63,-233 646.63,-162.86 560.44,-120.74 510.44,-102.21"/>
-<polygon fill="black" stroke="black" points="511.79,-98.97 501.2,-98.91 509.44,-105.57 511.79,-98.97"/>
+<path fill="none" stroke="black" d="M654.63,-719.51C654.63,-692.71 654.63,-639.87 654.63,-595 654.63,-595 654.63,-595 654.63,-233 654.63,-160.38 563.1,-119.01 510.94,-101.33"/>
+<polygon fill="black" stroke="black" points="512.18,-98.05 501.59,-98.28 510.01,-104.71 512.18,-98.05"/>
 </g>
 <!-- quake.cx(0,2)@t2&#45;&gt;quake.cx(0,3)@t3 -->
-<g id="edge20" class="edge">
+<g id="edge6" class="edge">
 <title>quake.cx(0,2)@t2&#45;&gt;quake.cx(0,3)@t3</title>
-<path fill="none" stroke="black" d="M582.82,-648.76C578.36,-640.55 572.84,-630.37 567.8,-621.09"/>
-<polygon fill="black" stroke="black" points="570.97,-619.6 563.12,-612.48 564.82,-622.94 570.97,-619.6"/>
+<path fill="none" stroke="black" d="M589.2,-649.12C583.61,-640.61 576.59,-629.94 570.28,-620.32"/>
+<polygon fill="black" stroke="black" points="573.28,-618.52 564.86,-612.09 567.43,-622.37 573.28,-618.52"/>
 </g>
 <!-- quake.cx(0,2)@t2&#45;&gt;quake.mz(0,1,2,3,4,5,6,7,8,9)@t10 -->
-<g id="edge36" class="edge">
+<g id="edge22" class="edge">
 <title>quake.cx(0,2)@t2&#45;&gt;quake.mz(0,1,2,3,4,5,6,7,8,9)@t10</title>
-<path fill="none" stroke="black" d="M594.99,-648.03C599.95,-621.48 608.63,-568.44 608.63,-523 608.63,-523 608.63,-523 608.63,-233 608.63,-173.78 546.25,-129.07 506.93,-106.77"/>
+<path fill="none" stroke="black" d="M601.41,-647.97C604.03,-621.34 608.63,-568.21 608.63,-523 608.63,-523 608.63,-523 608.63,-233 608.63,-173.78 546.25,-129.07 506.93,-106.77"/>
 <polygon fill="black" stroke="black" points="508.78,-103.8 498.33,-102.06 505.42,-109.94 508.78,-103.8"/>
 </g>
 <!-- quake.cx(0,3)@t3&#45;&gt;quake.cx(0,4)@t4 -->
-<g id="edge22" class="edge">
+<g id="edge8" class="edge">
 <title>quake.cx(0,3)@t3&#45;&gt;quake.cx(0,4)@t4</title>
 <path fill="none" stroke="black" d="M544.82,-576.76C540.36,-568.55 534.84,-558.37 529.8,-549.09"/>
 <polygon fill="black" stroke="black" points="532.97,-547.6 525.12,-540.48 526.82,-550.94 532.97,-547.6"/>
 </g>
 <!-- quake.cx(0,3)@t3&#45;&gt;quake.mz(0,1,2,3,4,5,6,7,8,9)@t10 -->
-<g id="edge37" class="edge">
+<g id="edge23" class="edge">
 <title>quake.cx(0,3)@t3&#45;&gt;quake.mz(0,1,2,3,4,5,6,7,8,9)@t10</title>
 <path fill="none" stroke="black" d="M556.99,-576.03C561.95,-549.48 570.63,-496.44 570.63,-451 570.63,-451 570.63,-451 570.63,-233 570.63,-182.95 529.36,-137.19 501.22,-111.8"/>
 <polygon fill="black" stroke="black" points="503.6,-109.23 493.76,-105.29 498.99,-114.5 503.6,-109.23"/>
 </g>
 <!-- quake.cx(0,4)@t4&#45;&gt;quake.cx(0,5)@t5 -->
-<g id="edge24" class="edge">
+<g id="edge10" class="edge">
 <title>quake.cx(0,4)@t4&#45;&gt;quake.cx(0,5)@t5</title>
-<path fill="none" stroke="black" d="M504.32,-505.46C497.91,-496.67 489.76,-485.48 482.51,-475.53"/>
-<polygon fill="black" stroke="black" points="485.53,-473.74 476.81,-467.72 479.87,-477.86 485.53,-473.74"/>
+<path fill="none" stroke="black" d="M506.82,-504.76C502.36,-496.55 496.84,-486.37 491.8,-477.09"/>
+<polygon fill="black" stroke="black" points="494.97,-475.6 487.12,-468.48 488.82,-478.94 494.97,-475.6"/>
 </g>
 <!-- quake.cx(0,4)@t4&#45;&gt;quake.mz(0,1,2,3,4,5,6,7,8,9)@t10 -->
-<g id="edge38" class="edge">
+<g id="edge24" class="edge">
 <title>quake.cx(0,4)@t4&#45;&gt;quake.mz(0,1,2,3,4,5,6,7,8,9)@t10</title>
 <path fill="none" stroke="black" d="M518.99,-504.03C523.95,-477.48 532.63,-424.44 532.63,-379 532.63,-379 532.63,-379 532.63,-233 532.63,-189.66 509.48,-143.88 492.69,-116.38"/>
 <polygon fill="black" stroke="black" points="495.73,-114.65 487.43,-108.06 489.81,-118.38 495.73,-114.65"/>
 </g>
 <!-- quake.cx(0,5)@t5&#45;&gt;quake.cx(0,6)@t6 -->
-<g id="edge26" class="edge">
+<g id="edge12" class="edge">
 <title>quake.cx(0,5)@t5&#45;&gt;quake.cx(0,6)@t6</title>
-<path fill="none" stroke="black" d="M444.19,-437.91C423.15,-426.49 390.13,-408.57 366.02,-395.49"/>
-<polygon fill="black" stroke="black" points="367.77,-392.45 357.31,-390.76 364.43,-398.61 367.77,-392.45"/>
+<path fill="none" stroke="black" d="M468.82,-432.76C464.36,-424.55 458.84,-414.37 453.8,-405.09"/>
+<polygon fill="black" stroke="black" points="456.97,-403.6 449.12,-396.48 450.82,-406.94 456.97,-403.6"/>
 </g>
 <!-- quake.cx(0,5)@t5&#45;&gt;quake.mz(0,1,2,3,4,5,6,7,8,9)@t10 -->
-<g id="edge39" class="edge">
+<g id="edge25" class="edge">
 <title>quake.cx(0,5)@t5&#45;&gt;quake.mz(0,1,2,3,4,5,6,7,8,9)@t10</title>
-<path fill="none" stroke="black" d="M470.56,-432.19C479.3,-405.86 494.63,-353.11 494.63,-307 494.63,-307 494.63,-307 494.63,-233 494.63,-193.17 487.2,-147.61 481.63,-119.07"/>
+<path fill="none" stroke="black" d="M480.99,-432.03C485.95,-405.48 494.63,-352.44 494.63,-307 494.63,-307 494.63,-307 494.63,-233 494.63,-193.17 487.2,-147.61 481.63,-119.07"/>
 <polygon fill="black" stroke="black" points="485.1,-118.54 479.69,-109.43 478.23,-119.93 485.1,-118.54"/>
 </g>
 <!-- quake.cx(0,6)@t6&#45;&gt;quake.cx(0,7)@t7 -->
-<g id="edge28" class="edge">
+<g id="edge14" class="edge">
 <title>quake.cx(0,6)@t6&#45;&gt;quake.cx(0,7)@t7</title>
-<path fill="none" stroke="black" d="M352.6,-363.5C365.51,-353.24 383.47,-338.94 398.11,-327.3"/>
-<polygon fill="black" stroke="black" points="399.89,-330.36 405.53,-321.4 395.53,-324.88 399.89,-330.36"/>
+<path fill="none" stroke="black" d="M426.27,-362.15C417.92,-352.87 406.99,-340.73 397.51,-330.19"/>
+<polygon fill="black" stroke="black" points="400.28,-328.04 390.99,-322.95 395.08,-332.72 400.28,-328.04"/>
 </g>
 <!-- quake.cx(0,6)@t6&#45;&gt;quake.mz(0,1,2,3,4,5,6,7,8,9)@t10 -->
-<g id="edge40" class="edge">
+<g id="edge26" class="edge">
 <title>quake.cx(0,6)@t6&#45;&gt;quake.mz(0,1,2,3,4,5,6,7,8,9)@t10</title>
-<path fill="none" stroke="black" d="M318.96,-363.77C307.54,-353.91 292.85,-339.51 283.63,-324 258.61,-281.89 243.88,-261.65 261.63,-216 289.9,-143.34 385.37,-110.91 438.74,-98.17"/>
-<polygon fill="black" stroke="black" points="439.31,-101.63 448.29,-96.01 437.77,-94.8 439.31,-101.63"/>
+<path fill="none" stroke="black" d="M441.78,-359.97C447.75,-312.49 464.64,-178.31 472.06,-119.36"/>
+<polygon fill="black" stroke="black" points="475.49,-120.17 473.27,-109.81 468.54,-119.29 475.49,-120.17"/>
 </g>
 <!-- quake.cx(0,7)@t7&#45;&gt;quake.cx(0,8)@t8 -->
-<g id="edge30" class="edge">
+<g id="edge16" class="edge">
 <title>quake.cx(0,7)@t7&#45;&gt;quake.cx(0,8)@t8</title>
-<path fill="none" stroke="black" d="M418.31,-288.05C415.9,-280.4 413,-271.16 410.29,-262.56"/>
-<polygon fill="black" stroke="black" points="413.7,-261.72 407.36,-253.23 407.02,-263.82 413.7,-261.72"/>
+<path fill="none" stroke="black" d="M357.05,-293.28C338.49,-282.18 310.36,-265.35 289.1,-252.63"/>
+<polygon fill="black" stroke="black" points="290.96,-249.66 280.58,-247.53 287.36,-255.67 290.96,-249.66"/>
 </g>
 <!-- quake.cx(0,7)@t7&#45;&gt;quake.mz(0,1,2,3,4,5,6,7,8,9)@t10 -->
-<g id="edge41" class="edge">
+<g id="edge27" class="edge">
 <title>quake.cx(0,7)@t7&#45;&gt;quake.mz(0,1,2,3,4,5,6,7,8,9)@t10</title>
-<path fill="none" stroke="black" d="M428.29,-287.84C431.07,-277.48 434.63,-264 437.63,-252 449.25,-205.55 461.85,-151.33 469.23,-119.15"/>
-<polygon fill="black" stroke="black" points="472.63,-119.96 471.45,-109.43 465.81,-118.4 472.63,-119.96"/>
+<path fill="none" stroke="black" d="M384.02,-288.35C388.59,-277.93 394.55,-264.22 399.63,-252 419.48,-204.3 419.33,-190.11 442.63,-144 447.34,-134.68 453.18,-124.87 458.63,-116.26"/>
+<polygon fill="black" stroke="black" points="461.43,-118.37 463.93,-108.08 455.56,-114.56 461.43,-118.37"/>
 </g>
 <!-- quake.cx(0,8)@t8&#45;&gt;quake.cx(0,9)@t9 -->
-<g id="edge32" class="edge">
+<g id="edge18" class="edge">
 <title>quake.cx(0,8)@t8&#45;&gt;quake.cx(0,9)@t9</title>
-<path fill="none" stroke="black" d="M392.82,-216.76C388.36,-208.55 382.84,-198.37 377.8,-189.09"/>
-<polygon fill="black" stroke="black" points="380.97,-187.6 373.12,-180.48 374.82,-190.94 380.97,-187.6"/>
+<path fill="none" stroke="black" d="M277.24,-220.16C291.63,-209.67 312.21,-194.66 328.67,-182.66"/>
+<polygon fill="black" stroke="black" points="330.57,-185.61 336.59,-176.89 326.45,-179.95 330.57,-185.61"/>
 </g>
 <!-- quake.cx(0,8)@t8&#45;&gt;quake.mz(0,1,2,3,4,5,6,7,8,9)@t10 -->
-<g id="edge42" class="edge">
+<g id="edge28" class="edge">
 <title>quake.cx(0,8)@t8&#45;&gt;quake.mz(0,1,2,3,4,5,6,7,8,9)@t10</title>
-<path fill="none" stroke="black" d="M408.58,-216.29C416.29,-198.18 429.4,-168.56 442.63,-144 447.59,-134.81 453.48,-125.03 458.91,-116.41"/>
-<polygon fill="black" stroke="black" points="461.73,-118.51 464.17,-108.2 455.83,-114.73 461.73,-118.51"/>
+<path fill="none" stroke="black" d="M266.71,-216.48C276.05,-196.56 294.32,-163.35 319.63,-144 354.7,-117.2 404.17,-103.45 437.94,-96.76"/>
+<polygon fill="black" stroke="black" points="438.5,-100.21 447.69,-94.95 437.22,-93.33 438.5,-100.21"/>
 </g>
 <!-- quake.cx(0,9)@t9&#45;&gt;quake.mz(0,1,2,3,4,5,6,7,8,9)@t10 -->
-<g id="edge34" class="edge">
+<g id="edge20" class="edge">
 <title>quake.cx(0,9)@t9&#45;&gt;quake.mz(0,1,2,3,4,5,6,7,8,9)@t10</title>
-<path fill="none" stroke="black" d="M379.77,-147.5C396.73,-135.9 423.44,-119.13 444.46,-106.88"/>
-<polygon fill="black" stroke="black" points="446,-110.03 452.94,-102.02 442.52,-103.96 446,-110.03"/>
+<path fill="none" stroke="black" d="M372.79,-147.83C391.36,-136.02 420.99,-118.68 443.78,-106.26"/>
+<polygon fill="black" stroke="black" points="445.21,-109.47 452.37,-101.66 441.91,-103.3 445.21,-109.47"/>
 </g>
 <!-- quake.cx(0,9)@t9&#45;&gt;quake.mz(0,1,2,3,4,5,6,7,8,9)@t10 -->
-<g id="edge43" class="edge">
+<g id="edge29" class="edge">
 <title>quake.cx(0,9)@t9&#45;&gt;quake.mz(0,1,2,3,4,5,6,7,8,9)@t10</title>
-<path fill="none" stroke="black" d="M385.11,-150.67C403.57,-140.31 429.95,-124.07 449.57,-111.15"/>
-<polygon fill="black" stroke="black" points="451.51,-114.06 457.87,-105.59 447.62,-108.25 451.51,-114.06"/>
+<path fill="none" stroke="black" d="M377.45,-151.12C397.62,-140.51 427.36,-123.4 448.91,-110.14"/>
+<polygon fill="black" stroke="black" points="450.55,-113.24 457.18,-104.98 446.84,-107.31 450.55,-113.24"/>
+</g>
+<!-- q0_end -->
+<g id="node22" class="node">
+<title>q0_end</title>
+<ellipse fill="red" stroke="red" cx="39.63" cy="-18" rx="39.63" ry="18"/>
+<text xml:space="preserve" text-anchor="middle" x="39.63" y="-13.32" font-family="Times,serif" font-size="14.00">q0_end</text>
 </g>
 <!-- quake.mz(0,1,2,3,4,5,6,7,8,9)@t10&#45;&gt;q0_end -->
-<g id="edge12" class="edge">
+<g id="edge30" class="edge">
 <title>quake.mz(0,1,2,3,4,5,6,7,8,9)@t10&#45;&gt;q0_end</title>
 <path fill="none" stroke="black" d="M448.47,-87.21C384.7,-82.59 220.76,-68.31 87.63,-36 85.06,-35.38 82.43,-34.66 79.8,-33.9"/>
 <polygon fill="black" stroke="black" points="81.08,-30.63 70.49,-30.94 78.96,-37.3 81.08,-30.63"/>
 </g>
+<!-- q1_end -->
+<g id="node23" class="node">
+<title>q1_end</title>
+<ellipse fill="red" stroke="red" cx="136.63" cy="-18" rx="39.63" ry="18"/>
+<text xml:space="preserve" text-anchor="middle" x="136.63" y="-13.32" font-family="Times,serif" font-size="14.00">q1_end</text>
+</g>
 <!-- quake.mz(0,1,2,3,4,5,6,7,8,9)@t10&#45;&gt;q1_end -->
-<g id="edge13" class="edge">
+<g id="edge31" class="edge">
 <title>quake.mz(0,1,2,3,4,5,6,7,8,9)@t10&#45;&gt;q1_end</title>
 <path fill="none" stroke="black" d="M449.24,-85.64C397.77,-78.77 280.65,-61.57 184.63,-36 182.2,-35.35 179.72,-34.64 177.23,-33.88"/>
 <polygon fill="black" stroke="black" points="178.39,-30.58 167.8,-30.83 176.23,-37.24 178.39,-30.58"/>
 </g>
+<!-- q2_end -->
+<g id="node24" class="node">
+<title>q2_end</title>
+<ellipse fill="red" stroke="red" cx="233.63" cy="-18" rx="39.63" ry="18"/>
+<text xml:space="preserve" text-anchor="middle" x="233.63" y="-13.32" font-family="Times,serif" font-size="14.00">q2_end</text>
+</g>
 <!-- quake.mz(0,1,2,3,4,5,6,7,8,9)@t10&#45;&gt;q2_end -->
-<g id="edge14" class="edge">
+<g id="edge32" class="edge">
 <title>quake.mz(0,1,2,3,4,5,6,7,8,9)@t10&#45;&gt;q2_end</title>
 <path fill="none" stroke="black" d="M450.35,-82.73C413.15,-73.36 341.61,-54.78 281.63,-36 279.27,-35.26 276.85,-34.48 274.41,-33.67"/>
 <polygon fill="black" stroke="black" points="275.76,-30.43 265.17,-30.53 273.51,-37.06 275.76,-30.43"/>
 </g>
 <!-- q3_end -->
-<g id="node33" class="node">
+<g id="node25" class="node">
 <title>q3_end</title>
 <ellipse fill="red" stroke="red" cx="330.63" cy="-18" rx="39.63" ry="18"/>
 <text xml:space="preserve" text-anchor="middle" x="330.63" y="-13.32" font-family="Times,serif" font-size="14.00">q3_end</text>
 </g>
 <!-- quake.mz(0,1,2,3,4,5,6,7,8,9)@t10&#45;&gt;q3_end -->
-<g id="edge44" class="edge">
+<g id="edge33" class="edge">
 <title>quake.mz(0,1,2,3,4,5,6,7,8,9)@t10&#45;&gt;q3_end</title>
 <path fill="none" stroke="black" d="M454.24,-78.67C431.33,-67.61 394.56,-49.86 367.07,-36.59"/>
 <polygon fill="black" stroke="black" points="368.93,-33.6 358.4,-32.41 365.89,-39.91 368.93,-33.6"/>
 </g>
 <!-- q4_end -->
-<g id="node34" class="node">
+<g id="node26" class="node">
 <title>q4_end</title>
 <ellipse fill="red" stroke="red" cx="427.63" cy="-18" rx="39.63" ry="18"/>
 <text xml:space="preserve" text-anchor="middle" x="427.63" y="-13.32" font-family="Times,serif" font-size="14.00">q4_end</text>
 </g>
 <!-- quake.mz(0,1,2,3,4,5,6,7,8,9)@t10&#45;&gt;q4_end -->
-<g id="edge45" class="edge">
+<g id="edge34" class="edge">
 <title>quake.mz(0,1,2,3,4,5,6,7,8,9)@t10&#45;&gt;q4_end</title>
 <path fill="none" stroke="black" d="M464.74,-73.12C458.99,-64.73 451.8,-54.24 445.28,-44.73"/>
 <polygon fill="black" stroke="black" points="448.21,-42.82 439.67,-36.56 442.44,-46.78 448.21,-42.82"/>
 </g>
 <!-- q5_end -->
-<g id="node35" class="node">
+<g id="node27" class="node">
 <title>q5_end</title>
 <ellipse fill="red" stroke="red" cx="524.63" cy="-18" rx="39.63" ry="18"/>
 <text xml:space="preserve" text-anchor="middle" x="524.63" y="-13.32" font-family="Times,serif" font-size="14.00">q5_end</text>
 </g>
 <!-- quake.mz(0,1,2,3,4,5,6,7,8,9)@t10&#45;&gt;q5_end -->
-<g id="edge46" class="edge">
+<g id="edge35" class="edge">
 <title>quake.mz(0,1,2,3,4,5,6,7,8,9)@t10&#45;&gt;q5_end</title>
 <path fill="none" stroke="black" d="M486.75,-73.12C492.62,-64.73 499.97,-54.24 506.62,-44.73"/>
 <polygon fill="black" stroke="black" points="509.48,-46.75 512.35,-36.55 503.75,-42.73 509.48,-46.75"/>
 </g>
 <!-- q6_end -->
-<g id="node36" class="node">
+<g id="node28" class="node">
 <title>q6_end</title>
 <ellipse fill="red" stroke="red" cx="621.63" cy="-18" rx="39.63" ry="18"/>
 <text xml:space="preserve" text-anchor="middle" x="621.63" y="-13.32" font-family="Times,serif" font-size="14.00">q6_end</text>
 </g>
 <!-- quake.mz(0,1,2,3,4,5,6,7,8,9)@t10&#45;&gt;q6_end -->
-<g id="edge47" class="edge">
+<g id="edge36" class="edge">
 <title>quake.mz(0,1,2,3,4,5,6,7,8,9)@t10&#45;&gt;q6_end</title>
 <path fill="none" stroke="black" d="M497.18,-78.67C520.25,-67.61 557.27,-49.86 584.94,-36.59"/>
 <polygon fill="black" stroke="black" points="586.18,-39.88 593.68,-32.4 583.15,-33.57 586.18,-39.88"/>
 </g>
 <!-- q7_end -->
-<g id="node37" class="node">
+<g id="node29" class="node">
 <title>q7_end</title>
 <ellipse fill="red" stroke="red" cx="718.63" cy="-18" rx="39.63" ry="18"/>
 <text xml:space="preserve" text-anchor="middle" x="718.63" y="-13.32" font-family="Times,serif" font-size="14.00">q7_end</text>
 </g>
 <!-- quake.mz(0,1,2,3,4,5,6,7,8,9)@t10&#45;&gt;q7_end -->
-<g id="edge48" class="edge">
+<g id="edge37" class="edge">
 <title>quake.mz(0,1,2,3,4,5,6,7,8,9)@t10&#45;&gt;q7_end</title>
 <path fill="none" stroke="black" d="M500.74,-82.82C538.04,-73.49 610.19,-54.89 670.63,-36 673,-35.26 675.42,-34.48 677.86,-33.67"/>
 <polygon fill="black" stroke="black" points="678.76,-37.07 687.1,-30.54 676.51,-30.44 678.76,-37.07"/>
 </g>
 <!-- q8_end -->
-<g id="node38" class="node">
+<g id="node30" class="node">
 <title>q8_end</title>
 <ellipse fill="red" stroke="red" cx="815.63" cy="-18" rx="39.63" ry="18"/>
 <text xml:space="preserve" text-anchor="middle" x="815.63" y="-13.32" font-family="Times,serif" font-size="14.00">q8_end</text>
 </g>
 <!-- quake.mz(0,1,2,3,4,5,6,7,8,9)@t10&#45;&gt;q8_end -->
-<g id="edge49" class="edge">
+<g id="edge38" class="edge">
 <title>quake.mz(0,1,2,3,4,5,6,7,8,9)@t10&#45;&gt;q8_end</title>
 <path fill="none" stroke="black" d="M502.12,-85.65C553.76,-78.79 671.29,-61.63 767.63,-36 770.06,-35.35 772.55,-34.64 775.04,-33.89"/>
 <polygon fill="black" stroke="black" points="776.03,-37.24 784.47,-30.83 773.88,-30.58 776.03,-37.24"/>
 </g>
 <!-- q9_end -->
-<g id="node39" class="node">
+<g id="node31" class="node">
 <title>q9_end</title>
 <ellipse fill="red" stroke="red" cx="912.63" cy="-18" rx="39.63" ry="18"/>
 <text xml:space="preserve" text-anchor="middle" x="912.63" y="-13.32" font-family="Times,serif" font-size="14.00">q9_end</text>
 </g>
 <!-- quake.mz(0,1,2,3,4,5,6,7,8,9)@t10&#45;&gt;q9_end -->
-<g id="edge50" class="edge">
+<g id="edge39" class="edge">
 <title>quake.mz(0,1,2,3,4,5,6,7,8,9)@t10&#45;&gt;q9_end</title>
 <path fill="none" stroke="black" d="M502.4,-87.25C565.99,-82.69 730.83,-68.45 864.63,-36 867.21,-35.38 869.84,-34.67 872.47,-33.9"/>
 <polygon fill="black" stroke="black" points="873.3,-37.3 881.78,-30.94 871.19,-30.63 873.3,-37.3"/>
