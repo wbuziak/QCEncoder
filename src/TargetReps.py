@@ -15,7 +15,7 @@ def graphviz_will_out(cir: cir):
     dag.node('Start', 'Start', style='filled', color='green') # creates start node and makes it green
     dag.node('End', 'End', style='filled', color='red') # creates end node and makes it red
     for g in cir.gates: # creates all gate nodes including measurements
-        if "mz" in g.name:
+        if g.name in ["quake.mz", "quake.mx", "quake.my"]:
             dag.node(f'{g}', f"{g.name[g.name.index('.')+1:]}", style='filled', color='yellow') # makes measurement nodes and makes them yellow
         else:
             dag.node(f'{g}', f"{g.name[g.name.index('.')+1:]}") # makes non measurement gate nodes
@@ -43,7 +43,7 @@ def graphviz_out(cir: cir):
             elif 'start' in i:
                 dag.node(f'{i}', f'{i}', style='filled', color = 'green') # makes end qubit nodes and makes them red
         else:
-            if "mz" in i.name:
+            if "mz" in i.name or "mx" in i.name or "my" in i.name:
                 dag.node(f'{i}', f"{i.name[i.name.index('.')+1:]}", style='filled', color='yellow') # makes measurement nodes and makes them yellow
             else:
                 dag.node(f'{i}', f"{i.name[i.name.index('.')+1:]}") # makes non measurement gate nodes

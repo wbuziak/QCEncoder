@@ -12,16 +12,6 @@ from numpy import array
 
 
 
-
-custom_x_matrix = array([
-    [0.0, 0.5],
-    [1.0, 0.5]
-], dtype=complex)
-
-# 2. Register the matrix with CUDA-Q under a specific string identifier
-cudaq.register_operation("c_gate", custom_x_matrix)
-
-
 @cudaq.kernel
 def ultimate_quake_inspector(
     r_angle: float,        # 1-operand agates (rx, ry, rz, r1)
@@ -94,7 +84,6 @@ def ultimate_quake_inspector(
     # -------------------------------------------------------------
     # 5. Custom gate: 
     # -------------------------------------------------------------
-    c_gate(q[0])
 
 
     # -------------------------------------------------------------

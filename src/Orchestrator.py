@@ -59,7 +59,7 @@ class Orchestrator:
             else:
                 print(f"Error parsing kernel: {name}, skipping outputting representations")
             
-        print(f"\nSuccessfully parsed {parsed}/{len(kernels)} kernels retrieved from file: {filePath}")
+        print(f"\nSuccessfully parsed {parsed}/{len(kernels)} kernels retrieved from file: {filePath}\n\n\n")
 
 
         '''
@@ -73,5 +73,6 @@ class Orchestrator:
         '''
 
 if __name__ == "__main__": 
-    #Orchestrator.parse_all_from_file("../circuits/GHZ.ipynb")
+    Orchestrator.parse_all_from_file("../circuits/QFT.ipynb")
     Orchestrator.parse_all_from_file("../misc_files/GHZ.py")
+    Orchestrator.parse_all_from_file("../misc_files/gate_ex.py")

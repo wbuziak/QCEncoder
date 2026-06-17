@@ -277,7 +277,7 @@ class QuakeParser:
                                     #qubits!
 
                                     for i in range(3, len(inner_op.operands)):
-                                        qbits.append(int(get_loc(inner_op.operands[i].owner)))
+                                        qbits.append(parsedCir.find_qubit(int(get_loc(inner_op.operands[i].owner))))
                                         if i == 4:
                                             op_name = op_name.replace(".", ".c")
                                     parsedCir.add_gate(op_name, qbits, angles)
@@ -340,7 +340,7 @@ class QuakeParser:
 
                                     
                                     parsedCir.add_gate(op_name, qbits, params)
-                                elif op_name == "func.return":
+                                elif op_name in ["func.return", "quake.dealloc"]:
                                     pass
 
                                 else: 

@@ -71,12 +71,15 @@ class cir:
 
     def init_ir(self):
         last = [] # indexes correspond to qubit, the last thing to happen for each qubit, initialized to be q0_start, etc.
+        #print(self.qCount)
         for i in range(0, self.qCount):
             self.ir[f"q{i}_start"] = [] # initialize qubits in both the ir dict and "last" list
             last.append(f"q{i}_start")
         for g in self.gates:
             value = [] # holds the list of values for each gate key
             for q in g.qbits:
+                #print(f"g: {g}, q: {q}") # debug print statement
+                #print(f"last: {last}") # debug print statement
                 value.append(last[q]) # appends the last state of each qubit in the gate to the value
                 last[q] = g # updates the last state of each qubit in the gate
             self.ir[g] = value # adds the key value pair for the gate
