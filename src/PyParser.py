@@ -42,6 +42,8 @@ class PyParser:
 
         #Read the source code directly and parse it
         source_code = filePath.read_text(encoding="utf-8")
+
+
         pyAST = ast.parse(source_code)
         #Add in parent nodes
         annotator = ParentAnnotator()
@@ -87,7 +89,7 @@ class PyParser:
         #print(source_code)
 
         #These next couple of lines were made with the help of AI
-        spoofed_file = f"<faked_kernel_file>"
+        spoofed_file = "<faked_kernel_file>"
         lines = [line + "\n" for line in source_code.splitlines()]
         linecache.cache[spoofed_file] = (len(source_code), None, lines, spoofed_file)
 
@@ -115,9 +117,6 @@ class PyParser:
             if isinstance(obj, PyKernel): # the objects we look for cannot be PyKernelDecoratores
                 if id not in collection.keys():
                     collection[id] = str(obj)
-
-
-
 
         return collection
 
@@ -177,9 +176,9 @@ class KernelFinder(ast.NodeVisitor):
                     if alias.asname is not None:
                         self.kernel_imported.append(alias.asname)
 
+
     #TODO: add support for finding when cudaq or cudaq kernel or make_kernel is aliased within the code (involves visit_Assign)
     #TODO: scan for functions that return a kernel, add those to the assign visit list!! (fixes some of not being able to see inside functions)
-   
 
     def visit_FunctionDef(self, node):
         for decorator in node.decorator_list:

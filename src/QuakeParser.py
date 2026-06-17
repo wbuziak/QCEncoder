@@ -18,6 +18,7 @@ class QuakeParser:
     mGates: tuple[str, ...] = ("quake.mz", "quake.mx", "quake.my")
 
     #Other gates parsed:
+        #SWAP gate 
         #U3 gate
         #Exp_pauli gate 
 
@@ -186,7 +187,7 @@ class QuakeParser:
                                     absolute = qvec.base + raw_index
                                     parsedCir.add_ref(loc, absolute)
 
-                                
+
                                 
                                 #basic gates without custom angles
                                 elif op_name in QuakeParser.bCtrlGates:
@@ -254,6 +255,14 @@ class QuakeParser:
                                     parsedCir.add_gate(op_name, qbits)
 
     
+                                elif op_name == "quake.swap": #takes in two qubits, swaps them 
+                                    if DEBUG_INFO: print("swap!")
+                                    for orand in list(inner_op.operands):
+                                        
+                                        qbits.append(parsedCir.find_qubit(int(get_loc(orand.owner))))
+
+                                    parsedCir.add_gate(op_name, qbits)
+
 
                                 #parse u3 gate
                                 elif op_name == "quake.u3":
@@ -357,5 +366,5 @@ class QuakeParser:
 
 
 if __name__ == "__main__":
-    h = QuakeParser.parse_quake_file("../test_files/gate_ex.qke")
+    h = QuakeParser.parse_quake_file("../misc_files/gate_ex.qke")
 
