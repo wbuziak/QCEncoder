@@ -23,4 +23,4 @@ state_to_prepare = [1, 0, 1]
 
 kernel = build_qft_kernel(num_qubits, state_to_prepare)
 
-print(kernel)
+print(cudaq.draw(kernel))

@@ -108,6 +108,7 @@ if __name__ == "__main__":
     quake_mlir = str(ultimate_quake_inspector)
     #print(quake_mlir)
 
+
     #print("=== REPRINTED MLIR MODULE ===")
     context = ir.Context()
     with context:
@@ -119,6 +120,7 @@ if __name__ == "__main__":
         output_stream = io.StringIO()
         try:
             module.operation.print(file=output_stream, print_generic_op_form=True)
-            print(output_stream.getvalue())
+            #print(output_stream.getvalue())
         except (AttributeError, TypeError):
-            print(module)
+            #print(module)
+            print()
