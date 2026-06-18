@@ -11,6 +11,7 @@ quake.ch(0,2)@t9
 quake.swap(2,3)@t10
 quake.cs(0,3)@t11
 quake.ct(1,4)@t12
+<<<<<<< HEAD
 quake.rx(0)@t13 params=('%arg0',)
 quake.ry(1)@t14 params=('%arg0',)
 quake.rz(2)@t15 params=('%arg0',)
@@ -27,6 +28,24 @@ quake.u3(1)@t25 params=('%arg1', '%arg2', '%arg3')
 quake.cu3(0,1)@t26 params=('%arg1', '%arg2', '%arg3')
 quake.exp_pauli(5,6,7,8)@t27 params=('%arg4', 'XZYI')
 quake.exp_pauli(5,6,7,8)@t28 params=('%arg4', 'UNKNOWN')
+=======
+quake.rx(0)@t13 params=(0.1,)
+quake.ry(1)@t14 params=(0.1,)
+quake.rz(2)@t15 params=(0.1,)
+quake.r1(3)@t16 params=(0.1,)
+quake.rz(4)@t17 params=(1.5707963267948966,)
+quake.rz(0)@t18 params=(0.7853981633974483,)
+quake.crx(0,1)@t19 params=(0.1,)
+quake.cry(1,2)@t20 params=(0.1,)
+quake.crz(2,3)@t21 params=(0.1,)
+quake.cr1(3,4)@t22 params=(0.1,)
+quake.sdg(0)@t23
+quake.tdg(1)@t24
+quake.u3(1)@t25 params=(0.2, 0.3, 0.4)
+quake.cu3(0,1)@t26 params=(0.2, 0.3, 0.4)
+quake.exp_pauli(5,6,7,8)@t27 params=(0.5, 'XZYI')
+quake.exp_pauli(5,6,7,8)@t28 params=(0.5, 'XYZI')
+>>>>>>> 921d6626d9f3392ac2ac3a2f10f18c0557f7393f
 quake.mx(0)@t29
 quake.my(1)@t30
 quake.mz(2)@t31

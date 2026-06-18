@@ -70,6 +70,7 @@ class cir:
         return self.ir 
 
     def init_ir(self):
+        self.ir.clear()
         last = [] # indexes correspond to qubit, the last thing to happen for each qubit, initialized to be q0_start, etc.
         #print(self.qCount)
         for i in range(0, self.qCount):

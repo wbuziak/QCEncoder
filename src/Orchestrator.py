@@ -73,7 +73,7 @@ class Orchestrator:
         '''
 
 if __name__ == "__main__": 
+    Orchestrator.parse_all_from_file("../misc_files/gate_ex.py")
     Orchestrator.parse_all_from_file("../circuits/QFT.ipynb")
     Orchestrator.parse_all_from_file("../misc_files/GHZ.py")
-    Orchestrator.parse_all_from_file("../misc_files/gate_ex.py")
-    Orchestrator.parse_all_from_file("../circuits/hadamard_test.ipynb")
+

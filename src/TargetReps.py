@@ -14,11 +14,12 @@ def graphviz_will_out(cir: cir):
     dag = gv.Digraph(format='svg', name=f'{cir.name}_DAG_Will') # creates digraph object
     dag.node('Start', 'Start', style='filled', color='green') # creates start node and makes it green
     dag.node('End', 'End', style='filled', color='red') # creates end node and makes it red
-    for g in cir.gates: # creates all gate nodes including measurements
-        if g.name in ["quake.mz", "quake.mx", "quake.my"]:
-            dag.node(f'{g}', f"{g.name[g.name.index('.')+1:]}", style='filled', color='yellow') # makes measurement nodes and makes them yellow
-        else:
-            dag.node(f'{g}', f"{g.name[g.name.index('.')+1:]}") # makes non measurement gate nodes
+    for g in cir.ir: # creates all gate nodes including measurements
+        if type(g) != str:
+            if g.name in ["quake.mz", "quake.mx", "quake.my"]:
+                dag.node(f'{g}', f"{g.name[g.name.index('.')+1:]}", style='filled', color='yellow') # makes measurement nodes and makes them yellow
+            else:
+                dag.node(f'{g}', f"{g.name[g.name.index('.')+1:]}") # makes non measurement gate nodes
     for i in cir.ir: # makes all edges
         if len(cir.ir[i]) > 0:
             for j in cir.ir[i]:
@@ -26,7 +27,7 @@ def graphviz_will_out(cir: cir):
                     if type(j) != str:
                         dag.edge(f'{j}', 'End') # connects end node to ending gates
                     else:
-                        dag.edge('Start', f'{i}') # for edge case of start node connecting directly to end node
+                        dag.edge('Start', 'End') # for edge case of start node connecting directly to end node
                 else:
                     if type(j) != str:
                         dag.edge(f'{j}', f'{i}') # connects internal nodes

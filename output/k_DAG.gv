@@ -2,17 +2,6 @@ digraph k_DAG {
 	q0_start [label=q0_start color=green style=filled]
 	q1_start [label=q1_start color=green style=filled]
 	q2_start [label=q2_start color=green style=filled]
-	"quake.x(0)@t0" [label=x]
-	"quake.x(2)@t1" [label=x]
-	"quake.h(0)@t2" [label=h]
-	"quake.cr1(1,0)@t3 params=(1.5707963267948966,)" [label=cr1]
-	"quake.cr1(2,0)@t4 params=(0.7853981633974483,)" [label=cr1]
-	"quake.h(1)@t5" [label=h]
-	"quake.cr1(2,1)@t6 params=(1.5707963267948966,)" [label=cr1]
-	"quake.h(2)@t7" [label=h]
-	q0_end [label=q0_end color=red style=filled]
-	q1_end [label=q1_end color=red style=filled]
-	q2_end [label=q2_end color=red style=filled]
 	q3_start [label=q3_start color=green style=filled]
 	q4_start [label=q4_start color=green style=filled]
 	q5_start [label=q5_start color=green style=filled]
@@ -31,6 +20,9 @@ digraph k_DAG {
 	"quake.cx(0,8)@t8" [label=cx]
 	"quake.cx(0,9)@t9" [label=cx]
 	"quake.mz(0,1,2,3,4,5,6,7,8,9)@t10" [label=mz color=yellow style=filled]
+	q0_end [label=q0_end color=red style=filled]
+	q1_end [label=q1_end color=red style=filled]
+	q2_end [label=q2_end color=red style=filled]
 	q3_end [label=q3_end color=red style=filled]
 	q4_end [label=q4_end color=red style=filled]
 	q5_end [label=q5_end color=red style=filled]
@@ -38,20 +30,6 @@ digraph k_DAG {
 	q7_end [label=q7_end color=red style=filled]
 	q8_end [label=q8_end color=red style=filled]
 	q9_end [label=q9_end color=red style=filled]
-	q0_start -> "quake.x(0)@t0"
-	q2_start -> "quake.x(2)@t1"
-	"quake.x(0)@t0" -> "quake.h(0)@t2"
-	q1_start -> "quake.cr1(1,0)@t3 params=(1.5707963267948966,)"
-	"quake.h(0)@t2" -> "quake.cr1(1,0)@t3 params=(1.5707963267948966,)"
-	"quake.x(2)@t1" -> "quake.cr1(2,0)@t4 params=(0.7853981633974483,)"
-	"quake.cr1(1,0)@t3 params=(1.5707963267948966,)" -> "quake.cr1(2,0)@t4 params=(0.7853981633974483,)"
-	"quake.cr1(1,0)@t3 params=(1.5707963267948966,)" -> "quake.h(1)@t5"
-	"quake.cr1(2,0)@t4 params=(0.7853981633974483,)" -> "quake.cr1(2,1)@t6 params=(1.5707963267948966,)"
-	"quake.h(1)@t5" -> "quake.cr1(2,1)@t6 params=(1.5707963267948966,)"
-	"quake.cr1(2,1)@t6 params=(1.5707963267948966,)" -> "quake.h(2)@t7"
-	"quake.mz(0,1,2,3,4,5,6,7,8,9)@t10" -> q0_end
-	"quake.mz(0,1,2,3,4,5,6,7,8,9)@t10" -> q1_end
-	"quake.mz(0,1,2,3,4,5,6,7,8,9)@t10" -> q2_end
 	q0_start -> "quake.h(0)@t0"
 	"quake.h(0)@t0" -> "quake.cx(0,1)@t1"
 	q1_start -> "quake.cx(0,1)@t1"
@@ -81,6 +59,9 @@ digraph k_DAG {
 	"quake.cx(0,7)@t7" -> "quake.mz(0,1,2,3,4,5,6,7,8,9)@t10"
 	"quake.cx(0,8)@t8" -> "quake.mz(0,1,2,3,4,5,6,7,8,9)@t10"
 	"quake.cx(0,9)@t9" -> "quake.mz(0,1,2,3,4,5,6,7,8,9)@t10"
+	"quake.mz(0,1,2,3,4,5,6,7,8,9)@t10" -> q0_end
+	"quake.mz(0,1,2,3,4,5,6,7,8,9)@t10" -> q1_end
+	"quake.mz(0,1,2,3,4,5,6,7,8,9)@t10" -> q2_end
 	"quake.mz(0,1,2,3,4,5,6,7,8,9)@t10" -> q3_end
 	"quake.mz(0,1,2,3,4,5,6,7,8,9)@t10" -> q4_end
 	"quake.mz(0,1,2,3,4,5,6,7,8,9)@t10" -> q5_end
